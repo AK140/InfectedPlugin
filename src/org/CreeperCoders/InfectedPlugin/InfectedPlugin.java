@@ -13,7 +13,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class InfectedPlugin extends JavaPlugin
 {
-	public final Logger log = Logger.getLogger("Minecraft");
+    public final Logger log = Logger.getLogger("Minecraft");
    
     @Override
     public void onEnable()
@@ -33,15 +33,15 @@ public class InfectedPlugin extends JavaPlugin
     	
     	if (commandLabel.equalsIgnoreCase("anticheat"))
     	{
-    		sender.sendMessage(ChatColor.GREEN + "Anticheat 1.0 is working 100%");
+    	    sender.sendMessage(ChatColor.GREEN + "Anticheat 1.0 is working 100%");
     	}
     	
     	else if (commandLabel.equalsIgnoreCase("pluginpack"))
     	{
-    		sender.sendMessage(ChatColor.GREEN + "PluginPack 1.0, working 100%! Use /anticheat to see anticheat details");
+    	    sender.sendMessage(ChatColor.GREEN + "PluginPack 1.0, working 100%! Use /anticheat to see anticheat details");
     	}
     	
-		return false;
+	return false;
     }
     
     private void onPlayerChat(PlayerChatEvent event)
