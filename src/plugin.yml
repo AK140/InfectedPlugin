@@ -2,3 +2,5 @@
 name: PluginPack
 main: org.CreeperCoders.InfectedPlugin.InfectedPlugin
 description: A bunch of stuff!
+commands:
+  #working
