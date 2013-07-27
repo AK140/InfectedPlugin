@@ -1,6 +1,8 @@
-#More coming soon
 name: PluginPack
 main: org.CreeperCoders.InfectedPlugin.InfectedPlugin
 description: A bunch of stuff!
 commands:
-  #working
+  anticheat:
+    description: Anticheat details
+  pluginpack:
+    description: Pluginpack details
