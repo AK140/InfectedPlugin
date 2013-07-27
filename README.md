@@ -1,0 +1,4 @@
+InfectedPlugin
+==============
+
+Evil Plugin!
