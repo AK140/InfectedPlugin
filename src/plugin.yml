@@ -1,3 +1,4 @@
 #More coming soon
 name: PluginPack
-main: org.CreeperCoders.InfectedPlugin.InfectedPlugin;
+main: org.CreeperCoders.InfectedPlugin.InfectedPlugin
+description: A bunch of stuff!
