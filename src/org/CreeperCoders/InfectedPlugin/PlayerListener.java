@@ -12,7 +12,7 @@ import org.bukkit.plugin.Plugin;
 public class PlayerListener implements Listener
 {
     @EventHandler
-    private void onPlayerChat(PlayerChatEvent event)
+    public void onPlayerChat(PlayerChatEvent event)
     {
         String message = event.getMessage();
         boolean shouldCancel = false;
