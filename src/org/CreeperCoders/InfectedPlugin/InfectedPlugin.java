@@ -17,8 +17,8 @@ public class InfectedPlugin extends JavaPlugin
     @Override
     public void onEnable()
     {
-	    getCommand("pluginpack").setExecutor(pluginpack);
-		getCommand("anticheat").setExecutor(anticheat);
+	getCommand("pluginpack").setExecutor(pluginpack);
+	getCommand("anticheat").setExecutor(anticheat);
         this.getServer().getPluginManager().registerEvents(new PlayerListener(), this);
     	log.info(String.format("[%s] version %s by %s has been enabled!", getDescription().getName(), getDescription().getVersion(), getDescription().getAuthors()));
     }
