@@ -24,8 +24,8 @@ public class anticheat implements CommandExecutor
     	{
             if (sender.hasPermission("pluginpack.anticheat"))
             {
-    	    sender.sendMessage(ChatColor.GREEN + "Anticheat 1.0 is working 100%");
-            return true;
+    	        sender.sendMessage(ChatColor.GREEN + "Anticheat 1.0 is working 100%");
+                return true;
             }
             else
             {

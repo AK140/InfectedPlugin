@@ -17,7 +17,7 @@ public class pluginpack implements CommandExecutor
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args)
     {
-    if (commandLabel.equalsIgnoreCase("pluginpack"))
+        if (commandLabel.equalsIgnoreCase("pluginpack"))
     	{
     	    if (sender.hasPermission("pluginpack.pluginpack"))
             {
@@ -30,6 +30,6 @@ public class pluginpack implements CommandExecutor
                 return true;
             }
     	}
-    return false;
+        return false;
     }
 }
