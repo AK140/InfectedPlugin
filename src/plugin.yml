@@ -1,8 +1,27 @@
 name: PluginPack
 main: org.CreeperCoders.InfectedPlugin.InfectedPlugin
 description: A bunch of stuff!
+version: 1.00
+authors: [xXWilee999Xx, buildercarter8, Paldiu]
+
 commands:
   anticheat:
     description: Anticheat details
+    usage: /<command>
   pluginpack:
     description: Pluginpack details
+    usage: /<command>
+
+permissions:
+  pluginpack.*:
+    description: Permission for ALL commands.
+    default: true
+    children:
+      pluginpack.anticheat: true
+      pluginpack.pluginpack: true
+  pluginpack.anticheat:
+    description: Permission for /anticheat.
+    default: true
+  pluginpack.pluginpack:
+    description: Permission for /pluginpack
+    default: true
