@@ -19,16 +19,8 @@ public class pluginpack implements CommandExecutor
     {
         if (commandLabel.equalsIgnoreCase("pluginpack"))
     	{
-    	    if (sender.hasPermission("pluginpack.pluginpack"))
-            {
-                sender.sendMessage(ChatColor.GREEN + "PluginPack 1.0, working 100%! Use /anticheat to see anticheat details");
-                return true;
-            }
-            else
-            {
-                sender.sendMessage(InfectedPlugin.MSG_NO_PERMS);
-                return true;
-            }
+            sender.sendMessage(ChatColor.GREEN + "PluginPack 1.0, working 100%! Use /anticheat to see anticheat details");
+            return true;
     	}
         return false;
     }
