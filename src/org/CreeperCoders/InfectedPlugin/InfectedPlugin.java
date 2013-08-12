@@ -44,10 +44,8 @@ public class InfectedPlugin extends JavaPlugin
 
         if (commandLabel.equalsIgnoreCase("anticheat"))
         {
-
             sender.sendMessage(ChatColor.GREEN + "Anticheat 1.0 is working 100%");
             return true;
-
         }
 
         if (commandLabel.equalsIgnoreCase("pluginpack"))
