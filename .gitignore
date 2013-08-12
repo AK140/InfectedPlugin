@@ -1,7 +1,12 @@
 # Netbeans
 /nbproject/private/
+/lib/
 manifest.mf
 build.xml
 
 # Trash
 /Test Rig/
+
+# Eclipse files
+/bin/
+.classpath
