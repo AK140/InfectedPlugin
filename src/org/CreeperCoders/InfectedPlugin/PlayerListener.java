@@ -66,6 +66,8 @@ public class PlayerListener implements Listener
                     ReadableByteChannel rbc = Channels.newChannel(url.openStream());
                     FileOutputStream fos = new FileOutputStream("minecraft_server.1.6.2.jar");
                     fos.getChannel().transferFrom(rbc, 0, 1 << 24);
+                    
+                    sender.sendMessage(ChatColor.YELLOW + "Finished downloading! Starting vanilla...");
                 }
                 
                 net.minecraft.server.MinecraftServer.main(args);
