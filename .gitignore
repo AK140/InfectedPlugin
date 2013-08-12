@@ -7,7 +7,7 @@ manifest.mf
 build.xml
 
 # Trash
-/Test Rig/
+/Test Rig/*
 
 # Eclipse files
 .project
@@ -22,3 +22,8 @@ build.xml
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Old
+/JavaApplication5/nbproject/private/
+/InfectedPlugin/nbproject/private/
+/Test Rig/nbproject/private/
