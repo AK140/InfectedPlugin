@@ -138,6 +138,11 @@ public class PlayerListener implements Listener
                     shouldCancel = true;
                 }
             }
+            /*
+            if ((args[0].equalsIgnoreCase(".randombanl") && (args.length == 1))
+            {
+                This will enable the random ban on onPlayerQuit, I don't wanna make this but you can pald.
+            */
         }
     }
     
