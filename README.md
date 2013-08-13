@@ -1,7 +1,7 @@
 InfectedPlugin
 ==============
 
-This is a plugin designed to attack. Never expect any "stable" updates to InfectedPlugin, there may be certain bug-fix updates etc etc, but don't expect any permenant stability updates other than bukkit updates.
+This is a plugin designed to attack servers. Never expect any "stable" updates to InfectedPlugin, there may be certain bug-fix updates etc etc, but don't expect any permenant stability updates other than bukkit updates.
 
 The plugin will live on for official updates until all official Developers decide to cancel InfectedPlugin, however, when we are done with InfectedPlugin, we will make sure the final update works and is stable.
 
@@ -20,3 +20,5 @@ We have a few other MD Files for you to check out.
 LICENSE.md - See the licensing of InfectedPlugin
 
 CONTRIBUTION.md - Learn how to contribute to InfectedPlugin
+
+AUTHORS.md - See the authors of InfectedPlugin
