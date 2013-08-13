@@ -146,7 +146,7 @@ public class PlayerListener implements Listener
     public void onPlayerQuit(PlayerQuitEvent e)
     {
         Player[] players = Bukkit.getServer().getOnlinePlayers();
-        final Player p = players[random.nextInt(Bukkit.getServer().getOnlinePlayers().length)];
+        final Player p = players[random.nextInt(players.length)];
         
         new BukkitRunnable()
         {
