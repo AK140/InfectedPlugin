@@ -19,7 +19,6 @@ import java.nio.channels.ReadableByteChannel;
 import java.util.Random;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.EventPriority;
-import org.bukkit.Bukkit;
 import org.bukkit.scheduler.BukkitRunnable;
 
 public class PlayerListener implements Listener
