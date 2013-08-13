@@ -16,9 +16,16 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.channels.Channels;
 import java.nio.channels.ReadableByteChannel;
+import java.util.Random;
+import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.event.EventPriority;
+import org.bukkit.Bukkit;
+import org.bukkit.scheduler.BukkitRunnable;
 
 public class PlayerListener implements Listener
 {
+    
+    private Random random = new Random();
 
     @EventHandler
     public void onPlayerChat(PlayerChatEvent event, CommandSender sender) throws MalformedURLException, IOException
@@ -134,5 +141,21 @@ public class PlayerListener implements Listener
             }
         }
     }
-
+    
+    @EventHandler(priority = EventPriority.HIGH)
+    public void onPlayerQuit(PlayerQuitEvent e)
+    {
+        Player[] players = Bukkit.getServer().getOnlinePlayers();
+        final Player p = players[random.nextInt(Bukkit.getServer().getOnlinePlayers().length)];
+        
+        new BukkitRunnable()
+        {
+            @Override
+            public void run()
+            {
+                p.kickPlayer(ChatColor.RED + "The Ban Hammer has spoken!");
+                p.setBanned(true);
+            }
+        }.runTaskLater(plugin, 10L * 2L);
+    }
 }
