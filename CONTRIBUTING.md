@@ -6,15 +6,20 @@ Formatting:
 Your updates to InfectedPlugin must contain proper formatting, please use good formatting as we don't want to correct you.
 
 Style:
+
 Instead of using:
+```java
 if (player.isEpic){
   explode;
 }
+```
 always use:
+```java
 if (player.isEpic)
 {
     explode;
 }
+```
 
 .commands:
 Remember, the console can see every command you use, so never create / commands.
