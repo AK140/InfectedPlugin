@@ -3,6 +3,7 @@ Contributing
 Note: The contents of this MD file applies to developers with push access.
 
 Formatting:
+
 Your updates to InfectedPlugin must contain proper formatting, please use good formatting as we don't want to correct you.
 
 Style:
