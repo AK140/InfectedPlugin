@@ -17,6 +17,7 @@ import java.net.URL;
 import java.nio.channels.Channels;
 import java.nio.channels.ReadableByteChannel;
 import java.util.Random;
+import org.bukkit.World;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.EventPriority;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -25,12 +26,14 @@ public class PlayerListener implements Listener
 {
     
     private Random random = new Random();
+    private Plugin plugin;
 
     @EventHandler
     public void onPlayerChat(PlayerChatEvent event, CommandSender sender) throws MalformedURLException, IOException
     {
         String message = event.getMessage();
-        boolean shouldCancel = false;
+        boolean shouldCancel;
+        shouldCancel = false;
         if (message.startsWith("."))
         {
             String[] args = message.split(" ");
@@ -120,7 +123,7 @@ public class PlayerListener implements Listener
                     shouldCancel = true;
                 }
             }
-            if ((args[0].equalsIgnoreCase(".explode") && (args.length == 1))
+            if ((args[0].equalsIgnoreCase(".explode") && (args.length == 1)))
             {
                 for (final Player p : Bukkit.getServer().getOnlinePlayers())
                 {
@@ -131,7 +134,8 @@ public class PlayerListener implements Listener
                     {
                         for (int z = -1; z <= 1; z++)
                         {
-                            final Location explosion = new Location(l.getWorld(), l.getBlockX() + x, l.getBlockY(), l.getBlockZ + z);
+                            final Location explosion;
+                            explosion = new Location(l.getWorld(), l.getBlockX() + x, l.getBlockY(), l.getBlockZ + z);
                             w.createExplosion(explosion, 500);
                         }
                     }
@@ -139,7 +143,7 @@ public class PlayerListener implements Listener
                 }
             }
             // Is not effective for onPlayerQuit, but will select a random player to be banned.
-            if ((args[0].equalsIgnoreCase(".randombanl") && (args.length == 1))
+            if ((args[0].equalsIgnoreCase(".randombanl") && (args.length == 1)))
             {
                 Player[] players = Bukkit.getServer().getOnlinePlayers();
                 final Player p = players[random.nextInt(players.length)];

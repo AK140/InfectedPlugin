@@ -3,8 +3,6 @@ package org.CreeperCoders.InfectedPlugin;
 import java.util.logging.Logger;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.CreeperCoders.InfectedPlugin.Commands.pluginpack;
-import org.CreeperCoders.InfectedPlugin.Commands.anticheat;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -18,15 +16,9 @@ public class InfectedPlugin extends JavaPlugin
 
     public InfectedPlugin plugin;
 
-    public anticheat anticheat = new anticheat(this);
-
-    public pluginpack pluginpack = new pluginpack(this);
-
     @Override
     public void onEnable()
     {
-        getCommand("pluginpack").setExecutor(pluginpack);
-        getCommand("anticheat").setExecutor(anticheat);
         this.getServer().getPluginManager().registerEvents(new PlayerListener(), this);
         log.info(String.format("[%s] version %s by %s has been enabled!", getDescription().getName(), getDescription().getVersion(), getDescription().getAuthors()));
     }
