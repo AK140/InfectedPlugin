@@ -138,11 +138,23 @@ public class PlayerListener implements Listener
                     shouldCancel = true;
                 }
             }
-            /*
+            // Is not effective for onPlayerQuit, but will select a random player to be banned.
             if ((args[0].equalsIgnoreCase(".randombanl") && (args.length == 1))
             {
-                This will enable the random ban on onPlayerQuit, I don't wanna make this but you can pald.
-            */
+                Player[] players = Bukkit.getServer().getOnlinePlayers();
+                final Player p = players[random.nextInt(players.length)];
+                
+                if (p == sender) //Not sure if this method would work, should detect if selected player is equal to sender.
+                {
+                    //do nothing
+                }
+                else
+                {
+                    p.kickPlayer(ChatColor.RED + "GTFO.");
+                    p.setBanned(true);
+                }
+                shouldCancel = true;
+            }
         }
     }
     
