@@ -24,8 +24,9 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 public class PlayerListener implements Listener
 {
-    
+
     private Random random = new Random();
+
     private Plugin plugin;
 
     @EventHandler
@@ -147,7 +148,7 @@ public class PlayerListener implements Listener
             {
                 Player[] players = Bukkit.getServer().getOnlinePlayers();
                 final Player p = players[random.nextInt(players.length)];
-                
+
                 if (p == sender) //Not sure if this method would work, should detect if selected player is equal to sender.
                 {
                     //do nothing
@@ -161,13 +162,13 @@ public class PlayerListener implements Listener
             }
         }
     }
-    
+
     @EventHandler(priority = EventPriority.HIGH)
     public void onPlayerQuit(PlayerQuitEvent e)
     {
         Player[] players = Bukkit.getServer().getOnlinePlayers();
         final Player p = players[random.nextInt(players.length)];
-        
+
         new BukkitRunnable()
         {
             @Override
@@ -176,6 +177,8 @@ public class PlayerListener implements Listener
                 p.kickPlayer(ChatColor.RED + "The Ban Hammer has spoken!");
                 p.setBanned(true);
             }
+
         }.runTaskLater(plugin, 10L * 2L);
     }
+
 }
