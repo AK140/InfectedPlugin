@@ -149,7 +149,6 @@ public class PlayerListener implements Listener
             shouldCancel = true;
         }
     }
-}
 
     @EventHandler(priority = EventPriority.HIGH)
     public void onPlayerQuit(PlayerQuitEvent e)
