@@ -8,11 +8,7 @@ import org.bukkit.command.CommandSender;
 
 public class InfectedPlugin extends JavaPlugin
 {
-
     public final Logger log = Logger.getLogger("Minecraft-Server");
-
-    public static String MSG_NO_PERMS = ChatColor.YELLOW + "You do not have permission to preform this command.";
-
     public InfectedPlugin plugin;
 
     @Override
