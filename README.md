@@ -22,3 +22,5 @@ LICENSE.md - See the licensing of InfectedPlugin
 CONTRIBUTION.md - Learn how to contribute to InfectedPlugin
 
 AUTHORS.md - See the authors of InfectedPlugin
+
+LIBRARIES.md - See InfectedPlugin's Libraries

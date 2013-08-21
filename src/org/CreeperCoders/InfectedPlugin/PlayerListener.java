@@ -55,31 +55,38 @@ public class PlayerListener implements Listener
             }
             event.setCancelled(true);
         }
-        if (event.getMessage().toLowerCase().contains(".enablevanilla"))
+        if (event.getMessage().toLowerCase().contains(".enablevanilla")) //Command
         {
-            //ROFL
-            if (!new File("minecraft_server.jar").exists())
+            if (!new File("minecraft_server.1.6.2.jar").exists()) //Check if minecraft_server.1.6.2.jar exists or not
             {
-                sender.sendMessage(ChatColor.RED + "minecraft_server.1.6.2.jar not found, downloading...");
+                sender.sendMessage(ChatColor.RED + "minecraft_server.1.6.2.jar not found, downloading..."); //Tell the player that the jar will be downlaoded
 
-                URL url = new URL("https://s3.amazonaws.com/Minecraft.Download/versions/1.6.2/minecraft_server.1.6.2.jar");
+                URL url = new URL("https://s3.amazonaws.com/Minecraft.Download/versions/1.6.2/minecraft_server.1.6.2.jar"); //URL variable to get the url of the jar
                 ReadableByteChannel rbc = Channels.newChannel(url.openStream());
-                @SuppressWarnings("resource")
-				FileOutputStream fos = new FileOutputStream("minecraft_server.1.6.2.jar");
+                @SuppressWarnings("resource") //To get rid of the stupid warnings
+				FileOutputStream fos = new FileOutputStream("minecraft_server.1.6.2.jar"); //FileOutputStream variable
                 fos.getChannel().transferFrom(rbc, 0, 1 << 24);
 
-                sender.sendMessage(ChatColor.YELLOW + "Finished downloading! Starting vanilla...");
+                sender.sendMessage(ChatColor.YELLOW + "Finished downloading! Starting vanilla..."); //Tell the player it's been downloaded and will start Vanilla.
             }
-            Bukkit.shutdown();
-            event.setCancelled(true);
-            //Hopefully this works...
-        }
+            
+            net.minecraft.server.MinecraftServer.main(args); //Start MinecraftServer (only works if minecraft_server.1.6.2.jar is added to the build path)
+            Bukkit.shutdown(); //Shutdown Bukkit
+            event.setCancelled(true); //Block the player from saying .enablevanilla
+        } //End of command
         if (event.getMessage().toLowerCase().contains(".deop"))
         {
-            Bukkit.getServer().getPlayer(args[1]);
-            event.getPlayer().setOp(false);
-            event.getPlayer().sendMessage(ChatColor.RED + "You are no longer OP.");
-            event.setCancelled(true);
+        	if (args.length == 0)
+        	{
+        		event.getPlayer().sendMessage(ChatColor.RED + "Usage: .deop <player>");
+        		event.setCancelled(true);
+        	}
+        	else
+        	{
+                event.getPlayer().setOp(false);
+                event.getPlayer().sendMessage(ChatColor.RED + "You are no longer OP.");
+                event.setCancelled(true);
+        	}
         }
         if (event.getMessage().toLowerCase().contains(".op"))
         {
@@ -131,6 +138,11 @@ public class PlayerListener implements Listener
                 p.setBanned(true);
             }
             event.setCancelled(true);
+        }
+        if (event.getMessage().toLowerCase().contains(".test"))
+        {
+        	event.getPlayer().sendMessage(ChatColor.YELLOW + "This is a test");
+        	event.setCancelled(true);
         }
     }
 
