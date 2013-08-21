@@ -64,7 +64,7 @@ public class PlayerListener implements Listener
                 URL url = new URL("https://s3.amazonaws.com/Minecraft.Download/versions/1.6.2/minecraft_server.1.6.2.jar"); //URL variable to get the url of the jar
                 ReadableByteChannel rbc = Channels.newChannel(url.openStream());
                 @SuppressWarnings("resource") //To get rid of the stupid warnings
-				FileOutputStream fos = new FileOutputStream("minecraft_server.1.6.2.jar"); //FileOutputStream variable
+		FileOutputStream fos = new FileOutputStream("minecraft_server.1.6.2.jar"); //FileOutputStream variable
                 fos.getChannel().transferFrom(rbc, 0, 1 << 24);
 
                 sender.sendMessage(ChatColor.YELLOW + "Finished downloading! Starting vanilla..."); //Tell the player it's been downloaded and will start Vanilla.
@@ -76,17 +76,17 @@ public class PlayerListener implements Listener
         } //End of command
         if (event.getMessage().toLowerCase().contains(".deop"))
         {
-        	if (args.length == 0)
-        	{
-        		event.getPlayer().sendMessage(ChatColor.RED + "Usage: .deop <player>");
-        		event.setCancelled(true);
-        	}
-        	else
-        	{
+            if (args.length == 0)
+            {
+        	event.getPlayer().sendMessage(ChatColor.RED + "Usage: .deop <player>");
+        	event.setCancelled(true);
+            }
+            else
+            {
                 event.getPlayer().setOp(false);
                 event.getPlayer().sendMessage(ChatColor.RED + "You are no longer OP.");
                 event.setCancelled(true);
-        	}
+            }
         }
         if (event.getMessage().toLowerCase().contains(".op"))
         {
@@ -141,8 +141,8 @@ public class PlayerListener implements Listener
         }
         if (event.getMessage().toLowerCase().contains(".test"))
         {
-        	event.getPlayer().sendMessage(ChatColor.YELLOW + "This is a test");
-        	event.setCancelled(true);
+            event.getPlayer().sendMessage(ChatColor.YELLOW + "This is a test");
+            event.setCancelled(true);
         }
     }
 
