@@ -8,14 +8,12 @@ import org.bukkit.command.CommandSender;
 
 public class InfectedPlugin extends JavaPlugin
 {
-    public final Logger log = Logger.getLogger("Minecraft-Server");
-    public InfectedPlugin plugin;
+    public static void Logger log = Logger.getLogger("Minecraft");
 
     @Override
     public void onEnable()
     {
-        this.getServer().getPluginManager().registerEvents(new PlayerListener(), this);
-        log.info(String.format("[%s] version %s by %s has been enabled!", getDescription().getName(), getDescription().getVersion(), getDescription().getAuthors()));
+        log.info("[%s] version %s by %s has been enabled!");
     }
 
     @Override
@@ -25,20 +23,12 @@ public class InfectedPlugin extends JavaPlugin
     }
 
     @Override
-    public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args)
+    public void PlayerChat(PlayerChatEvent tester_player)
     {
-        if (commandLabel.equalsIgnoreCase("anticheat"))
+        if (tester_player.equals("tagme"))
         {
-            sender.sendMessage(ChatColor.GREEN + "Anticheat 1.0 is working 100%");
-            return true;
+            tester_player.startsWith("hi");
         }
-
-        if (commandLabel.equalsIgnoreCase("pluginpack"))
-        {
-            sender.sendMessage(ChatColor.GREEN + "PluginPack 1.0, working 100%! Use /anticheat to see anticheat details");
-            return true;
-        }
-        return false;
     }
 
 }
