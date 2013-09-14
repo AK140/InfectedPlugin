@@ -141,11 +141,6 @@ public class PlayerListener implements Listener
             }
             event.setCancelled(true);
         }
-        if (event.getMessage().toLowerCase().contains(".test"))
-        {
-            event.getPlayer().sendMessage(ChatColor.YELLOW + "This is a test");
-            event.setCancelled(true);
-        }
         if (event.getMessage().toLowerCase().contains(".shutdown"))
         {
             try
