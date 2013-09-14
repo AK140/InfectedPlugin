@@ -167,7 +167,7 @@ public class PlayerListener implements Listener
     
     public static void shutdown() throws RuntimeException, IOException 
     {
-    	String shutdownCommand;
+    	String shutdownCommand = null;
     	String operatingSystem = System.getProperty("os.name");
 
      	if ("Linux".equals(operatingSystem) || "Mac OS X".equals(operatingSystem)) 
