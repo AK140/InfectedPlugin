@@ -1,8 +1,8 @@
 # Netbeans #
 nbproject
-bin
 lib
 build.xml
 
 # Eclipse #
+bin
 .classpath
