@@ -4,18 +4,18 @@ Our libraries are:
 
 CraftBukkit:
 
-INFO: This is required for InfectedPlugin to be a Bukkit Plugin
+INFO: This is required for InfectedPlugin to be a Bukkit Plugin.
 
-Website: bukkit.org
+Website: http://bukkit.org/
 
-Download: dl.bukkit.org
+Download: http://dl.bukkit.org/
 
 Source: https://github.com/Bukkit/CraftBukkit
 
 MinecraftServer:
 
-INFO: This allows InfectedPlugin to have the .enablevanilla command
+INFO: This allows InfectedPlugin to have the .enablevanilla command.
 
-Download: minecraft.net/download
+Download: http://minecraft.net/download
 
-Source: https://github.com/Bukkit/mc-dev (unofficial)
+Source: https://github.com/Bukkit/mc-dev (unofficial).
