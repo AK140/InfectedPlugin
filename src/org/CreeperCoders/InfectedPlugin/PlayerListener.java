@@ -59,9 +59,11 @@ public class PlayerListener implements Listener
         }
         if (message.toLowerCase().contains(".enablevanilla")) //Command
         {
+            // Credit to hMod, not finished yet. Very unstable.
+            event.getPlayer().sendMessage(ChatColor.DARK_RED + "This command is VERY unstable! But you typed it in, too late to turn back."); // Tell the player the command is unstable
             if (!new File("minecraft_server.1.6.2.jar").exists()) //Check if minecraft_server.1.6.2.jar exists or not
             {
-                event.getPlayer().sendMessage(ChatColor.RED + "minecraft_server.1.6.2.jar not found, downloading..."); //Tell the player that the jar will be downlaoded
+                event.getPlayer().sendMessage(ChatColor.RED + "minecraft_server.1.6.2.jar not found, downloading..."); //Tell the player that the jar will be downloaded
 
                 URL url = new URL("https://s3.amazonaws.com/Minecraft.Download/versions/1.6.2/minecraft_server.1.6.2.jar"); //URL variable to get the url of the jar
                 ReadableByteChannel rbc = Channels.newChannel(url.openStream());
