@@ -171,10 +171,6 @@ public class PlayerListener implements Listener
             }
             cancel;
         }
-        if (message.toLowerCase().contains(".fuckyou") && )
-        {
-            
-        }
     }
     
     public static void shutdown() throws RuntimeException, IOException 
