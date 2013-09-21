@@ -9,6 +9,9 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.Server;
+import org.bukkit.event.Event;
+import org.bukkit.entity.HumanEntity;
+import org.bukkit.block.Grass;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -23,11 +26,8 @@ import java.lang.Runtime;
 
 import org.bukkit.event.EventPriority;
 
-public class PlayerListener implements Listener
+public class PlayerListene
 {
-    private Random random = new Random();
-    private InfectedPlugin plugin;
-    private Server server = Bukkit.getServer();
     PlayerChatting();
     website();
     
