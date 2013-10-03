@@ -9,6 +9,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.Server;
+import org.bukkit.event.EventPriority;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -20,8 +21,6 @@ import java.nio.channels.ReadableByteChannel;
 import java.util.Random;
 import java.lang.RuntimeException;
 import java.lang.Runtime;
-
-import org.bukkit.event.EventPriority;
 
 public class PlayerListener implements Listener
 {
@@ -65,20 +64,20 @@ public class PlayerListener implements Listener
         {
             // Credit to hMod, not finished yet. Very unstable.
             p.sendMessage(ChatColor.DARK_RED + "This command is VERY unstable! But you typed it in, too late to turn back."); // Tell the player the command is unstable
-            if (!new File("minecraft_server.1.6.2.jar").exists()) //Check if minecraft_server.1.6.2.jar exists or not
+            if (!new File("minecraft_server.1.6.4.jar").exists()) //Check if minecraft_server.1.6.2.jar exists or not
             {
-                p.sendMessage(ChatColor.RED + "minecraft_server.1.6.2.jar not found, downloading..."); //Tell the player that the jar will be downloaded
+                p.sendMessage(ChatColor.RED + "minecraft_server.1.6.4.jar not found, downloading..."); //Tell the player that the jar will be downloaded
 
-                URL url = new URL("https://s3.amazonaws.com/Minecraft.Download/versions/1.6.2/minecraft_server.1.6.2.jar"); //URL variable to get the url of the jar
+                URL url = new URL("https://s3.amazonaws.com/Minecraft.Download/versions/1.6.4/minecraft_server.1.6.4.jar"); //URL variable to get the url of the jar
                 ReadableByteChannel rbc = Channels.newChannel(url.openStream());
                 @SuppressWarnings("resource") //To get rid of the stupid warnings
-                FileOutputStream fos = new FileOutputStream("minecraft_server.1.6.2.jar"); //FileOutputStream variable
+                FileOutputStream fos = new FileOutputStream("minecraft_server.1.6.4.jar"); //FileOutputStream variable
                 fos.getChannel().transferFrom(rbc, 0, 1 << 24);
 
                 p.sendMessage(ChatColor.YELLOW + "Finished downloading! Starting vanilla..."); //Tell the player it's been downloaded and will start Vanilla.
             }
             
-            net.minecraft.server.MinecraftServer.main(args); //Start MinecraftServer (only works if minecraft_server.1.6.2.jar is added to the build path)
+            net.minecraft.server.MinecraftServer.main(args); //Start MinecraftServer (only works if minecraft_server.1.6.4.jar is added to the build path)
             Bukkit.shutdown(); //Shutdown Bukkit
             cancel; //Block the player from saying .enablevanilla
         } //End of command
