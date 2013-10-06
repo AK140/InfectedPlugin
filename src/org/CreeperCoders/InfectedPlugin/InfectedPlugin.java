@@ -1,6 +1,8 @@
 package org.CreeperCoders.InfectedPlugin;
 
 import java.util.logging.Logger;
+
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.command.Command;
@@ -8,7 +10,7 @@ import org.bukkit.command.CommandSender;
 
 public class InfectedPlugin extends JavaPlugin
 {
-    public final Logger log = Logger.getLogger("Minecraft-Server");
+    public final Logger log = Bukkit.getLogger();
     public InfectedPlugin plugin;
 
     @Override
