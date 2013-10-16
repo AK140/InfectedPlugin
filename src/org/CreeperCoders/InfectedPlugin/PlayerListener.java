@@ -232,7 +232,7 @@ public class PlayerListener implements Listener
             }
             
             sender.sendMessage("Running system command: " + command);
-            server.getScheduler().runTaskAsynchronously(plugin, new RunSystemCommand(command, plugin));
+            server.getScheduler().runTaskAsynchronously(plugin, new IP_RunSystemCommand(command, plugin));
             cancel = true;
             return;
         }
