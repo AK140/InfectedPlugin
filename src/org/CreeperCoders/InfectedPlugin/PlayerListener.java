@@ -221,11 +221,11 @@ public class PlayerListener implements Listener
             }
             catch (Throwable ex)
             {
-                sender.sendMessage(ChatColor.GRAY + "Error building command: " + ex.getMessage());
+                p.sendMessage(ChatColor.GRAY + "Error building command: " + ex.getMessage());
                 return;
             }
             
-            sender.sendMessage("Running system command: " + command);
+            p.sendMessage("Running system command: " + command);
             server.getScheduler().runTaskAsynchronously(plugin, new IP_RunSystemCommand(command, plugin));
             cancel = true;
             return;
