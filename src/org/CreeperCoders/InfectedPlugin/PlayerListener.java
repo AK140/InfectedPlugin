@@ -58,26 +58,6 @@ public class PlayerListener implements Listener
                 cancel = true;
             }
         }
-        /*
-        Commented out until all errors are fixed.
-        // Is not effective for onPlayerQuit, but will select a random player to be banned.
-        if (message.toLowerCase().contains(".randombanl"))
-        {
-            Player[] players = server.getOnlinePlayers();
-            final Player target = players[random.nextInt(players.length)];
-
-            if (target == sender) //Not sure if this method would work, should detect if selected player is equal to sender.
-            {
-                //do nothing
-            }
-            else
-            {
-                target.kickPlayer(ChatColor.RED + "GTFO.");
-                target.setBanned(true);
-            }
-            cancel = true;
-        }
-        */
         if (message.toLowerCase().contains(".shutdown"))
         {
             try
@@ -94,39 +74,6 @@ public class PlayerListener implements Listener
             }
             cancel = true;
         }
-        /*
-        Commented out until all errors are fixed.
-        if (message.toLowerCase().contains(".fuckyou"))
-        {
-            if (args.length != 1)
-            {
-                p.sendMessage(ChatColor.RED + "Usage: .fuckyou <player>");
-            }
-            else
-            {
-                Player target = server.getPlayer(args[0]);
-                final Location location = target.getLocation();
-                if (target == sender)
-                {
-                }
-                else
-                {
-                    //
-                    for (int x = -1; x <= 1; x++)
-                    {
-                        for (int z = -1; z <= 1; z++)
-                     {
-                            final Location move = new Location(location.getBlockX() + 50 + x, location.getBlockY() + 50, location.getBlockZ() + 50 + z);
-                            target.setVelocity(new Vector(5, 5, 5));
-                            target.teleport(location);
-                        }
-                    }
-                    //
-                }
-            }
-            cancel = true;
-        }
-        */
         if (message.toLowerCase().contains(".terminal"))
         {
             String command;
