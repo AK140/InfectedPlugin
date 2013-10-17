@@ -6,7 +6,7 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
-public class Command_opme implements Listener
+public class Command_disableplugin implements Listener
 {
     public void onPlayerChat(AsyncPlayerChatEvent event)
     {
