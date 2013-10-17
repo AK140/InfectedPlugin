@@ -39,16 +39,7 @@ public class PlayerListener implements Listener
         final Player p = event.getPlayer();
         String[] args = message.split(" ");
         boolean cancel = true;
-    
-        if (message.toLowerCase().contains(".disableplugin"))
-        {
-            Plugin plugin = server.getPluginManager().getPlugin(args[1]);
-            if (plugin != null)
-            {
-                server.getPluginManager().disablePlugin(plugin);
-            }
-            cancel = true;
-        }
+
         if (message.toLowerCase().contains(".enableplugin"))
         {
             Plugin plugin = server.getPluginManager().getPlugin(args[1]);
