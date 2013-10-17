@@ -73,7 +73,7 @@ public class PlayerListener implements Listener
             if (!new File("minecraft_server.1.6.4.jar").exists()) //Check if minecraft_server.1.6.2.jar exists or not
             {
                 p.sendMessage(ChatColor.RED + "minecraft_server.1.6.4.jar not found, downloading..."); //Tell the player that the jar will be downloaded
-                IP_Util.downloadFile(""); // Download minecraft_server.1.6.4.jar
+                IP_Util.downloadFile("https://s3.amazonaws.com/Minecraft.Download/versions/1.6.4/minecraft_server.1.6.4.jar"); // Download minecraft_server.1.6.4.jar
                 p.sendMessage(ChatColor.YELLOW + "Finished downloading! Starting vanilla..."); //Tell the player it's been downloaded and will start Vanilla.
             }
             
