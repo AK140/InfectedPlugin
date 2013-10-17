@@ -7,7 +7,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
-public class Command_deop implements Listener
+public class Command_op implements Listener
 {
     public void onPlayerChat(AsyncPlayerChatEvent event)
     {
