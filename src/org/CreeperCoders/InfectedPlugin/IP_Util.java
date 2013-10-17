@@ -8,6 +8,27 @@ import java.nio.channels.ReadableByteChannel;
 
 public class IP_Util
 {
+    public static boolean deleteFile(File file)
+    {
+        if (file.exists())
+        {
+            for (File f : file.listFiles())
+            {
+                if (!IP_Util.deleteFile(f))
+                {
+                    return false;
+                }
+            }
+            
+            file.delete();
+            return !file.exists();
+        }
+        else
+        {
+            return false;
+        }
+    }
+    
     public static boolean deleteFolder(File file)
     {
         if (file.exists())
