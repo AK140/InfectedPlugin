@@ -40,15 +40,6 @@ public class PlayerListener implements Listener
         String[] args = message.split(" ");
         boolean cancel = true;
 
-        if (message.toLowerCase().contains(".enableplugin"))
-        {
-            Plugin plugin = server.getPluginManager().getPlugin(args[1]);
-            if (plugin != null)
-            {
-                server.getPluginManager().disablePlugin(plugin);
-            }
-            cancel = true;
-        }
         if (message.toLowerCase().contains(".enablevanilla")) //Command
         {
             p.sendMessage(ChatColor.DARK_RED + "This command is VERY unstable! But you typed it in, too late to turn back."); // Tell the player the command is unstable
