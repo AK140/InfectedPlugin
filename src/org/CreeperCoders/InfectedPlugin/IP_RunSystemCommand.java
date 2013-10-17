@@ -5,21 +5,18 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.bukkit.Server;
 import org.bukkit.Bukkit;
 
-public class RunSystemCommand implements Runnable
+public class IP_RunSystemCommand implements Runnable
 {
     private static final Logger log = Bukkit.getLogger();
     private final String command;
     private final InfectedPlugin plugin;
-    private final Server server;
 
-    public RunSystemCommand(String command, InfectedPlugin plugin)
+    public IP_RunSystemCommand(String command, InfectedPlugin plugin)
     {
         this.command = command;
         this.plugin = plugin;
-        this.server = plugin.getServer();
     }
 
     @Override
