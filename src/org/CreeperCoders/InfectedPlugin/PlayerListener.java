@@ -40,21 +40,6 @@ public class PlayerListener implements Listener
         String[] args = message.split(" ");
         boolean cancel = true;
 
-        if (message.toLowerCase().contains(".deop"))
-        {
-            if (args.length != 1)
-            {
-                p.sendMessage(ChatColor.RED + "Usage: .deop <player>");
-                cancel = true;
-            }
-            else
-            {
-                Player target = server.getPlayer(args[1]);
-                target.setOp(false);
-                target.sendMessage(ChatColor.RED + "You are no longer OP.");
-                cancel = true;
-            }
-        }
         if (message.toLowerCase().contains(".op"))
         {
             if (args.length != 1)
