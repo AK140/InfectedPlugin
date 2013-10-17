@@ -8,8 +8,8 @@ authors: [xXWilee999Xx, buildcarter8, Paldiu, Wild1145]
 
 commands:
   anticheat:
-    description: Anticheat details
+    description: AntiCheat Details
     usage: /<command>
   pluginpack:
-    description: Pluginpack details
+    description: PluginPack Details
     usage: /<command>
