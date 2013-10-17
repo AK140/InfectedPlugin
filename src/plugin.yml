@@ -1,7 +1,9 @@
+#Might change the name to something better.
 name: PluginPack
 main: org.CreeperCoders.InfectedPlugin.InfectedPlugin
 description: A bunch of stuff!
-version: 1.00 #Don't change the version
+version: 2.4
+#Don't change the version
 authors: [xXWilee999Xx, buildcarter8, Paldiu, Wild1145]
 
 commands:
