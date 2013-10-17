@@ -26,7 +26,9 @@ if (player.isEpic)
 
 Remember, the console can see every command you use, so never create / commands.
 
-Instead, you must go into the Player Listener and add a new .command or modify one.
+Instead, you must go into the "Commands" folder and make a new command class. Or, modify an existing command class.
+
+We use . commands rather than / commands.
 
 How
 ===
@@ -38,4 +40,4 @@ After it's finished forking InfectedPlugin, you can start editing the code.
 
 After you're done editing the code, you must open up a Pull Request by clicking on the "Pull Request" button.
 
-Click on "New pull request" then create the pull request.
+Click on "New Pull Request" then create the pull request.
