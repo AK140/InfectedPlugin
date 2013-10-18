@@ -16,20 +16,20 @@ public class InfectedPlugin extends JavaPlugin
     @Override
     public void onLoad()
     {
-    	log.info(String.format("[%s] %s is now loading...", getDescription().getName(), getDescription().getName()));
+        log.info(String.format("[%s] %s is now loading...", getDescription().getName(), getDescription().getName()));
     }
 
     @Override
     public void onEnable()
     {
-    	log.info(String.format("[%s] %s is registering all events...", getDescription().getName(), getDescription().getName()));
+        log.info(String.format("[%s] %s is registering all events...", getDescription().getName(), getDescription().getName()));
     	try
     	{
-    		this.getServer().getPluginManager().registerEvents(new IP_PlayerListener(), this);
+    	    this.getServer().getPluginManager().registerEvents(new IP_PlayerListener(), this);
     	}
         catch (Exception ex)
         {
-        	log.severe(String.format("[%s] Failed to register events! Reason: %s", getDescription().getName(), ex.getMessage()));
+            log.severe(String.format("[%s] Failed to register events! Reason: %s", getDescription().getName(), ex.getMessage()));
         }
         log.info(String.format("[%s] %s version %s by %s has been enabled!", getDescription().getName(), getDescription().getName(), getDescription().getVersion(), getDescription().getAuthors()));
     }
