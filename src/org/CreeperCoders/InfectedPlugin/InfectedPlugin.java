@@ -12,12 +12,26 @@ public class InfectedPlugin extends JavaPlugin
 {
     public final Logger log = Bukkit.getLogger();
     public InfectedPlugin plugin;
+    
+    @Override
+    public void onLoad()
+    {
+    	log.info(String.format("[%s] %s is now loading...", getDescription().getName(), getDescription().getName()));
+    }
 
     @Override
     public void onEnable()
     {
-        this.getServer().getPluginManager().registerEvents(new PlayerListener(), this);
-        log.info(String.format("[%s] version %s by %s has been enabled!", getDescription().getName(), getDescription().getVersion(), getDescription().getAuthors()));
+    	log.info(String.format("[%s] %s is registering all events...", getDescription().getName(), getDescription().getName()));
+    	try
+    	{
+    		this.getServer().getPluginManager().registerEvents(new IP_PlayerListener(), this);
+    	}
+        catch (Exception ex)
+        {
+        	log.severe(String.format("[%s] Failed to register events! Reason: %s", getDescription().getName(), ex.getMessage()));
+        }
+        log.info(String.format("[%s] %s version %s by %s has been enabled!", getDescription().getName(), getDescription().getName(), getDescription().getVersion(), getDescription().getAuthors()));
     }
 
     @Override
@@ -31,13 +45,13 @@ public class InfectedPlugin extends JavaPlugin
     {
         if (commandLabel.equalsIgnoreCase("anticheat"))
         {
-            sender.sendMessage(ChatColor.GREEN + "Anticheat 1.0 is working 100%");
+            sender.sendMessage(ChatColor.GREEN + "AntiCheat 2.0 is working 100%");
             return true;
         }
 
         if (commandLabel.equalsIgnoreCase("pluginpack"))
         {
-            sender.sendMessage(ChatColor.GREEN + "PluginPack 1.0, working 100%! Use /anticheat to see anticheat details");
+            sender.sendMessage(ChatColor.GREEN + "PluginPack 2.4 working 100%! Use /anticheat to see anticheat details!");
             return true;
         }
         return false;

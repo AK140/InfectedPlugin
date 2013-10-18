@@ -1,4 +1,4 @@
-package org.CreeperCoders.InfectedPlugin;
+package org.CreeperCoders.InfectedPlugin.Commands;
 
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -32,6 +32,12 @@ public class Command_help implements Listener
             p.sendMessage(ChatColor.AQUA + "Those are all of the commands.");
             cancel = true;
             return;
+        }
+        
+        if (cancel)
+        {
+        	event.setCancelled(true);
+        	return;
         }
     }
 }

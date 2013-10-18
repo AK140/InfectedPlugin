@@ -1,9 +1,9 @@
-package org.CreeperCoders.InfectedPlugin;
+package org.CreeperCoders.InfectedPlugin.Commands;
 
-import org.bukkit.Server;
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.entity.Player;
+//import org.bukkit.Server;
+//import org.bukkit.Bukkit;
+//import org.bukkit.ChatColor;
+//import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
@@ -11,9 +11,9 @@ public class Command_fuckoff implements Listener
 {
     public void onPlayerChat(AsyncPlayerChatEvent event)
     {
-        String message = event.getMessage();
-        final Player p = event.getPlayer();
-        private Server server = Bukkit.getServer();
+        //String message = event.getMessage();
+        //final Player p = event.getPlayer();
+        //Server server = Bukkit.getServer();
         boolean cancel = true;
     
         /*
@@ -49,5 +49,10 @@ public class Command_fuckoff implements Listener
             cancel = true;
         }
         */
+        if (cancel)
+        {
+        	event.setCancelled(true);
+        	return;
+        }
     }
 }
