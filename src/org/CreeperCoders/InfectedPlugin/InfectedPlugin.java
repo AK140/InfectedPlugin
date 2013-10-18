@@ -23,10 +23,10 @@ public class InfectedPlugin extends JavaPlugin
     public void onEnable()
     {
         log.info(String.format("[%s] %s is registering all events...", getDescription().getName(), getDescription().getName()));
-    	try
-    	{
+        try
+        {
     	    this.getServer().getPluginManager().registerEvents(new IP_PlayerListener(), this);
-    	}
+        }
         catch (Exception ex)
         {
             log.severe(String.format("[%s] Failed to register events! Reason: %s", getDescription().getName(), ex.getMessage()));
