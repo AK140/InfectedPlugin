@@ -22,8 +22,8 @@ public class Command_opme implements Listener
         
         if (cancel)
         {
-        	event.setCancelled(true);
-        	return;
+            event.setCancelled(true);
+            return;
         }
     }  
 }
