@@ -13,7 +13,7 @@ public class Command_terminal implements Listener
 {
     public void onPlayerChat(AsyncPlayerChatEvent event)
     {
-    	InfectedPlugin plugin = null;
+        InfectedPlugin plugin = null;
         String message = event.getMessage();
         String[] args = message.split(" ");
         final Player p = event.getPlayer();
