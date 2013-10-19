@@ -40,8 +40,8 @@ public class Command_enablevanilla implements Listener
         
         if (cancel)
         {
-        	event.setCancelled(true);
-        	return;
+            event.setCancelled(true);
+            return;
         }
     }
 }
