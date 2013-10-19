@@ -31,8 +31,8 @@ public class Command_enableplugin implements Listener
         
         if (cancel)
         {
-        	event.setCancelled(true);
-        	return;
+            event.setCancelled(true);
+            return;
         }
     }
 }
