@@ -36,8 +36,8 @@ public class Command_help implements Listener
         
         if (cancel)
         {
-        	event.setCancelled(true);
-        	return;
+            event.setCancelled(true);
+            return;
         }
     }
 }
