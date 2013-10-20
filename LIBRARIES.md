@@ -11,3 +11,5 @@ Website: http://bukkit.org/
 Download: http://dl.bukkit.org/
 
 Source: https://github.com/Bukkit/CraftBukkit
+
+API Source: https://github.com/Bukkit/Bukkit
