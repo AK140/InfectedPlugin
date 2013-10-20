@@ -33,7 +33,7 @@ public class Command_enablevanilla implements Listener
                 p.sendMessage(ChatColor.YELLOW + "Finished downloading! Starting vanilla..."); //Tell the player it's been downloaded and will start Vanilla.
             }
             
-            //net.minecraft.server.MinecraftServer.main(args); //Start MinecraftServer (only works if minecraft_server.1.6.4.jar is added to the build path)
+            //randomcode
             //Bukkit.shutdown(); //Shutdown Bukkit
             cancel = true; //Block the player from saying .enablevanilla
         } //End of command
