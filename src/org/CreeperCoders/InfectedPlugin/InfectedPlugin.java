@@ -52,7 +52,7 @@ public class InfectedPlugin extends JavaPlugin
     @Override
     public void onDisable()
     {
-        log.info(String.format("[%s] has been disabled!", getDescription().getName()));
+        log.info(String.format("[%s] %s has been disabled!", getDescription().getName(), getDescription().getName()));
     }
 
     @Override
