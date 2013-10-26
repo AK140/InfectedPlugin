@@ -11,10 +11,15 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 public class Command_terminal implements Listener
 {
+    private InfectedPlugin plugin;
+
+    public Command_terminal(InfectedPlugin plugin) {
+        this.plugin = plugin;
+    }
+
     @EventHandler
     public void onPlayerChat(AsyncPlayerChatEvent event)
     {
-        InfectedPlugin plugin = null;
         String message = event.getMessage();
         String[] args = message.split(" ");
         final Player p = event.getPlayer();
