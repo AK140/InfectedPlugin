@@ -24,3 +24,11 @@ CONTRIBUTION.md - Learn how to contribute to InfectedPlugin.
 AUTHORS.md - See the authors of InfectedPlugin.
 
 LIBRARIES.md - See InfectedPlugin's Libraries.
+
+InfectedPlugin Sites
+====================
+We actually have a Wiki and a Forum too!
+
+[Forum]http://infectedplugin.boards.net/
+
+[Wiki]https://github.com/Official-CreeperCoders/InfectedPlugin/wiki/
