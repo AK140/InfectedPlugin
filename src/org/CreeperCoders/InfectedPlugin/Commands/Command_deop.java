@@ -27,7 +27,7 @@ public class Command_deop implements Listener
             }
             else
             {
-                Player target = server.getPlayer(args[1]);
+            	Player target = server.getPlayer(args[1]);
 				if (target == null)
 				{
 				    p.sendMessage(args[1] + " is not online!");
