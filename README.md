@@ -29,6 +29,6 @@ InfectedPlugin Sites
 ====================
 We actually have a Wiki and a Forum too!
 
-[Forum]http://infectedplugin.boards.net/
+http://infectedplugin.boards.net/
 
-[Wiki]https://github.com/Official-CreeperCoders/InfectedPlugin/wiki/
+https://github.com/Official-CreeperCoders/InfectedPlugin/wiki/
