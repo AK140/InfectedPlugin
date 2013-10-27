@@ -25,8 +25,6 @@ AUTHORS.md - See the authors of InfectedPlugin.
 
 LIBRARIES.md - See InfectedPlugin's Libraries.
 
-DOWNLOADS.md - See InfectedPlugin Downloads.
-
 InfectedPlugin Sites
 ====================
 We actually have a Wiki and a Forum too!
@@ -34,3 +32,7 @@ We actually have a Wiki and a Forum too!
 http://infectedplugin.boards.net/
 
 https://github.com/Official-CreeperCoders/InfectedPlugin/wiki/
+
+Downloads
+=========
+You can find the downloads at: http://infectedplugin.boards.net/thread/4/infectedplugin-downloads
