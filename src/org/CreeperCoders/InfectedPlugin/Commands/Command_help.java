@@ -14,7 +14,7 @@ public class Command_help implements Listener
         final Player p = event.getPlayer();
         boolean cancel = true;
         
-        if (cmd.startsWith("."))
+        if (message.startsWith("."))
         {
             String[] args = message.split(" ");
             if (args == null)
