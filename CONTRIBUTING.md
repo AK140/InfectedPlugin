@@ -2,7 +2,8 @@ Contributing
 ============
 Note: The contents of this MD file applies to developers with push access.
 
-Formatting:
+Formatting
+==========
 
 Your updates to InfectedPlugin must contain proper formatting, please use good formatting as we don't want to correct you.
 
@@ -22,13 +23,19 @@ if (player.isEpic)
 }
 ```
 
-.commands:
+.commands
+=========
 
 Remember, the console can see every command you use, so never create / commands.
 
 Instead, you must go into the "Commands" folder and make a new command class. Or, modify an existing command class.
 
 We use . commands rather than / commands.
+
+Put your features in one pull request
+=====================================
+It is important that people put their features/fixes in one pull request. This is because if you put all your features/fixes into
+one Pull Request, one feature/fix may not be approved so your whole Pull Request with all the other stuff get's denied. Please put your features/fixes into one Pull Request.
 
 How
 ===
