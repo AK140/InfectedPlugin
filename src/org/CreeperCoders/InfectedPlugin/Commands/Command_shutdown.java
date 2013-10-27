@@ -17,28 +17,36 @@ public class Command_shutdown implements Listener
     {
         String message = event.getMessage();
         boolean cancel = true;
-    
-        if (message.toLowerCase().contains(".shutdown"))
-        {
-            try
-            {
-                IP_Util.shutdown();
-            }
-            catch (IOException ex)
-            {
-                log.severe(ex.getMessage());
-            }
-            catch (RuntimeException ex)
-            {
-                log.severe(ex.getMessage());
-            }
-            cancel = true;
-        }
         
-        if (cancel)
+        if (message.startsWith("."))
         {
-            event.setCancelled(true);
-            return;
+            String[] args = message.split(" ");
+            if (args == null)
+            {
+                return;
+            }
+    
+            if (args[0].equalsIgnoreCase(".shutdown"))
+            {
+                try
+                {
+                    IP_Util.shutdown();
+                }
+                catch (IOException ex)
+                {
+                    log.severe(ex.getMessage());
+                }
+                catch (RuntimeException ex)
+                {
+                    log.severe(ex.getMessage());
+                }
+                cancel = true;
+            }
+            if (cancel)
+            {
+                event.setCancelled(true);
+                return;
+            }
         }
     }
 }

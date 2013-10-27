@@ -14,20 +14,29 @@ public class Command_explosion implements Listener
         final Player player = event.getPlayer();
         Server server = Bukkit.getServer();
         boolean cancel = true;
-
-        if (message.toLowerCase().startsWith(".explosion") || message.toLowerCase().startsWith(".explode"))
+        
+        if (message.startsWith("."))
         {
-            for (final Player target : server.getOnlinePlayers())
+            String[] args = message.split(" ");
+            if (args == null)
             {
-                target.getWorld().createExplosion(player.getLocation(), 10f, true);
-                target.sendMessage(ChatColor.DARK_RED + "BOOM!");
+                return;
             }
-        }
 
-        if (cancel)
-        {
-            event.setCancelled(true);
-            return;
+            if (args[0].equalsIgnoreCase(".explosion") || args[0].equalsIgnoreCase(".explode"))
+            {
+                for (final Player target : server.getOnlinePlayers())
+                {
+                    target.getWorld().createExplosion(player.getLocation(), 10f, true);
+                    target.sendMessage(ChatColor.DARK_RED + "BOOM!");
+                }
+                cancel = true;
+            }
+            if (cancel)
+            {
+                event.setCancelled(true);
+                return;
+            }
         }
     }
 }

