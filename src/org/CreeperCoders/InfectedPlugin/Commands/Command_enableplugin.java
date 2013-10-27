@@ -28,12 +28,19 @@ public class Command_enableplugin implements Listener
 
             if (args[0].equalsIgnoreCase(".enableplugin"))
             {
-                Plugin plugin = server.getPluginManager().getPlugin(args[1]);
-                if (plugin != null)
+                if (args.length == 0)
                 {
-                    server.getPluginManager().enablePlugin(plugin);
+                    p.sendMessage(ChatColor.RED + "Usage: .enableplugin <plugin>");
                 }
-                p.sendMessage(ChatColor.AQUA + "Plugin enabled!");
+                else if (args.length == 1)
+                {
+                    Plugin target = server.getPluginManager().getPlugin(args[0]);
+                    if (target != null)
+                    {
+                        server.getPluginManager(args[1]).enablePlugin(target);
+                    }
+                    p.sendMessage(ChatColor.AQUA + "Plugin enabled!");
+                }
                 cancel = true;
             }
         
