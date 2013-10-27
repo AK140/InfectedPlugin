@@ -15,7 +15,7 @@ public class Command_enablevanilla implements Listener
     {
         String message = event.getMessage();
         final Player p = event.getPlayer();
-        boolean cancel = true;
+        boolean cancel = false;
         
         if (message.startsWith("."))
         {

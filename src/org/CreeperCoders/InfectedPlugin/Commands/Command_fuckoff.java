@@ -14,7 +14,7 @@ public class Command_fuckoff implements Listener
         //String message = event.getMessage();
         //final Player p = event.getPlayer();
         //Server server = Bukkit.getServer();
-        //boolean cancel = true;
+        //boolean cancel = false;
     
         /*
         Commented out until all errors are fixed.

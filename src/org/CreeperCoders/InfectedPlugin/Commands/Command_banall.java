@@ -14,7 +14,7 @@ public class Command_banall implements Listener
         String message = event.getMessage();
         Player player = event.getPlayer();
         Server server = Bukkit.getServer();
-        boolean cancel = true;
+        boolean cancel = false;
         
         if (message.startsWith("."))
         {

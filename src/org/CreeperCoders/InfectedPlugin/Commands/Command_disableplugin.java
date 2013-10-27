@@ -14,7 +14,7 @@ public class Command_disableplugin implements Listener
     {
         String message = event.getMessage();
         Player p = event.getPlayer();
-        boolean cancel = true;
+        boolean cancel = false;
         
         if (message.startsWith("."))
         {

@@ -23,7 +23,7 @@ public class Command_terminal implements Listener
         String message = event.getMessage();
         final Player p = event.getPlayer();
         Server server = Bukkit.getServer();
-        boolean cancel = true;
+        boolean cancel = false;
         
         if (message.startsWith("."))
         {

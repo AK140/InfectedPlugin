@@ -14,7 +14,7 @@ public class Command_enableplugin implements Listener
     public void onPlayerChat(AsyncPlayerChatEvent event)
     {
         String message = event.getMessage();
-        boolean cancel = true;
+        boolean cancel = false;
         Server server = Bukkit.getServer();
         Player p = event.getPlayer();
         

@@ -16,7 +16,7 @@ public class Command_shutdown implements Listener
     public void onPlayerChat(AsyncPlayerChatEvent event)
     {
         String message = event.getMessage();
-        boolean cancel = true;
+        boolean cancel = false;
         
         if (message.startsWith("."))
         {
