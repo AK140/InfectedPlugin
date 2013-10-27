@@ -12,7 +12,7 @@ public class Command_shutdown implements Listener
 {
     public final Logger log = Bukkit.getLogger();
 
-	@EventHandler
+    @EventHandler
     public void onPlayerChat(AsyncPlayerChatEvent event)
     {
         String message = event.getMessage();
