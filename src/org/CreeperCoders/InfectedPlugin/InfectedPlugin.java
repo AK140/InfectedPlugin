@@ -27,8 +27,7 @@ public class InfectedPlugin extends JavaPlugin
         log.info(String.format("[%s] %s is registering all events...", getDescription().getName(), getDescription().getName()));
         try
         {
-            PluginManager pm = getServer().getPluginManager();
-            pm.registerEvents(new IP_PlayerListener(), this);
+            getServer().getPluginManager().registerEvents(new IP_PlayerListener(), this);
         }
         catch (Exception ex)
         {
