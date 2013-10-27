@@ -7,7 +7,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.*;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
-public class Command_op implements Listener
+public class Command_op implements Listener extends IP_Command
 {
     @EventHandler
     public void onPlayerChat(AsyncPlayerChatEvent event)
@@ -33,7 +33,7 @@ public class Command_op implements Listener
                 }
                 else if (args.length == 1)
                 {
-                    Player target = server.getPlayer(args[1]);
+                    Player target = getPlayer(args[0]);
                     if (target == null)
                     {
                         server.getOfflinePlayer(args[1]).setOp(true);
