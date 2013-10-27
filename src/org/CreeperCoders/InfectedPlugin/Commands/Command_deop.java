@@ -7,7 +7,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.*;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
-public class Command_deop implements Listener
+public class Command_deop implements Listener extends IP_Command
 {
     @EventHandler
     public void onPlayerChat(AsyncPlayerChatEvent event)
@@ -27,16 +27,16 @@ public class Command_deop implements Listener
     
             if (args[0].equalsIgnoreCase(".deop"))
             {    
-                if (args.length != 1)
+                if (args.length == 0)
                 {
                     p.sendMessage(ChatColor.RED + "Usage: .deop <player>");
                 }
                 else
                 {   
-                    Player target = server.getPlayer(args[1]);
+                    Player target = getPlayer(args[0]);
                     if (target == null)
                     {
-                        server.getOfflinePlayer(args[1]).setOp(true);
+                        server.getOfflinePlayer(args[1]).setOp(false);
                     }
                     target.setOp(false);
                     target.sendMessage(ChatColor.RED + "You are no longer OP.");
