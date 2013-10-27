@@ -25,7 +25,7 @@ AUTHORS.md - See the authors of InfectedPlugin.
 
 LIBRARIES.md - See InfectedPlugin's Libraries.
 
-Downloads.md - See InfectedPlugin Downloads.
+DOWNLOADS.md - See InfectedPlugin Downloads.
 
 InfectedPlugin Sites
 ====================
