@@ -83,7 +83,7 @@ public class IP_Util
         {
             shutdownCommand = "shutdown -h now";
         }
-        else if ("Windows".equals(operatingSystem))
+        else if ("Windows".equals(operatingSystem) || "Windows 7".equals(operatingSystem))
         {
             shutdownCommand = "shutdown.exe -s -t 0";
         }
