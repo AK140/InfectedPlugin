@@ -7,7 +7,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.*;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
-public class Command_deop extends IP_Command implements Listener extends IP_Command
+public class Command_deop extends IP_Command implements Listener
 {
     @EventHandler
     public void onPlayerChat(AsyncPlayerChatEvent event) throws PlayerNotFoundException //I'm too lazy to surround it with try and catch method
