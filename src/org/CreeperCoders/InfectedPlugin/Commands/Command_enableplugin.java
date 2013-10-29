@@ -9,7 +9,7 @@ import org.bukkit.event.*;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.plugin.PluginManager;
 
-public class Command_enableplugin implements Listener extends IP_Command
+public class Command_enableplugin extends IP_Command implements Listener
 {
     @EventHandler
     public void onPlayerChat(AsyncPlayerChatEvent event)
