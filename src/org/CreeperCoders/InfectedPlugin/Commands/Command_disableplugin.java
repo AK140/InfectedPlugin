@@ -30,7 +30,7 @@ public class Command_disableplugin implements Listener extends IP_Command
             {
                 if (args.length == 0)
                 {
-                    p.sendMessage(ChatColor.RED + "Usage: .enableplugin <plugin>");
+                    p.sendMessage(ChatColor.RED + "Usage: .disableplugin <plugin>");
                 }
 
                 Plugin pl;
