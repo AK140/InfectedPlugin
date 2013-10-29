@@ -7,6 +7,7 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.entity.Player;
 import org.bukkit.event.*;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
+import org.bukkit.plugin.PluginManager;
 
 public class Command_enableplugin implements Listener
 {
@@ -34,12 +35,11 @@ public class Command_enableplugin implements Listener
                 }
                 else if (args.length == 1)
                 {
-                    Plugin target = server.getPluginManager().getPlugin(args[0]);
+                    Plugin target = server.getPluginManager().getPlugin(args[1]);
                     if (target != null)
                     {
-					    /* Commented this until fixed The method getPluginManager() in type Server is not applicable for the arguments (String)
-                        server.getPluginManager(args[1]).enablePlugin(target);
-					     */
+                    	PluginManager pluginManager = plugin.getServer().getPluginManager();
+                        pluginManager.enablePlugin(target);
                     }
                     p.sendMessage(ChatColor.AQUA + "Plugin enabled!");
                 }
