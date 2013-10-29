@@ -29,7 +29,7 @@ public class Command_op extends IP_Command implements Listener
             {
                 if (args.length == 0)
                 {
-                    p.sendMessage(ChatColor.RED + "Usage: .<command> <player>");
+                    p.sendMessage(ChatColor.RED + "Usage: .op <player>");
                 }
                 else if (args.length == 1)
                 {
