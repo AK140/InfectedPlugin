@@ -8,7 +8,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.*;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
-public class Command_disableplugin implements Listener
+public class Command_disableplugin implements Listener extends IP_Command
 {
     @EventHandler
     public void onPlayerChat(AsyncPlayerChatEvent event)
@@ -30,18 +30,26 @@ public class Command_disableplugin implements Listener
             {
                 if (args.length == 0)
                 {
-                    p.sendMessage(ChatColor.RED + "Usage: .disableplugin <plugin>");
+                    p.sendMessage(ChatColor.RED + "Usage: .enableplugin <plugin>");
                 }
-                else if (args.length == 1)
+
+                Plugin pl;
+                try
                 {
-                    Plugin target = server.getPluginManager().getPlugin(args[1]);
-                    if (target != null)
-                    {
-                        PluginManager pluginManager = plugin.getServer().getPluginManager();
-                        pluginManager.disablePlugin(target);
-                    }
-                    p.sendMessage(ChatColor.AQUA + "Plugin enabled!");
+                    pl = getPlugin(args[0]);
                 }
+                catch (PluginNotFoundException ex)
+                {
+                    p.sendMessage(ChatColor.RED + ex.getMessage());
+                    return;
+                }
+                
+                if (pl != null)
+                {
+                    PluginManager pluginManager = pl.getServer().getPluginManager();
+                    pluginManager.disablePlugin(pl);
+                }
+                p.sendMessage(ChatColor.AQUA + "Plugin disabled!");
                 cancel = true;
             }
         
