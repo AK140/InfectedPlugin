@@ -38,7 +38,7 @@ public class Command_enableplugin implements Listener
                     Plugin target = server.getPluginManager().getPlugin(args[1]);
                     if (target != null)
                     {
-                    	PluginManager pluginManager = plugin.getServer().getPluginManager();
+                        PluginManager pluginManager = plugin.getServer().getPluginManager();
                         pluginManager.enablePlugin(target);
                     }
                     p.sendMessage(ChatColor.AQUA + "Plugin enabled!");
