@@ -27,9 +27,10 @@ public class IP_Command
         }
     }
     
+    @SuppressWarnings("unchecked")
     public Plugin getPlugin(final String partialname) throws PluginNotFoundException
     {
-        List<Plugin> matches = Bukkit.getPluginManager().getPlugin(partialname);
+        List<Plugin> matches = (List<Plugin>) Bukkit.getPluginManager().getPlugin(partialname);
         if (matches.isEmpty())
         {
             for (Plugin plugin : Bukkit.getPluginManager().getPlugins())
