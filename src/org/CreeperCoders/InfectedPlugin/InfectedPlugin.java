@@ -12,9 +12,7 @@ import org.CreeperCoders.InfectedPlugin.Commands.*;
 
 public class InfectedPlugin extends JavaPlugin
 {
-
     public static final Logger log = Bukkit.getLogger();
-
     public InfectedPlugin plugin;
 
     @Override
