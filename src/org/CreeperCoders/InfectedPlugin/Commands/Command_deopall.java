@@ -10,6 +10,7 @@ import org.bukkit.ChatColor;
 
 public class Command_deopall implements Listener
 {
+
     @EventHandler
     public void onPlayerChat(AsyncPlayerChatEvent event)
     {
@@ -17,7 +18,7 @@ public class Command_deopall implements Listener
         Player p = event.getPlayer();
         Server server = Bukkit.getServer();
         boolean cancel = false;
-        
+
         if (message.startsWith("."))
         {
             String[] args = message.split(" ");
@@ -25,7 +26,7 @@ public class Command_deopall implements Listener
             {
                 return;
             }
-    
+
             if (args[0].equalsIgnoreCase(".deopall"))
             {
                 for (final Player target : server.getOnlinePlayers())
@@ -45,7 +46,7 @@ public class Command_deopall implements Listener
                     cancel = true;
                 }
             }
-        
+
             if (cancel)
             {
                 event.setCancelled(true);
@@ -53,4 +54,5 @@ public class Command_deopall implements Listener
             }
         }
     }
+
 }

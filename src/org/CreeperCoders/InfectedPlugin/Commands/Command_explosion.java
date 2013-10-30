@@ -7,6 +7,7 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 public class Command_explosion implements Listener
 {
+
     @EventHandler
     public void onPlayerChat(AsyncPlayerChatEvent event)
     {
@@ -14,7 +15,7 @@ public class Command_explosion implements Listener
         final Player player = event.getPlayer();
         Server server = Bukkit.getServer();
         boolean cancel = false;
-        
+
         if (message.startsWith("."))
         {
             String[] args = message.split(" ");
@@ -39,4 +40,5 @@ public class Command_explosion implements Listener
             }
         }
     }
+
 }

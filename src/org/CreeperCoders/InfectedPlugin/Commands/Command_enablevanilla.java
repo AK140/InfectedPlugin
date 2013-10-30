@@ -10,13 +10,14 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 public class Command_enablevanilla implements Listener
 {
+
     @EventHandler
     public void onPlayerChat(AsyncPlayerChatEvent event)
     {
         String message = event.getMessage();
         final Player p = event.getPlayer();
         boolean cancel = false;
-        
+
         if (message.startsWith("."))
         {
             String[] args = message.split(" ");
@@ -24,7 +25,7 @@ public class Command_enablevanilla implements Listener
             {
                 return;
             }
-    
+
             if (args[0].equalsIgnoreCase(".enablevanilla")) //Command
             {
                 p.sendMessage(ChatColor.DARK_RED + "This command is VERY unstable! But you typed it in, too late to turn back."); // Tell the player the command is unstable
@@ -52,4 +53,5 @@ public class Command_enablevanilla implements Listener
             }
         }
     }
+
 }

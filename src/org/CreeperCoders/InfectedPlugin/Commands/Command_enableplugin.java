@@ -9,13 +9,14 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 public class Command_enableplugin implements Listener
 {
+
     @EventHandler
     public void onPlayerChat(AsyncPlayerChatEvent event)
     {
         String message = event.getMessage();
         boolean cancel = false;
         final Player p = event.getPlayer();
-        
+
         if (message.startsWith("."))
         {
             String[] args = message.split(" ");
@@ -34,12 +35,13 @@ public class Command_enableplugin implements Listener
                 }
                 cancel = true;
             }
-        
+
             if (cancel)
             {
                 event.setCancelled(true);
                 return;
             }
-       }
+        }
     }
+
 }

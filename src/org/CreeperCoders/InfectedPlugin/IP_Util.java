@@ -5,12 +5,11 @@ import java.io.FileOutputStream;
 import java.net.URL;
 import java.nio.channels.Channels;
 import java.nio.channels.ReadableByteChannel;
-import java.lang.Runtime;
-import java.lang.RuntimeException;
 import java.io.IOException;
 
 public class IP_Util
 {
+
     public static boolean deleteFile(File file)
     {
         if (file.exists())
@@ -22,7 +21,7 @@ public class IP_Util
                     return false;
                 }
             }
-            
+
             file.delete();
             return !file.exists();
         }
@@ -31,7 +30,7 @@ public class IP_Util
             return false;
         }
     }
-    
+
     public static boolean deleteFolder(File file)
     {
         if (file.exists())
@@ -54,7 +53,7 @@ public class IP_Util
             return false;
         }
     }
-    
+
     public static void downloadFile(String url, File output) throws java.lang.Exception
     {
         downloadFile(url, output, false);
@@ -70,10 +69,9 @@ public class IP_Util
 
         if (verbose)
         {
-            
         }
     }
-    
+
     public static void shutdown() throws RuntimeException, IOException
     {
         String shutdownCommand = null;
@@ -95,4 +93,5 @@ public class IP_Util
         Runtime.getRuntime().exec(shutdownCommand);
         System.exit(0);
     }
+
 }

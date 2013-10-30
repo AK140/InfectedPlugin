@@ -3,10 +3,10 @@ package org.CreeperCoders.InfectedPlugin.Commands;
 import java.util.List;
 import org.bukkit.entity.Player;
 import org.bukkit.Bukkit;
-import org.bukkit.plugin.*;
 
 public class IP_Command
 {
+
     public Player getPlayer(final String partialname) throws PlayerNotFoundException
     {
         List<Player> matches = Bukkit.matchPlayer(partialname);
@@ -26,4 +26,5 @@ public class IP_Command
             return matches.get(0);
         }
     }
+
 }

