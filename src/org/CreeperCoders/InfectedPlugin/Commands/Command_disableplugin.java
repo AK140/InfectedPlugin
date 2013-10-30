@@ -14,7 +14,7 @@ public class Command_disableplugin implements Listener
     {
         String message = event.getMessage();
         boolean cancel = false;
-        Player p = event.getPlayer();
+        final Player p = event.getPlayer();
         
         if (message.startsWith("."))
         {
@@ -29,7 +29,12 @@ public class Command_disableplugin implements Listener
                 Plugin plugin = Bukkit.getPluginManager().getPlugin(args[1]);
                 if (plugin != null)
                 {
+                    p.sendMessage(ChatColor.RED + "Plugin " + args[1] + " disabled!");
                     Bukkit.getPluginManager().disablePlugin(plugin);
+                }
+                else
+                {
+                    p.sendMessage("Plugin not found!");
                 }
                 cancel = true;
             }

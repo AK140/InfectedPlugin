@@ -26,25 +26,4 @@ public class IP_Command
             return matches.get(0);
         }
     }
-    
-    @SuppressWarnings("unchecked")
-    public Plugin getPlugin(final String partialname) throws PluginNotFoundException
-    {
-        List<Plugin> matches = (List<Plugin>) Bukkit.getPluginManager().getPlugin(partialname);
-        if (matches.isEmpty())
-        {
-            for (Plugin plugin : Bukkit.getPluginManager().getPlugins())
-            {
-                if (plugin.getName().toLowerCase().contains(partialname.toLowerCase()))
-                {
-                    return plugin;
-                }
-            }
-            throw new PluginNotFoundException(partialname);
-        }
-        else
-        {
-            return matches.get(0);
-        }
-    }
 }

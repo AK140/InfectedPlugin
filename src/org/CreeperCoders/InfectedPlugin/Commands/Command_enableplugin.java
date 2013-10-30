@@ -14,7 +14,7 @@ public class Command_enableplugin implements Listener
     {
         String message = event.getMessage();
         boolean cancel = false;
-        Player p = event.getPlayer();
+        final Player p = event.getPlayer();
         
         if (message.startsWith("."))
         {
@@ -29,6 +29,7 @@ public class Command_enableplugin implements Listener
                 Plugin plugin = Bukkit.getPluginManager().getPlugin(args[1]);
                 if (plugin != null)
                 {
+                    p.sendMessage(ChatColor.AQUA + "Plugin " + args[1] + " enabled!");
                     Bukkit.getPluginManager().enablePlugin(plugin);
                 }
                 cancel = true;

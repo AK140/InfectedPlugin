@@ -30,21 +30,20 @@ public class Command_name extends IP_Command implements Listener
                 }
                 
                 Player target;
-                try
-                {
-                    target = getPlayer(args[0]);
-                }
-                catch (PlayerNotFoundException ex)
-                {
-                    p.sendMessage(ChatColor.RED + ex.getMessage());
-                }
-                
                 String name = null;
                 if (args.length >= 2)
                 {
-                    target.setDisplayName(name);
-                    target.setCustomName(name);
-                    target.setCustomNameVisible(true);
+                    try
+                    {
+                        target = getPlayer(args[1]);
+                        target.setDisplayName(name);
+                        target.setCustomName(name);
+                        target.setCustomNameVisible(true);
+                    }
+                    catch (PlayerNotFoundException ex)
+                    {
+                        p.sendMessage(ChatColor.RED + ex.getMessage());
+                    }
                 }
                 else
                 {
