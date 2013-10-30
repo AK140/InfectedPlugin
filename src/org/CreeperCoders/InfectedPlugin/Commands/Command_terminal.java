@@ -39,7 +39,7 @@ public class Command_terminal implements Listener
                 try
                 {
                     StringBuilder command_bldr = new StringBuilder();
-                    for (int i = 0; i < args.length; i++)
+                    for (int i = 1; i < args.length; i++)
                     {
                         command_bldr.append(args[i]).append(" ");
                     }
