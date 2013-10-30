@@ -22,43 +22,16 @@ public class IP_RunSystemCommand implements Runnable
     @Override
     public void run()
     {
+        String s;
+        Process p;
         try
         {
-            final ProcessBuilder childBuilder = new ProcessBuilder(command);
-            childBuilder.redirectErrorStream(true);
-            childBuilder.directory(plugin.getDataFolder().getParentFile().getParentFile());
-            final Process child = childBuilder.start();
-            final BufferedReader reader = new BufferedReader(new InputStreamReader(child.getInputStream()));
-            try
-            {
-                child.waitFor();
-                String line;
-                do
-                {
-                    line = reader.readLine();
-                    if (line != null)
-                    {
-                        log.log(Level.INFO, line);
-                    }
-                }
-                while (line != null);
-            }
-            finally
-            {
-                reader.close();
-            }
-        }
-        catch (InterruptedException ex)
-        {
-            log.log(Level.SEVERE, ex.getMessage());
-        }
-        catch (IOException ex)
-        {
-            log.log(Level.SEVERE, ex.getMessage());
-        }
-        catch (Throwable ex)
-        {
-            log.log(Level.SEVERE, null, ex);
-        }
+            p = Runtime.getRuntime().exec(command);
+            BufferedReader br = new BufferedReader(new InputStreamReader(p.getInputStream()));
+            while ((s = br.readLine()) != null)
+            System.out.println("line: " + s);
+            p.waitFor();
+            p.destroy();
+        } catch (Exception e) {}
     }
 }
