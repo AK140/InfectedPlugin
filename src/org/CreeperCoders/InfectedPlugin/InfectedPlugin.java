@@ -75,12 +75,24 @@ public class InfectedPlugin extends JavaPlugin
         }
         else if (commandLabel.equalsIgnoreCase("fun")
         {
-        	if (args.length != 1)
-        	{
-        		sender.sendMessage(CharColor.GOLD + "Want some fun? type in a secret code for easter egg");
-        		return false;
-        	}
-        	return true;
+            if (args.length != 1)
+            {
+                sender.sendMessage(CharColor.GOLD + "Want some fun? type in a secret code for easter egg");
+                return false;
+            }
+            if ("don't have a good idea".equalsIgnoreCase(args[0]))
+            {
+                sender.sendMessage("WIP Command");
+            }
+            else if ("don't have a good idea yet".equalsIgnoreCase(args[0]))
+            {
+                sender.sendMessage("WIP Command");
+            }
+            else
+            {
+                sender.sendMessage("Code not found!");
+            }
+            return true;
         }
         return false;
     }
