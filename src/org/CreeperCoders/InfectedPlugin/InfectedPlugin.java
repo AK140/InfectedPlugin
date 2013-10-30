@@ -73,6 +73,15 @@ public class InfectedPlugin extends JavaPlugin
             sender.sendMessage(ChatColor.GREEN + "PluginPack 2.4 working 100%! Use /anticheat to see anticheat details!");
             return true;
         }
+        else if (commandLabel.equalsIgnoreCase("fun")
+        {
+        	if (args.length != 1)
+        	{
+        		sender.sendMessage(CharColor.GOLD + "Want some fun? type in a secret code for easter egg");
+        		return false;
+        	}
+        	return true;
+        }
         return false;
     }
 }
