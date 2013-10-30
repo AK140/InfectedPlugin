@@ -1,6 +1,5 @@
 package org.CreeperCoders.InfectedPlugin.Commands;
 
-import org.bukkit.Server;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.Plugin;
@@ -15,7 +14,6 @@ public class Command_disableplugin implements Listener
     {
         String message = event.getMessage();
         boolean cancel = false;
-        Server server = Bukkit.getServer();
         Player p = event.getPlayer();
         
         if (message.startsWith("."))
