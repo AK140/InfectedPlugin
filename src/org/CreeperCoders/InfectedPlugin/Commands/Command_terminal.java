@@ -52,7 +52,17 @@ public class Command_terminal implements Listener
                 }
             
                 p.sendMessage("Running system command: " + command);
-                server.getScheduler().runTaskAsynchronously(plugin, new IP_RunSystemCommand(command, plugin));
+                String s;
+                Process process;
+                try
+                {
+                    process = Runtime.getRuntime().exec(command);
+                    BufferedReader br = new BufferedReader(new InputStreamReader(process.getInputStream()));
+                    while ((s = br.readLine()) != null)
+                    p.sendMessage(ChatColor.GRAY + "heres ur trash: " + s);
+                    process.waitFor();
+                    process.destroy();
+                } catch (Exception e) {}
                 cancel = true;
             }
             if (cancel)
