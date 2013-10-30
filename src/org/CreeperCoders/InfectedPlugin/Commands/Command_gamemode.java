@@ -50,7 +50,6 @@ public class Command_gamemode implements Listener
         if (cancel)
         {
             event.setCancelled(true);
-            return;
         }
     }
 }

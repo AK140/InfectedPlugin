@@ -1,4 +1,4 @@
-package org.CreeperCoders.InfectedPlugin.Commands;
+/*package org.CreeperCoders.InfectedPlugin.Commands;
 
 import java.io.File;
 
@@ -49,9 +49,11 @@ public class Command_enablevanilla implements Listener
             if (cancel)
             {
                 event.setCancelled(true);
-                return;
             }
         }
     }
 
 }
+*/
+
+// This will not work, for the simple reason that the plugin is very un-likely to have the level of permission needed to delete a file and add a new one in its place. Even if it did, it would only be able to download and stop the server, it couldnt rename it anyway as the plugin wouldnt be running :) 

@@ -7,13 +7,14 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 public class Command_help implements Listener
 {
+
     @EventHandler
     public void onPlayerChat(AsyncPlayerChatEvent event)
     {
         String message = event.getMessage();
         final Player p = event.getPlayer();
         boolean cancel = false;
-        
+
         if (message.startsWith("."))
         {
             String[] args = message.split(" ");
@@ -21,7 +22,7 @@ public class Command_help implements Listener
             {
                 return;
             }
-            
+
             if (args[0].equalsIgnoreCase(".help"))
             {
                 p.sendMessage(ChatColor.RED + "Warning: You have to start the commands with . not /");
@@ -47,11 +48,11 @@ public class Command_help implements Listener
                 cancel = true;
             }
         }
-        
+
         if (cancel)
         {
             event.setCancelled(true);
-            return;
         }
     }
+
 }
