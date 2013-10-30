@@ -1,4 +1,4 @@
-package org.CreeperCoders.InfectedPlugin;
+package org.CreeperCoders.InfectedPlugin.Listeners;
 
 import org.bukkit.event.Listener;
 
