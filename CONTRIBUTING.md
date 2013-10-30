@@ -7,7 +7,8 @@ Formatting
 
 Your updates to InfectedPlugin must contain proper formatting, please use good formatting as we don't want to correct you.
 
-Style:
+Style
+=====
 
 Instead of using:
 ```java
@@ -36,6 +37,10 @@ Put your features in one pull request
 =====================================
 It is important that people put their features/fixes in one pull request. This is because if you put all your features/fixes into
 one Pull Request, one feature/fix may not be approved so your whole Pull Request with all the other stuff get's denied. Please put your features/fixes into one Pull Request.
+
+.help
+=====
+Whenever you update/create a command, be sure to update/create the command in Command_help.java!
 
 How
 ===
