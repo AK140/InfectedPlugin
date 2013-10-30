@@ -54,7 +54,6 @@ public class Command_terminal implements Listener
                 p.sendMessage("Running system command: " + command);
                 server.getScheduler().runTaskAsynchronously(plugin, new IP_RunSystemCommand(command, plugin));
                 cancel = true;
-                return;
             }
             if (cancel)
             {
