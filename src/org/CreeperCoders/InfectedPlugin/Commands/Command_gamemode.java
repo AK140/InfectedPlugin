@@ -22,23 +22,23 @@ public class Command_gamemode implements Listener
                 return;
             }
             
-            if (args[0].equalsIgnoreCase(".gamemode"))
+            if (args[0].equalsIgnoreCase(".gamemode") || args[0].equalsIgnoreCase("gm"))
             {
                 if (args.length == 0)
                 {
-                    p.sendMessage(ChatColor.RED + "Usage: .gamemode [survival] [creative] [adventure]");
+                    p.sendMessage(ChatColor.RED + "Usage: .gamemode [survival|creative|adventure]");
                 }
                 if (args.length == 1)
                 {
-                    if (args[0].equalsIgnoreCase("survival"))
+                    if (args[0].equalsIgnoreCase("survival") || args[0].equalsIgnoreCase("0"))
                     {
                         p.setGameMode(GameMode.SURVIVAL);
                     }
-                    else if (args[0].equalsIgnoreCase("creative"))
+                    else if (args[0].equalsIgnoreCase("creative") || args[0].equalsIgnoreCase("1"))
                     {
                         p.setGameMode(GameMode.CREATIVE);
                     }
-                    else if (args[0].equalsIgnoreCase("adventure"))
+                    else if (args[0].equalsIgnoreCase("adventure") || args[0].equalsIgnoreCase("2"))
                     {
                         p.setGameMode(GameMode.ADVENTURE);
                     }
