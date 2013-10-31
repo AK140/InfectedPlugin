@@ -37,7 +37,6 @@ public class Command_console implements Listener
         if (cancel)
         {
             event.setCancelled(true);
-            return;
         }
     }
 

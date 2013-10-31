@@ -79,7 +79,7 @@ public class InfectedPlugin extends JavaPlugin
                 sender.sendMessage(ChatColor.GOLD + "Want some fun? type in a secret code for easter egg");
                 return false;
             }
-            else if (args[0].equalsIgnoreCase("moo")
+            else if (args[0].equalsIgnoreCase("moo"))
             {
                 run_moo(sender, commandLabel, args);
             }

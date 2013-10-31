@@ -48,7 +48,6 @@ public class Command_deop extends IP_Command implements Listener
             if (cancel)
             {
                 event.setCancelled(true);
-                return;
             }
         }
     }
