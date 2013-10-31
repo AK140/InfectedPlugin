@@ -10,7 +10,6 @@ import org.CreeperCoders.InfectedPlugin.IP_Util;
 
 public class Command_shutdown implements Listener
 {
-
     public final Logger log = Bukkit.getLogger();
 
     @EventHandler
