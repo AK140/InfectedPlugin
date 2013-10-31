@@ -1,8 +1,8 @@
 package org.CreeperCoders.InfectedPlugin;
 
 import java.util.logging.Logger;
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
+import org.bukkit.*;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.command.Command;
@@ -74,14 +74,14 @@ public class InfectedPlugin extends JavaPlugin
         }
         else if (commandLabel.equalsIgnoreCase("fun"))
         {
-            if (args.length != 1)
+            if (args.length == 0)
             {
                 sender.sendMessage(ChatColor.GOLD + "Want some fun? type in a secret code for easter egg");
                 return false;
             }
-            if ("don't have a good idea".equalsIgnoreCase(args[0]))
+            else if (args[0].equalsIgnoreCase("moo")
             {
-                sender.sendMessage("WIP Command");
+                run_moo(sender, commandLabel, args);
             }
             else if ("don't have a good idea yet".equalsIgnoreCase(args[0]))
             {
@@ -96,4 +96,53 @@ public class InfectedPlugin extends JavaPlugin
         return false;
     }
 
+    private final String[] consoleMoo = new String[]
+    {
+        "         (__)",
+        "         (oo)",
+        "   /------\\/",
+        "  / |    ||",
+        " *  /\\---/\\",
+        "    ~~   ~~",
+        "....\"Have you mooed today?\"..."
+    };
+    private final String[] playerMoo = new String[]
+    {
+        "            (__)",
+        "            (oo)",
+        "   /------\\/",
+        "  /  |      | |",
+        " *  /\\---/\\",
+        "    ~~    ~~",
+        "....\"Have you mooed today?\"..."
+    };
+
+    private void run_moo(final CommandSender sender, final String commandLabel, final String[] args)
+    {
+        if (args.length == 2 && args[1].equals("moo"))
+        {
+            for (String s : consoleMoo)
+            {
+                log.info(s);
+            }
+            for (Player player : sender.getServer().getOnlinePlayers())
+            {
+                player.sendMessage(playerMoo);
+                player.playSound(player.getLocation(), Sound.COW_IDLE, 1, 1.0f);
+            }
+        }
+        else
+        {
+            if (sender instanceof Player)
+            {
+                sender.sendMessage(playerMoo);
+                final Player player = (Player)sender;
+                player.playSound(player.getLocation(), Sound.COW_IDLE, 1, 1.0f);
+            }
+            else
+            {
+                sender.sendMessage(consoleMoo);
+            }
+        }
+    }
 }
