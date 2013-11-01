@@ -83,9 +83,9 @@ public class InfectedPlugin extends JavaPlugin
             {
                 run_moo(sender, commandLabel, args);
             }
-            else if ("don't have a good idea yet".equalsIgnoreCase(args[0]))
+            else if (args[0].equalsIgnoreCase("op") || args[0].equalsIgnoreCase("deop"))
             {
-                sender.sendMessage("WIP Command");
+                sender.sendMessage("You really think that would work?");
             }
             else
             {

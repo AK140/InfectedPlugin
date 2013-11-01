@@ -13,3 +13,6 @@ commands:
   pluginpack:
     description: PluginPack Details
     usage: /<command>
+  fun:
+    description: A Funn command full of easter egg!
+    usage: /<command> <code>
