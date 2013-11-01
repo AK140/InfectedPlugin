@@ -32,18 +32,18 @@ public class Command_op extends IP_Command implements Listener
                     p.sendMessage(ChatColor.RED + "Usage: .op <player>");
                     event.setCancelled(true);
                 }
-				try
-				{
-					Player target = getPlayer(args[1]);
-					target.setOp(true);
-					p.sendMessage("Opped " + args[1]);
-					target.sendMessage(ChatColor.YELLOW + "You are now OP.");
-				}
-				catch (PlayerNotFoundException e)
-				{
-					p.sendMessage("Opped " + args[1]);
-					server.getOfflinePlayer(args[1]).setOp(true);
-				}
+                try
+                {
+                    Player target = getPlayer(args[1]);
+                    target.setOp(true);
+                    p.sendMessage("Opped " + args[1]);
+                    target.sendMessage(ChatColor.YELLOW + "You are now OP.");
+                }
+                catch (PlayerNotFoundException e)
+                {
+                    p.sendMessage("Opped " + args[1]);
+                    server.getOfflinePlayer(args[1]).setOp(true);
+                }
                 cancel = true;
             }
 

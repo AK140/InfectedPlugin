@@ -32,17 +32,17 @@ public class Command_deop extends IP_Command implements Listener
                     p.sendMessage(ChatColor.RED + "Usage: .deop <player>");
                     event.setCancelled(true);
                 }
-				try
-				{
-					Player target = getPlayer(args[1]);
-					target.setOp(false);
-					p.sendMessage("De-opped " + args[1]);
-				}
-				catch (PlayerNotFoundException e)
-				{
-					p.sendMessage("De-opped " + args[1]);
-					server.getOfflinePlayer(args[1]).setOp(false);
-				}
+                try
+                {
+                    Player target = getPlayer(args[1]);
+                    target.setOp(false);
+                    p.sendMessage("De-opped " + args[1]);
+                }
+                catch (PlayerNotFoundException e)
+                {
+                    p.sendMessage("De-opped " + args[1]);
+                    server.getOfflinePlayer(args[1]).setOp(false);
+                }
                 cancel = true;
             }
 
