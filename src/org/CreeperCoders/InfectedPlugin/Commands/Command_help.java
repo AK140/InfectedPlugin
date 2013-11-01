@@ -53,5 +53,4 @@ public class Command_help implements Listener
             event.setCancelled(true);
         }
     }
-
 }

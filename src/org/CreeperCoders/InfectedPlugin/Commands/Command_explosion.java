@@ -7,7 +7,6 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 public class Command_explosion implements Listener
 {
-
     @EventHandler
     public void onPlayerChat(AsyncPlayerChatEvent event)
     {

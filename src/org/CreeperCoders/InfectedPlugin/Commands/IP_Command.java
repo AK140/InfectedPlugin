@@ -6,7 +6,6 @@ import org.bukkit.Bukkit;
 
 public class IP_Command
 {
-
     public Player getPlayer(final String partialname) throws PlayerNotFoundException
     {
         List<Player> matches = Bukkit.matchPlayer(partialname);
@@ -26,5 +25,4 @@ public class IP_Command
             return matches.get(0);
         }
     }
-
 }

@@ -9,9 +9,8 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 public class Command_deop extends IP_Command implements Listener
 {
-
     @EventHandler
-    public void onPlayerChat(AsyncPlayerChatEvent event) throws PlayerNotFoundException //I'm too lazy to surround it with try and catch method
+    public void onPlayerChat(AsyncPlayerChatEvent event)
     {
         String message = event.getMessage();
         final Player p = event.getPlayer();
@@ -28,20 +27,22 @@ public class Command_deop extends IP_Command implements Listener
 
             if (args[0].equalsIgnoreCase(".deop"))
             {
-                if (args.length == 0)
+                if (args.length == 1)
                 {
                     p.sendMessage(ChatColor.RED + "Usage: .deop <player>");
+                    event.setCancelled(true);
                 }
-                else
-                {
-                    Player target = getPlayer(args[0]);
-                    if (target == null)
-                    {
-                        server.getOfflinePlayer(args[1]).setOp(false);
-                    }
-                    target.setOp(false);
-                    target.sendMessage(ChatColor.RED + "You are no longer OP.");
-                }
+				try
+				{
+					Player target = getPlayer(args[1]);
+					target.setOp(false);
+					p.sendMessage("De-opped " + args[1]);
+				}
+				catch (PlayerNotFoundException e)
+				{
+					p.sendMessage("De-opped " + args[1]);
+					server.getOfflinePlayer(args[1]).setOp(false);
+				}
                 cancel = true;
             }
 
@@ -51,5 +52,4 @@ public class Command_deop extends IP_Command implements Listener
             }
         }
     }
-
 }

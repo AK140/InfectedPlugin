@@ -33,6 +33,10 @@ public class Command_enableplugin implements Listener
                     p.sendMessage(ChatColor.AQUA + "Plugin " + args[1] + " enabled!");
                     Bukkit.getPluginManager().enablePlugin(plugin);
                 }
+                else
+                {
+                	p.sendMessage("Plugin not found!");
+                }
                 cancel = true;
             }
 

@@ -9,7 +9,6 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 public class Command_disableplugin implements Listener
 {
-
     @EventHandler
     public void onPlayerChat(AsyncPlayerChatEvent event)
     {
@@ -47,5 +46,4 @@ public class Command_disableplugin implements Listener
             }
         }
     }
-
 }
