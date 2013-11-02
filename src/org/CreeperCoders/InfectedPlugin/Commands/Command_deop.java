@@ -30,7 +30,7 @@ public class Command_deop extends IP_Command implements Listener
                 if (args.length == 1)
                 {
                     p.sendMessage(ChatColor.RED + "Usage: .deop <player>");
-                    event.setCancelled(true);
+                    cancel = true;
                     return;
                 }
                 try
