@@ -7,9 +7,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.*;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
+
 public class Command_enableplugin implements Listener
 {
-
     @EventHandler
     public void onPlayerChat(AsyncPlayerChatEvent event)
     {
@@ -27,6 +27,12 @@ public class Command_enableplugin implements Listener
 
             if (args[0].equalsIgnoreCase(".enableplugin"))
             {
+                if (args.length == 1)
+                {
+                    p.sendMessage(ChatColor.RED + "Usage: .enableplugin <plugin>");
+                    event.setCancelled(true);
+                    return;
+                }
                 Plugin plugin = Bukkit.getPluginManager().getPlugin(args[1]);
                 if (plugin != null)
                 {
@@ -47,5 +53,4 @@ public class Command_enableplugin implements Listener
             }
         }
     }
-
 }

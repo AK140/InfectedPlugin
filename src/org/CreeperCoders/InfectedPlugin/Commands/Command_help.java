@@ -7,6 +7,7 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 public class Command_help implements Listener
 {
+
     @EventHandler
     public void onPlayerChat(AsyncPlayerChatEvent event)
     {

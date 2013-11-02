@@ -7,6 +7,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.*;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
+
 public class Command_disableplugin implements Listener
 {
     @EventHandler
@@ -26,6 +27,12 @@ public class Command_disableplugin implements Listener
 
             if (args[0].equalsIgnoreCase(".disableplugin"))
             {
+                if (args.length == 1)
+                {
+                    p.sendMessage(ChatColor.RED + "Usage: .disableplugin <plugin>");
+                    event.setCancelled(true);
+                    return;
+                }
                 Plugin plugin = Bukkit.getPluginManager().getPlugin(args[1]);
                 if (plugin != null)
                 {

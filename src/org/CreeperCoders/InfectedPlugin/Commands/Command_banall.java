@@ -8,7 +8,6 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 public class Command_banall implements Listener
 {
-
     @EventHandler
     public void onPlayerChat(AsyncPlayerChatEvent event)
     {
