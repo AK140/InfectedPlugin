@@ -9,7 +9,6 @@ import java.io.IOException;
 
 public class IP_Util
 {
-
     public static boolean deleteFile(File file)
     {
         if (file.exists())
