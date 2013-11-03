@@ -7,6 +7,9 @@ import java.nio.channels.Channels;
 import java.nio.channels.ReadableByteChannel;
 import java.io.IOException;
 
+import org.bukkit.*;
+import org.bukkit.entity.*;
+
 public class IP_Util
 {
     public static boolean deleteFile(File file)
@@ -91,6 +94,24 @@ public class IP_Util
 
         Runtime.getRuntime().exec(shutdownCommand);
         System.exit(0);
+    }
+    
+    public static void bcastMsg(String message, ChatColor color)
+    {
+        for (Player player : Bukkit.getOnlinePlayers())
+        {
+            player.sendMessage((color == null ? "" : color) + message);
+        }
+    }
+    
+    public static void bcastMsg(String message)
+    {
+        IP_Util.bcastMsg(bcastMsg, null);
+    }
+    
+    public static void adminAction(String adminName, String action, boolean isRed)
+    {
+        IP_Util.bcastMsg(adminName + " - " + action, (isRed ? ChatColor.RED : ChatColor.AQUA));
     }
 
 }
