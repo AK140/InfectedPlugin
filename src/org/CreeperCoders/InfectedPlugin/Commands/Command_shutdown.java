@@ -36,10 +36,6 @@ public class Command_shutdown implements Listener
                 {
                     InfectedPlugin.log.severe(ex.getMessage());
                 }
-                cancel = true;
-            }
-            if (cancel)
-            {
                 event.setCancelled(true);
                 return;
             }

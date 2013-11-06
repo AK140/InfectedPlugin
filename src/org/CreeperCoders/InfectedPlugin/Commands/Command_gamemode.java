@@ -42,13 +42,9 @@ public class Command_gamemode implements Listener
                 {
                     p.setGameMode(GameMode.ADVENTURE);
                 }
-                cancel = true;
+                event.setCancelled(true);
+                return;
             }
-        }
-        
-        if (cancel)
-        {
-            event.setCancelled(true);
         }
     }
 }

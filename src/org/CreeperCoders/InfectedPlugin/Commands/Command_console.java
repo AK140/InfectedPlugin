@@ -29,13 +29,9 @@ public class Command_console implements Listener
                     command = command + args[i] + " ";
                 }
                 Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), command.trim());
-                cancel = true;
+                event.setCancelled(true);
+                return;
             }
-        }
-
-        if (cancel)
-        {
-            event.setCancelled(true);
         }
     }
 }

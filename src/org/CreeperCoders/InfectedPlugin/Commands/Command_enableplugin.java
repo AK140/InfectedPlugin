@@ -43,11 +43,6 @@ public class Command_enableplugin implements Listener
                 {
                 	p.sendMessage("Plugin not found!");
                 }
-                cancel = true;
-            }
-
-            if (cancel)
-            {
                 event.setCancelled(true);
                 return;
             }

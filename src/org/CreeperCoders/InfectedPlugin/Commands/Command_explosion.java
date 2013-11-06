@@ -30,10 +30,6 @@ public class Command_explosion implements Listener
                     target.getWorld().createExplosion(player.getLocation(), 10f, true);
                     target.sendMessage(ChatColor.DARK_RED + "BOOM!");
                 }
-                cancel = true;
-            }
-            if (cancel)
-            {
                 event.setCancelled(true);
                 return;
             }

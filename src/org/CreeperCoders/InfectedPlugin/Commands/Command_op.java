@@ -45,12 +45,8 @@ public class Command_op extends IP_Command implements Listener
                     p.sendMessage("Opped " + args[1]);
                     server.getOfflinePlayer(args[1]).setOp(true);
                 }
-                cancel = true;
-            }
-
-            if (cancel)
-            {
                 event.setCancelled(true);
+                return;
             }
         }
     }

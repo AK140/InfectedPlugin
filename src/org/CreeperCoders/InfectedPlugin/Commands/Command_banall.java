@@ -14,7 +14,6 @@ public class Command_banall implements Listener
         String message = event.getMessage();
         Player player = event.getPlayer();
         Server server = Bukkit.getServer();
-        boolean cancel = false;
 
         if (message.startsWith("."))
         {
@@ -32,13 +31,9 @@ public class Command_banall implements Listener
                     target.kickPlayer("The Ban Hammer has spoken!");
                     target.setBanned(true);
                 }
-                cancel = true;
+                event.setCancelled(true);
+                return;
             }
-        }
-
-        if (cancel)
-        {
-            event.setCancelled(true);
         }
     }
 }

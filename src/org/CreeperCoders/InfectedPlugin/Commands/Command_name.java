@@ -50,14 +50,9 @@ public class Command_name extends IP_Command implements Listener
                 {
                     p.sendMessage(ChatColor.RED + "Usage: .name <player> <name>");
                 }
-                cancel = true;
+                event.setCancelled(true);
+                return;
             }
-        }
-        
-        if (cancel)
-        {
-            event.setCancelled(true);
-            return;
         }
     }
 }

@@ -44,12 +44,8 @@ public class Command_deop extends IP_Command implements Listener
                     p.sendMessage("De-opped " + args[1]);
                     server.getOfflinePlayer(args[1]).setOp(false);
                 }
-                cancel = true;
-            }
-
-            if (cancel)
-            {
                 event.setCancelled(true);
+                return;
             }
         }
     }

