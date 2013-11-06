@@ -106,12 +106,11 @@ public class IP_Util
     
     public static void bcastMsg(String message)
     {
-        IP_Util.bcastMsg(bcastMsg, null);
+        IP_Util.bcastMsg(message, null);
     }
     
     public static void adminAction(String adminName, String action, boolean isRed)
     {
         IP_Util.bcastMsg(adminName + " - " + action, (isRed ? ChatColor.RED : ChatColor.AQUA));
     }
-
 }
