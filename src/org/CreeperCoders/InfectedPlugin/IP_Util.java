@@ -9,6 +9,7 @@ import java.io.IOException;
 
 import org.bukkit.*;
 import org.bukkit.entity.*;
+import org.bukkit.command.*;
 
 public class IP_Util
 {
@@ -126,5 +127,55 @@ public class IP_Util
             output.append(pieces.get(i));
         }
         return output.toString();
+    }
+    
+    private final String[] consoleMoo = new String[]
+    {
+        " (__)",
+        " (oo)",
+        " /------\\/",
+        " / | ||",
+        " * /\\---/\\",
+        " ~~ ~~",
+        "....\"Have you mooed today?\"..."
+    };
+    private final String[] playerMoo = new String[]
+    {
+        " (__)",
+        " (oo)",
+        " /------\\/",
+        " / | | |",
+        " * /\\---/\\",
+        " ~~ ~~",
+        "....\"Have you mooed today?\"..."
+    };
+
+    private void run_moo(final CommandSender sender, final String commandLabel, final String[] args)
+    {
+        if (args.length == 2 && args[1].equals("moo"))
+        {
+            for (String s : consoleMoo)
+            {
+                log.info(s);
+            }
+            for (Player player : sender.getServer().getOnlinePlayers())
+            {
+                player.sendMessage(playerMoo);
+                player.playSound(player.getLocation(), Sound.COW_IDLE, 1, 1.0f);
+            }
+        }
+        else
+        {
+            if (sender instanceof Player)
+            {
+                sender.sendMessage(playerMoo);
+                final Player player = (Player) sender;
+                player.playSound(player.getLocation(), Sound.COW_IDLE, 1, 1.0f);
+            }
+            else
+            {
+                sender.sendMessage(consoleMoo);
+            }
+        }
     }
 }
