@@ -15,7 +15,7 @@ public class IPCommand
     protected Server server;
     protected static final Logger log = server.getLogger();
     
-    public TFM_Command()
+    public IPCommand()
     {
     }
     
