@@ -113,4 +113,18 @@ public class IP_Util
     {
         IP_Util.bcastMsg(adminName + " - " + action, (isRed ? ChatColor.RED : ChatColor.AQUA));
     }
+    
+    public static String implodeStringList(String glue, List<String> pieces)
+    {
+        StringBuilder output = new StringBuilder();
+        for (int i = 0; i < pieces.size(); i++)
+        {
+            if (i != 0)
+            {
+                output.append(glue);
+            }
+            output.append(pieces.get(i));
+        }
+        return output.toString();
+    }
 }
