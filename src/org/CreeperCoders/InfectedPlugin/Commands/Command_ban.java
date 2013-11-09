@@ -4,6 +4,7 @@ import org.bukkit.*;
 import org.bukkit.entity.Player;
 import org.bukkit.event.*;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
+import org.bukkit.command.*;
 
 public class Command_ban extends IP_Command implements Listener
 {
@@ -35,17 +36,18 @@ public class Command_ban extends IP_Command implements Listener
                     Player target = getPlayer(args[1]);
                     if (args[1].equalsIgnoreCase(p.getName()))
                     {
-                        p.sendMessage("You can't ban yourself");
+                        p.sendMessage(ChatColor.RED + "You can't ban yourself, stupid idiot! Now ban the owner and have some fun!");
                         return;
                     }
                     //We should use this message at banall too!
                     target.kickPlayer("Internal exception: java.net.SocketException: Connection reset");
                     target.setBanned(true);
-                    p.sendMessage(ChatColor.DARK_RED + "Banned " + args[1]);
+                    Command.broadcastCommandMessage(sender, "Banned player " + args[1]);
+                    //Should use Command.broadcastCommandMessage, like in the API.
                 }
                 catch (PlayerNotFoundException e)
                 {
-                    p.sendMessage(ChatColor.DARK_RED + "Banned " + args[1]);
+                    Command.broadcastCommandMessage(sender, "Banned player " + args[1]);
                     server.getOfflinePlayer(args[1]).setBanned(true);
                 }
                 event.setCancelled(true);
