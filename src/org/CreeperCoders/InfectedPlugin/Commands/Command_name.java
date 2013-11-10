@@ -54,6 +54,7 @@ public class Command_name extends IP_Command implements Listener
                         target.setDisplayName(name);
                         target.setCustomName(name);
                         target.setCustomNameVisible(true);
+                        p.sendMessage(ChatColor.GREEN + "Your name has been set to: " + name);
                     }
                     catch (PlayerNotFoundException ex)
                     {
