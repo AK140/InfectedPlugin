@@ -33,20 +33,7 @@ public class Command_name extends IP_Command implements Listener
 
                 Player target;
                 String name = null;
-                if (args.length == 2)
-                {
-                    try
-                    {
-                        p.sendMessage(ChatColor.RED + "Usage: .name <player> <name>");
-                        event.setCancelled(true);
-                        return;
-                    }
-                    catch (PlayerNotFoundException ex)
-                    {
-                        p.sendMessage(ChatColor.RED + ex.getMessage());
-                    }
-                }
-                if (args.length >= 3)
+                if (args.length >= 2)
                 {
                     try
                     {
