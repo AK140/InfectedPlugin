@@ -36,7 +36,11 @@ https://github.com/Official-CreeperCoders/InfectedPlugin/wiki/
 Downloads
 =========
 You can find the downloads on our releases page at:
+
 https://github.com/Official-CreeperCoders/InfectedPlugin/releases
+
 Only RB builds are uploaded and Lambo993 is the developer that uploads them.
+
 We also have a thread on our boards about it:
+
 http://infectedplugin.boards.net/thread/4/infectedplugin-downloads.
