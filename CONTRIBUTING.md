@@ -42,6 +42,11 @@ one Pull Request, one feature/fix may not be approved so your whole Pull Request
 =====
 Whenever you update/create a command, be sure to update/create the command in Command_help.java!
 
+Branch
+======
+Always commit to master branch,
+When master branch is good enough we will update RB branch.
+
 How
 ===
 To contribute to InfectedPlugin, you must follow the rules for contributing stated above, but you may want to know how to contribute aswell.
