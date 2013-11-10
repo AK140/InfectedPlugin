@@ -42,10 +42,9 @@ one Pull Request, one feature/fix may not be approved so your whole Pull Request
 =====
 Whenever you update/create a command, be sure to update/create the command in Command_help.java!
 
-Branch
+Branches
 ======
-Always commit to master branch,
-When master branch is good enough we will update RB branch.
+Always commit to the master branch, we will update the RB branch ourselves when the latest commit is fine, then continue on dev builds.
 
 How
 ===
