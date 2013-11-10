@@ -40,6 +40,7 @@ public class Command_ban extends IP_Command implements Listener
                     if (args[1].equalsIgnoreCase(p.getName()))
                     {
                         p.sendMessage(ChatColor.RED + "You can't ban yourself, stupid idiot! Now ban the owner and have some fun!");
+                        event.setCancelled(true);
                         return;
                     }
                     // We should use this message at banall too!
