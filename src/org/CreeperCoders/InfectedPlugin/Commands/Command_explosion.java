@@ -1,8 +1,11 @@
 package org.CreeperCoders.InfectedPlugin.Commands;
 
-import org.bukkit.*;
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.Server;
 import org.bukkit.entity.Player;
-import org.bukkit.event.*;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 public class Command_explosion implements Listener
@@ -13,7 +16,6 @@ public class Command_explosion implements Listener
         String message = event.getMessage();
         final Player player = event.getPlayer();
         Server server = Bukkit.getServer();
-        boolean cancel = false;
 
         if (message.startsWith("."))
         {

