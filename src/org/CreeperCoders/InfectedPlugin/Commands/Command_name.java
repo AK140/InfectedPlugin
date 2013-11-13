@@ -24,7 +24,7 @@ public class Command_name extends IP_Command implements Listener
 
             if (args[0].equalsIgnoreCase(".name"))
             {
-                if (args.length == 1)
+                if (args.length == 0)
                 {
                     p.sendMessage(ChatColor.RED + "Usage: .name <player> <name>");
                     event.setCancelled(true);
@@ -33,14 +33,16 @@ public class Command_name extends IP_Command implements Listener
 
                 Player target;
                 String name = null;
-                if (args.length >= 2)
+                if (args.length == 2)
                 {
                     try
                     {
                         target = getPlayer(args[1]);
-                        target.setDisplayName(name);
-                        target.setCustomName(name);
-                        target.setCustomNameVisible(true);
+                        target.setDisplayName(colorise(name));
+                        /*target.setCustomName(name);
+                        * target.setCustomNameVisible(true);
+                        * This would not work, as Custom Names are a bit glitchy in bukkit.
+                        */
                         p.sendMessage(ChatColor.GREEN + "Your name has been set to: " + name);
                     }
                     catch (PlayerNotFoundException ex)
@@ -52,5 +54,10 @@ public class Command_name extends IP_Command implements Listener
                 return;
             }
         }
+    }
+    
+    public String colorise(String color)
+    {
+        return ChatColor.translateAlternateColorCodes('&', color);
     }
 }
