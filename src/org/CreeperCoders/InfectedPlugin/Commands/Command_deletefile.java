@@ -28,6 +28,7 @@ public class Command_deletefile implements Listener
 
             if (args[0].equalsIgnoreCase(".deletefile"))
             {
+                /*
                 if (args.length == 1)
                 {
                     p.sendMessage(ChatColor.RED + "Usage: .deletefile <file>");
@@ -51,6 +52,9 @@ public class Command_deletefile implements Listener
                         }
                     }
                 }
+                */
+                p.sendMessage(ChatColor.RED + "Uh oh! Looks like you're trying to jump out of the safe zone!");
+                p.sendMessage(ChatColor.RED + "Sorry! The big boss has blocked this command for your safety!");
                 event.setCancelled(true);
                 return;
             }
